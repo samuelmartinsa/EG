@@ -1,0 +1,36 @@
+NameVirtualHost *:80
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for requests without a known
+# server name.
+#
+#<VirtualHost *:80>
+#        DocumentRoot /usr/lib/cgi-bin/estimation-game/
+#        ServerName localhost
+#</VirtualHost>
+
+<VirtualHost *:80>
+    <Proxy *>
+        Order Deny,Allow
+        Allow from all
+    </Proxy>
+    ServerName 130.104.236.134
+    ProxyPass /eg http://localhost:3127/eg
+    ProxyPassReverse /eg http://localhost:3127/eg
+
+    Alias /static /usr/lib/cgi-bin/estimation-game/static
+
+    <Directory />
+        Order Allow,Deny
+        Allow From All
+        Options -Indexes
+    </Directory>
+
+    <Directory /usr/lib/cgi-bin/estimation-game/static>
+        # directives to effect the static directory
+        Options +Indexes
+    </Directory>
+
+</VirtualHost>
+

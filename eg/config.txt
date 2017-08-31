@@ -1,0 +1,45 @@
+; This file controls various aspects of your configuration.
+
+[AWS Access]
+; An AWS key is required for posting new HITs to mechanical turk as well as
+; monitoring existing HITs. You receive your key when you open an Amazon Web
+; Services account.
+; 
+; If you already have an AWS account, your key can be retreived from:
+; http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
+
+aws_access_key_id: YourAccessKeyId
+aws_secret_access_key: YourSecretAccessKey
+
+
+[HIT Configuration]
+; These are settings pertaining to how the HIT is to be set up.
+
+using_sandbox: true
+
+; Basic task setup
+
+[Database Parameters]
+
+host: localhost
+port: 3306
+database_name:eg
+login_username: root
+login_pw: root
+
+[Server Parameters]
+
+host: localhost
+port: 3127
+cutoff_time: 30         ; Time in minutes when we assume a subject gave up
+support_IE: true        ; Whether to support Internet Explorer
+
+logfile = server.log
+loglevel = 2 ; 0=DEBUG, 1=INFO, 2=WARNING, 3=ERROR, 4=CRITICAL
+
+debug: false             ; NEVER leave this on when exposing the server to the public.
+dump_command:"c:\\Program Files\\MySQL\\MySQL Server 5.6\\bin\\mysqldump"
+phpPath :"C:\Program Files (x86)\PHP\php"
+
+
+

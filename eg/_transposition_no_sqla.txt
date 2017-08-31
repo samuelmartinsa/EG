@@ -1,0 +1,88 @@
+connexion 92.57.242.245 kenth20 Madrid
+EN EXPLOIT. 20112016
+port 80 : 
+- sauve bd exploit eg en eg_20161120_sqla
+- modifs bd eg :
+  decisions timestamp vc(19) -> datetime
+  questionnaires enterQtime  vc(19) -> datetime, leaveQtime  vc(19) -> datetime
+  participants : suppression counterbalance, cond, version
+  suppression tables codes, games_participants, gameset_participants
+- copie rep eg -> eg_20161120_sqla
+- copie pc local eg_test_sqla -> serveur eg
+- serveur eg : recup estimationPic/*.png de eg_20161120_sqla
+- serveur eg : modif config.txt
+- serveur eg python wsgi_no_sqla.py -hp 80  
+
+port 8081 : bd+eg_test_no_sqla sur serveur= copie pc local bd+eg_test_no_sqla
+
+version no_sqla :
+bd eg_test_no_sqla
+suppression tables codes, games_participants, gameset_participants 
+participants suppression counterbalance, cond, version
+decisions timestamp vc(19) -> datetime
+questionnaires enterQtime  vc(19) -> datetime, leaveQtime  vc(19) -> datetime
+
+wsgi_no_sqla :
+###no_sqla : link gamesets already in participants
+db_no_sqla db_get_user() :
+###no_sqla : link gamesets already in participants
+expconsensus.html : commente partie imageurl
+wsgi_no_sqla: 
+- simplification écriture fonction registerChoice
+- évite accès bd pour connaitre missingChoices :
+  #sqla gamesetsRunningList[str(gameset.id)]['users_and_robots'][workerId]=numParticipants-1
+
+  remplacé par :
+  gamesetsRunningList[str(gameset.id)]['users_and_robots'][workerId]=dict()
+
+  gamesetsRunningList[str(gameset.id)]['users_and_robots'][workerId]['numpart']=numParticipants-1
+
+  # to know if worker has played during a round in expconsensus
+
+  gamesetsRunningList[str(gameset.id)]['users_and_robots'][workerId]['isChoiceMade']=False
+
+  ajout fonction :
+  def missingChoices(gamesetid)
+  suppression fonction isChoiceMade
+- diminue frequence appel curRoundNum() renommé en getCurRoundNum() ==0)
+- simplification discret : utlise gamesetsRunningList[str(gameset.id)][listOfChoices],listOfChoices pour suppression
+  fonctions listOfChoices() et listOfDecisions() pour mode discret
+=> Verifier en discret que listOfChoices, listOfDecisions fonctionnent correctement
+- suppression de link_participant_to_game, enterexp,inexpsave,quitter
+config.txt : enlève [Task Parameters]
+
+They should join the game within the next 0mn 0 pour 1er part si activate timer et 0 
+
+Skipping to next page...256, 1458 : les robots jouent mais joueur conincé avec nom page=url exp
+
+preview part ou wait port 5001 plante 2 fois le 19/11
+socket.error: [Errno 10053] Une connexion Útablie a ÚtÚ abandonnÚe par un logiciel de votre ordinateur h¶te
+--> This is an issue with the Python 2 implementation of the SocketServer module, it is not present in Python 3 (where the server keeps on serving).
+Your have 3 options:
+
+    Don't use the built-in server for production systems (it is a development server after all).
+    Use a proper WSGI server like gunicorn or uWSGI,
+    Enable threaded mode with app.run(threaded=True); the thread dies but a new one is created for future requests,
+    Upgrade to Python 3.
+
+gamesets avec robot : le 1er a un workerid qui suit user, trois autres ont un workerid non utilisé puis les 4 derniers participent
+expconsensus : le choix lone est reporté avec une autre valeur dans social, plusieurs points rouges se déplacent durant le social rapidement
+alors que user joue pas
+ = choix de robots ?
+
+completed : problème 
+init_db : lire un script de création de structure de tables init_db.sql
+
+faire des try/except et virer "proprement" les participants
+pbl garbage collector ?
+
+supprimer les lignes de gameSetRunningList quand gameset terminé
+
+questionnaire.gamesetid inutile
+participant debriefed inutile
+utiliser GetSQLValueString plutot que str : traitement de la valeur None=NULL
+generer un sessionid qui ne soit pas en doublon
+
+
+erreur anormale dans debriefing : gamenum=row['gamenum'] int attendu au lieu de str 'gamenum'
+mis print row devant l'instruction : OK pourquoi ?

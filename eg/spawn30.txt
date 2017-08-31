@@ -1,0 +1,2040 @@
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+do_multiget : YES random sec. to login) : 
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/login	1.03
+login OK
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/consent	1.03
+consent OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/questionnaire_first	1.04
+questionnaire_first OK
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/login	1.03
+login OK
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/consent	1.04
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/consent	1.04
+consent OK
+http://localhost:8080/eg/login	1.1
+login OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/questionnaire_first	1.11
+questionnaire_first OK
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/questionnaire_first	1.08
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.05
+login OK
+http://localhost:8080/eg/login	1.03
+login OK
+http://localhost:8080/eg/consent	1.21
+consent OK
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/instruct	1.02
+instruct OK
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/consent	1.1
+consent OK
+http://localhost:8080/eg/consent	1.06
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.05
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.11
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	1.07
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.04
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/login	1.08
+login OK
+http://localhost:8080/eg/instruct	1.04
+instruct OK
+http://localhost:8080/eg/instruct	1.09
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/consent	1.02
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.01
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/consent	1.04
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.04
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/login	1.05
+login OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.03
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.04
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.02
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.08
+login OK
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.03
+consent OK
+http://localhost:8080/eg/consent	1.06
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/questionnaire_first	1.02
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.01
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/login	1.1
+login OK
+http://localhost:8080/eg/login	1.11
+login OK
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.24
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.12
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.12
+consent OK
+http://localhost:8080/eg/consent	1.11
+consent OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.02
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.18
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.12
+login OK
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/instruct	1.08
+instruct OK
+http://localhost:8080/eg/login	1.09
+login OK
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/consent	1.11
+consent OK
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/instruct	1.09
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.08
+consent OK
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.05
+consent OK
+http://localhost:8080/eg/questionnaire_first	1.05
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.1
+login OK
+http://localhost:8080/eg/questionnaire_first	1.13
+questionnaire_first OK
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.09
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.1
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.05
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/consent	1.05
+consent OK
+http://localhost:8080/eg/instruct	1.05
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.03
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.07
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.02
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.03
+http://localhost:8080/eg/questionnaire_first	1.02
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.01
+login OK
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.04
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.03
+consent OK
+http://localhost:8080/eg/instruct	1.08
+instruct OK
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.02
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.01
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.09
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.12
+consent OK
+http://localhost:8080/eg/questionnaire_first	1.1
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.02
+questionnaire_first OK
+http://localhost:8080/eg/instruct	1.1
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.09
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.01
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.19
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.04
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.03
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.03
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.03
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.02
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.09
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.11
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.18
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.02
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/login	1.03
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/static/jquery-min.js
+http://localhost:8080/static/task.js
+http://localhost:8080/eg/questionnaire_first	1.04
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.04
+consent OK
+http://localhost:8080/eg/login	1.04
+login OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/consent	1.08
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/consent	1.05
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/static/gen_validatorv4.js
+http://localhost:8080/static/json3.js
+http://localhost:8080/static/jquery-ui.js
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.13
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.06
+questionnaire_first OK
+http://localhost:8080/eg/consent	1.05
+consent OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/questionnaire_first	1.07
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.03
+http://localhost:8080/eg/questionnaire_first	1.06
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/static/pic/lone_round_peanut.png
+http://localhost:8080/static/pic/social_round_peanut.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/instruct	1.08
+instruct OK
+http://localhost:8080/eg/questionnaire_first	1.08
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.06
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	1.04
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/static/pic/estimationPic/big_img1.png
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/instruct	1.03
+instruct OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/static/jQuery-Knob-master/js/jquery.knob.js
+http://localhost:8080/static/jQuery-Knob-master/myknob.js
+http://localhost:8080/static/zoomeg/cnx.js
+http://localhost:8080/static/zoomeg/zoom.js
+http://localhost:8080/anvas.toDataURL();
+					//do
+http://localhost:8080/
+http://localhost:8080/'+imageurl[i]+'
+http://localhost:8080/anvas.toDataURL();
+						}
+					};
+		imageObj.sr
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=51
+http://localhost:8080/'+staticPath+'pic/'+color[i-1]+'.png
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=48
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=59
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=38
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=45
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=31
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=53
+http://localhost:8080/eg/waitingroom	1.1
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=42
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=55
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=49
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=35
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=46
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=40
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=41
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=57
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=36
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=52
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=32
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=56
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=60
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=43
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=37
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=47
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=44
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=39
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=33
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=50
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=54
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=34
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=58
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=51, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=48, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=59, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=38, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=45, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=31, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=53, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=42, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=55, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=49, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=35, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=46, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=40, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=41, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=57, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=36, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=52, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=32, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=56, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=60, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=43, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=37, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=47, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=44, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=39, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=33, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=50, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=54, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=34, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=58, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=51, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=48, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=35, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=46, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=38, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=59, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=40, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=41, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=45, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=31, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=57, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=52, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=36, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=53, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=56, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=60, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=32, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=43, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=37, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=47, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=42, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=55, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=44, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=39, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=33, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=49, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=50, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=34, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=54, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=58, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=35, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=46, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=59, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=38, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=40, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=41, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=45, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=31, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=57, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=52, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=36, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=53, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=56, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=32, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=60, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=43, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=37, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=47, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=42, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=55, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=44, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=39, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=33, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=49, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=50, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=34, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=54, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=48, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=58, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=51, game=2 ,round=1
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=46, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=35, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=59, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=38, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=40, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=45, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=41, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=31, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=52, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=57, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 1 POST : workerId=36, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=53, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=56, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=32, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=43, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=37, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 2 POST : workerId=60, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=47, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=42, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=55, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 3 POST : workerId=44, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 6 POST : workerId=39, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=49, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 10 POST : workerId=33, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=50, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 9 POST : workerId=34, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 7 POST : workerId=54, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 5 POST : workerId=58, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 8 POST : workerId=51, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+After sleep : 4 POST : workerId=48, game=2 ,round=2
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+http://localhost:8080/eg/expconsensus	0
+workerId=59expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=38expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=40expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=45expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=41expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=31expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=52expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=57expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=36expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=53expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=56expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=32expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=43expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=37expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=60expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=42expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=47expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=55expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=39expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=44expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=49expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=33expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=50expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=34expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=54expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=58expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=35expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=46expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=51expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0
+workerId=48expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/debriefing	0.01
+workerId=59
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=38
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=40
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=45
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=41
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=31
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=52
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=57
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=36
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=56
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=53
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=32
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=43
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=37
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=60
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=42
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=47
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=55
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=39
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=44
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=49
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=33
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=50
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=34
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=54
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=58
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=35
+debriefing OK
+http://localhost:8080/eg/debriefing	0.01
+workerId=46
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=51
+debriefing OK
+http://localhost:8080/eg/debriefing	0
+workerId=48
+debriefing OK
+

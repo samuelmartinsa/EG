@@ -1,0 +1,239 @@
+
+body 
+{ background: #106470;
+ font-family:Calibri;
+ color:#FFFFFF; 
+ font-size:16pt;
+ text-align:justify
+}
+.submit_button_bckg_03C
+{
+	color:#FFFFFF;
+	font-size:14pt;
+	cursor:pointer;
+	background-color: #03C;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+}
+
+.submit_button_bckg_666
+{
+	color:#FFFFFF;
+	font-size:14pt;
+	cursor:pointer;
+	background-color: #666;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+}
+
+.submit_button_bckg_092
+{
+	color:#FFFFFF;
+	font-size:14pt;
+	cursor:pointer;
+	background-color: #092;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+}
+.submit_button_bckg_F00
+{
+	color:#FFFFFF;
+	font-size:14pt;
+	cursor:pointer;
+	background-color: #FF0000;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+}
+
+.submit_button_bckg_F90
+{
+	color:#FFFFFF;
+	font-size:14pt;
+	cursor:pointer;
+	background-color:#F90;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+}
+
+.input_disabled {
+	background-color: #EEE;
+	font-family: Calibri;
+	font-size: 18px;
+	color: #000;
+}
+input:focus,textarea:focus,select.focus,checkbox:focus {
+	background-color:#BEFAFA;
+}
+
+
+.white14 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 14pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+
+
+.white18 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 18pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.white22 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 22pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+
+
+.black12 {
+	color: #000000;
+	font-family: Calibri;
+	font-size: 12pt;
+}
+
+.black18 {
+	color: #000000;
+	font-family: Calibri;
+	font-size: 18pt;
+}
+
+.black22 {
+	color: #000000;
+	font-family: Calibri;
+	font-size: 22pt;
+}
+
+.blue18 {
+	color: #0000FF;
+	font-family: Calibri;
+	font-size: 18pt;
+}
+
+.red14 {
+	color: #FF0000;
+	font-family: Calibri;
+	font-size: 16pt;
+}
+
+.red16 {
+	color: #FF0000;
+	font-family: Calibri;
+	font-size: 16pt;
+}
+
+.orange16 {
+	color: #FF9900;
+	font-family: Calibri;
+	font-size: 16pt;
+}
+
+table td 
+{ font-family:Calibri;
+	font-size:16pt
+}
+
+textarea {
+font-family:Calibri;
+ color:#000000; 
+ font-size:14pt;
+}
+
+input[type="text"],[type="password"] {
+font-family:Calibri;
+ color:#000000; 
+ font-size:14pt;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	height: 1.5em;
+	width: 1.5em;
+}
+
+.table_bord_666_bckg_099 {
+	border: 2pt solid  #69C;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #666;
+	background-color: #099 ;
+}
+
+.table_bord_69C_bckg_666 {
+	border: 2pt solid  #69C;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #666;
+	background-color: #666 ;
+}
+.table_header {
+	background-color: #B3FFFF;
+	border: 2pt solid #D5D5D5;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	text-shadow: 3px 3px 3px #999;
+	border-color: #009;
+}
+		
+.div_container
+{
+  float: left;
+  clear: left;
+	width:1200px;
+ }
+
+.div_left {
+  float: left;
+overflow:visible
+	}
+
+.div_right {
+  float: left;
+overflow:visible
+}

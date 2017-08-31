@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Estimation game</title>
+		<meta charset="utf-8">
+		<link rel="Favicon" href="../../static/favicon.ico"></link>
+		<link rel=stylesheet href="../../static/css/eg.css" type="text/css" media="screen">
+		<script src="../../static/raphael-min.js" type="text/javascript"> </script>
+		<script src="../../static/jquery-min.js" type="text/javascript"> </script>
+		<script src="../../static/gen_validatorv4.js" type="text/javascript"> </script>
+		<script src="../../static/json3.js"></script>
+		<script src="../../static/task.js" type="text/javascript"> </script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+		<!--<style>#slider { margin: 1px; width: 40px;}	</style>-->
+		
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>		
+		<script type="text/javascript">
+		
+		function stringdate(){
+			var currentdate = new Date();
+			var datetime = currentdate.getDay() + "-"+currentdate.getMonth() 
+			+ "-" + currentdate.getFullYear() + "-" 
+			+ currentdate.getHours() + "-" 
+			+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+			return datetime;
+		}
+		
+		
+		$(document).ready( function(){
+			var urlParam = searchToObject();
+			if(window.location.href.indexOf("questionnaire") == -1 || window.location.href.indexOf("hitId") == -1 || urlParam["hitId"] != "{{ hitId }}" || window.location.href.indexOf("assignmentId") == -1 || urlParam["assignmentId"] != "{{ assignmentId }}" || window.location.href.indexOf("workerId") == -1 || urlParam["workerId"] != "{{ workerId }}" || window.location.href.indexOf("sessionId") == -1 || urlParam["sessionId"] != "{{ sessionId }}") {
+	 			  window.location = '/eg/questionnaire?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}';
+			}
+			
+		    function searchToObject() {
+				var pairs = window.location.search.substring(1).split("&"),
+				obj = {},
+				pair,
+				i;
+	
+				for ( i in pairs ) {
+				    if ( pairs[i] === "" ) continue;
+				
+					pair = pairs[i].split("=");
+					obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+				}
+			
+				return obj;
+			} 
+			 										
+			var assignmentId = "{{ assignmentId }}";
+			var workerId = "{{ workerId }}";
+			var hitId = "{{ hitId }}";
+			var sessionId = "{{ sessionId }}";
+			var url = "/eg/questionnaire".concat("?hitId=",hitId,"&assignmentId=",assignmentId,"&workerId=",workerId,"&sessionId=",sessionId,"&time=",stringdate());
+			$.get(url, "getFlag=true", function(questionnaireHTML) {
+			
+				var workerId = questionnaireHTML["workerId"];				
+		        var hitId = questionnaireHTML["hitId"];
+		        var assignmentId = questionnaireHTML["assignmentId"];
+		        var sessionId = questionnaireHTML["sessionId"] ;
+		        var anxious = questionnaireHTML["anxious"];
+		        if(anxious>0){
+		        	$("input[name='anxious']:checked").val(anxious);
+		        }
+		        var calm = questionnaireHTML["calm"];
+		        if(calm>0){
+		        	$("input[name='calm']:checked").val(calm);
+		        }
+		        var conventional = questionnaireHTML["conventional"];
+		        var critical = questionnaireHTML["critical"];
+		        var dependable = questionnaireHTML["dependable"];
+		        var disorganized = questionnaireHTML["disorganized"];
+		        var extraverted = questionnaireHTML["extraverted"];
+		        var open = questionnaireHTML["open"];
+		        var reserved = questionnaireHTML["reserved"];
+		        var sympathetic = questionnaireHTML["sympathetic"];
+				
+				
+				$("#test").html(workerId);
+			});
+		});		
+		/*********************
+		* Get things started *
+		********************/		
+		</script>
+	</head>
+<body>
+<table width="800" align="center">
+	<tr>
+  	<td>
+	<h3 id="waiting"></h3>
+	<form id="questionnaire" name="questionnaire" action="" method="post" onSubmit="#"><!-- onsubmit="collapse()">-->
+		<p class="white22" align="center"> Questionnaire </p>
+		
+		<p>
+			Before we proceed to debriefing and give you the amount of points you achieved during the game, we require
+			you to answer a few last questions. It is important that you trustfully answer the questions. 
+			This will help us to properly assess your results.
+		</p>
+		
+		<div align="left">
+		Have you completed the game alone ?
+		<br>
+        <div align="center">
+		<input type="radio" name="alone" value="yes">Yes
+		<input type="radio" name="alone" value="no">No
+        </div>
+		<br>	
+		Have you communicated in any way with other participants during the game ?
+		<br>
+		<div align="center">
+		<input type="radio" name="communicate" value="yes">Yes
+		<input type="radio" name="communicate" value="no">No
+		</div>
+        <br>
+		</div>
+		<div align="center">
+		<input type="submit" style="font-size:16pt" value="Submit">
+		</div>
+	</form>
+            
+    <script type="text/javascript">
+ 		var frmvalidator  = new Validator("questionnaire");
+ 		frmvalidator.addValidation("communicate","selone","Communication info missing");
+ 		frmvalidator.addValidation("alone","selone","Loneness info missing");        
+ 	</script>        
+            
+</td>
+</tr>
+</table>
+</body>
+</html>

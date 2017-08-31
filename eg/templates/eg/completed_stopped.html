@@ -1,0 +1,20 @@
+<!doctype html>
+
+
+<html>
+<head>
+	<title>Completed stopped</title>
+	<link rel="Favicon" href="/static/favicon.ico"></link>
+	<link rel="stylesheet" href="../../static/css/eg.css" type="text/css">
+	<script src="../../static/jquery-min.js" type="text/javascript"> </script>
+	<script src="../../static/_eg_controls.js" type="text/javascript"> </script>  
+</head>
+<body>
+  {% if rewardcode != 0 and rewardcode != "0" and rewardcode != "" and EGParameters['keyCodeMode']=='y' %}
+    <p class="white14" align="center">Your reward code is "{{ rewardcode }}", use it to get your CrowdFlower payment in 24H max.</p>
+	{% endif %}
+  <p class="white14" align="center">You can now close this window</p>
+
+</body>
+
+</html>

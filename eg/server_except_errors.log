@@ -1,0 +1,9 @@
+(cexceptions
+NameError
+p0
+g0
+(S"name 'toto' is not defined"
+p1
+tp2
+Rp3
+name 'toto' is not defined

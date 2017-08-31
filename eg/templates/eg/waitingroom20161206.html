@@ -1,0 +1,199 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Waiting Room</title>
+		<script src="../../static/jquery-min.js" type="text/javascript"></script>
+		<script src="../../static/task.js" type="text/javascript"></script>
+		<link rel=stylesheet href="../../static/css/eg.css" type="text/css" media="screen">
+		<link rel=stylesheet href="../../static/instruct.css" type="text/css" media="screen">
+		<script type="text/javascript">			
+			var totalImages = 0;
+			var imgLoaded = 0;
+			var updatecallnumber=0;
+
+			function stringdate()
+			{	var currentdate = new Date();
+				var datetime = currentdate.getDay() + "-"+currentdate.getMonth() 
+				+ "-" + currentdate.getFullYear() + "-" 
+				+ currentdate.getHours() + "-" 
+				+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+				return datetime;
+			}
+			
+			var self = this;
+			var missingParticipant = "{{ missingParticipant }}";			
+			var missingParticipant_previous = "{{ missingParticipant }}";//used to change the color on missing participants number changed
+			var forceStartAfterWait="{{ EGParameters['forceStartAfterWait'] }}";
+						
+			$(document).ready
+			( function()
+				{ var urlParam = searchToObject();			
+					if(window.location.href.indexOf("waitingroom") == -1 || window.location.href.indexOf("hitId") == -1 || urlParam["hitId"] != "{{ hitId }}" || window.location.href.indexOf("assignmentId") == -1 || urlParam["assignmentId"] != "{{ assignmentId }}" || window.location.href.indexOf("workerId") == -1 || urlParam["workerId"] != "{{ workerId }}" || window.location.href.indexOf("sessionId") == -1 || urlParam["sessionId"] != "{{ sessionId }}") 
+					{ url = '/eg/waitingroom?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}';
+						window.location = url;
+					}
+					assignmentId='{{ assignmentId }}'
+					function searchToObject() 
+					{ var pairs = window.location.search.substring(1).split("&"),
+						obj = {}, pair, i;
+			
+						for ( i in pairs )
+						{ if ( pairs[i] === "" ) continue;
+							pair = pairs[i].split("=");
+							obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+						}
+					
+						return obj;
+					} 
+					var totalImages = $("body img").length;
+					//$(img_tag).each(function () 
+					$("body").find('img').each(function () 
+					{ $(this).bind("load", function()
+						{	imgLoaded++;
+						})
+					});
+					
+					update()
+					var int = self.setInterval(function() {update();}, 1000);
+				}
+			)//end ready
+			
+			function onexit() 
+			{	self.close();
+			}
+						
+			function update() 
+			{ if(imgLoaded >= totalImages)
+				{	if(updatecallnumber<3 && (missingParticipant==1 || missingParticipant==2))
+					{ updatecallnumber++;
+						document.getElementById('debug_isGetSend').value='NO';				
+						document.getElementById('debug_missingParticipantdebug').value=missingParticipant;				
+					}
+					else if(updatecallnumber<4 && missingParticipant>2)
+					{ updatecallnumber++;
+						document.getElementById('debug_isGetSend').value='NO';				
+						document.getElementById('debug_missingParticipantdebug').value=missingParticipant;				
+					}
+					else					
+					{	updatecallnumber=0;
+						var url = window.location.href + '&time=' + stringdate();
+						$.get
+						( url, "getFlag=true", 
+							function(waitingroomAttributes) 
+							{ $("#debug_text").html(waitingroomAttributes['status'])
+								if(waitingroomAttributes['status']=='EG_NOT_RUNNING')
+								{ alert('Sorry, the game has been stopped by the Administrator');
+									window.location='/eg/login';
+								}
+								else
+								{	if(waitingroomAttributes['status']=='USER_NOT_ALLOCATED')//data=="-3"
+									{	window.location='/eg/instruct?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{ sessionId }}&time=' + stringdate();
+									}
+									else if(waitingroomAttributes['status']=='USER_NOT_CONSENTED')//data=="-2"
+									{	window.location='/eg/consent?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{ sessionId }}&time=' + stringdate();
+									}
+									else if(waitingroomAttributes['status']=='GameSet_STARTED')
+									{ window.location='/eg/expconsensus?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{ sessionId }}&time=' + stringdate();
+									}
+									else if(waitingroomAttributes['status']=="closeWait_in_room")
+									{ alert('Sorry, the game has been stopped by the Administrator');
+										window.location='/eg/login';
+									}
+									else if(waitingroomAttributes['status']=="Wait_in_room")
+									{	$("#missingParticipant").html(waitingroomAttributes['missingParticipant']==0?'':waitingroomAttributes['missingParticipant']);
+										if(waitingroomAttributes['missingParticipant']>0)
+										{ if(waitingroomAttributes['stop_the_gameset_no_other_participant']=='y')
+											{ if(waitingroomAttributes['numParticipants']==1)
+												{ $("#stop_the_gameset_no_other_participant").show()
+													$("#stop_the_gameset_no_other_participant_timeleft").html(waitingroomAttributes['stop_the_gameset_no_other_participant_timeleft']);
+												}
+												else
+												{ $("#stop_the_gameset_no_other_participant").hide()
+													$("#gamesetCancelled").show()
+												}
+											}
+											else
+											{ $("#gamesetCancelled").show()
+											}
+										}
+										else // enough participants
+										{ $("#gamesetCancelled").hide()
+											$("#stop_the_gameset_no_other_participant").hide()
+											if(forceStartAfterWait=='y')
+											{ $("#forceStartAfterWait").show()
+												$("#forceStartAfterWait").html('The game will start in '+waitingroomAttributes['timeLeft']+'.');
+											}
+										}
+										if(missingParticipant_previous!=waitingroomAttributes['missingParticipant'])
+										{ $("#missingParticipant").css("color","#FF0000")
+										}
+										if(waitingroomAttributes['activateTimer']=='y')
+										{ $("#timeLeft").html(waitingroomAttributes['timeLeft']);
+										}
+									}            		
+									else if(waitingroomAttributes['status']=="stop_the_gameset_no_other_participant")
+									{ window.location='/eg/stop_the_gameset?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{ sessionId }}&time=' + stringdate();
+									}
+								}
+
+								document.getElementById('debug_isGetSend').value='YES';				
+								document.getElementById('debug_missingParticipantdebug').value=missingParticipant;				
+							},
+						"json");//end $.get
+						}
+						document.getElementById('debug_updatecallnumber').value=updatecallnumber;				
+					}
+				}
+		</script>
+	</head>
+	<body>
+  <div id="trace" style="display:none">
+  	isGetSend ?<input type="text" name="debug_isGetSend" id="debug_isGetSend" value="">
+		updatecallnumber<input type="text" name="debug_updatecallnumber" id="debug_updatecallnumber" value="">
+		missingParticipantdebug<input type="text" name="debug_missingParticipantdebug" id="debug_missingParticipantdebug" value="">
+    <textarea id="debug_text"></textarea>
+    <input type="text" name="sessionId" value="{{sessionId}}">
+    <input type="text" name="workerId" value="{{ workerId }}">
+  </div>
+    <div style="display:none"><img src="../../static/pic/estimationPic/{{gameset_pic_name}}" width="0" height="0"></div>
+		<div class="instruct" id="main">
+			<p class="white16" align="center">Waiting Room</p>
+			<p class="white14">
+				We are waiting for <b id="missingParticipant" class="missing"></b> more participants.<br>
+				 <div id="forceStartAfterWait" class="white14" style="display:none"></div>
+         <div id="gamesetCancelled" class="white14" style="display:none">
+        {% if EGParameters['activateTimer']=='y' %}				
+          Some participants are currently filling the personality questionnaire. 
+          They should join the game within the next <b id="timeLeft"></b>, otherwise the game will be automatically cancelled. 
+          In which case we apologize for the inconvenience.
+        {% endif %}
+        </div>
+        <div id="stop_the_gameset_no_other_participant" class="white14" style="display:none">
+        {% if EGParameters['stop_the_gameset_no_other_participant']=='y'%}
+           If no one shows up within <span  class="red14"><b id="stop_the_gameset_no_other_participant_timeleft">{{EGParameters['stop_the_gameset_no_other_participant_delay']}}:00</b></span>,
+           you will reveive a ${{EGParameters['stop_the_gameset_no_other_participant_bonus']}} compensation bonus.<br>
+           This only works if you click on the confirmation button which will remain active only for {{ EGParameters['stop_the_gameset_no_other_participant_delay_to_agree'] }} seconds.
+        {% endif %}
+        </div>
+        <span class="white14">Thank you for your patience.</span>
+			</p>
+    </div>
+    <div id="killtime" style="display:block;" align="center" class="white14">
+    	<p>You can kill mosquitos while waiting for the game...</p>
+      <p></p>
+        <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="700" height="400">
+          <param name="movie" value="../../static/kill.swf">
+          <param name="quality" value="high">
+          <param name="wmode" value="opaque">
+          <param name="swfversion" value="6.0.65.0">
+          <object type="application/x-shockwave-flash" data="../../static/kill.swf" width="700" height="400">
+            <param name="quality" value="high">
+            <param name="wmode" value="opaque">
+            <param name="swfversion" value="6.0.65.0">
+          </object>
+        </object>
+    </div>
+
+	</body>
+</html>

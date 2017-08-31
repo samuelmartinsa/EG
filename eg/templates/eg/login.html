@@ -1,0 +1,341 @@
+<!doctype html>
+
+<html>
+    <head>
+	<title>Login</title>
+	<link rel=stylesheet href="../../static/css/eg.css" type="text/css" media="screen">
+	<script src="../../static/jquery-min.js" type="text/javascript"> </script>	
+	<script src="../../static/task.js" type="text/javascript"> </script>
+  <!-- load files used in EG as soon as possible : avoid lag time in the first round -->
+  <script src="../../static/gen_validatorv4.js" type="text/javascript"> </script>
+  <script src="../../static/json3.js"></script>
+      
+  <!-- TIMER (Knob)-->
+  <link href="../../static/jQuery-Knob-master/knob.css" media="screen" rel="stylesheet" type="text/css"/>
+  <script src="../../static/jQuery-Knob-master/js/jquery.knob.js"></script>
+  <script src="../../static/jQuery-Knob-master/myknob.js" type="text/javascript"></script>
+      
+  <script src="../../static/zoomeg/cnx.js" type="text/javascript"></script>
+  <script src="../../static/zoomeg/zoom.js" type="text/javascript"></script>
+	
+	<script src="../../static/_eg_controls.js" type="text/javascript"> </script>  
+  
+	<script type="text/javascript">
+		function stringdate()
+		{	var currentdate = new Date();
+			var datetime = currentdate.getDay() + "-"+currentdate.getMonth() + "-" + currentdate.getFullYear() + "-" + currentdate.getHours() + "-"	+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+			return datetime;
+		}
+		// updatecallnumber : the number of times update() has been called. Initialized to 4 : the first update() call must do a get	
+		var updatecallnumber=4;		
+		function update()
+		{ if(updatecallnumber<4)
+			{ updatecallnumber++; // update is called every 1000ms : timeleft is approximatively 1s more
+			}
+			else 
+			{ updatecallnumber=0;
+				var url='/eg/login?time='+(stringdate())
+				$.get(url,'getFlag=true',
+				function(loginAttributes) 
+				{ if(loginAttributes['EGRunning'])
+					{ $('#egrunning_display').show()
+						$('#egnotrunning_display').hide()
+						if(loginAttributes['activateTimer']=='y')
+						{	if(loginAttributes['loginState']=='beforeLogin')
+							{ $("#timerInfo").html('You will be allowed to connect in '+loginAttributes['timeLeft']);
+							}
+							else if(loginAttributes['loginState']=='openLogin')
+							{ $("#timerInfo").html('You have '+loginAttributes['timeLeft']+' time left to log in');
+							}
+							else
+							{ $("#timerInfo").html('Login is closed');
+							}
+						}
+					}
+					else
+					{ $('#egrunning_display').hide()
+						$('#egnotrunning_display').show()
+					}
+				},"json");//end $.get
+			}
+		}
+		 
+		if(window.location.href.indexOf("login") == -1)
+		{ window.location = '/eg/login?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}&flag={{flag}}&time='+(stringdate());
+		}
+		function onexit() 
+		{ self.close()
+		}	    	    
+	    
+		$(document).ready( function()
+		{ var flag = "{{ flag }}";
+								
+			if(flag=="ALREADY_IN_DB")
+			{ $("#submitwrong").html("Username already exists in database.");
+				$('#new').attr('checked', true);
+			}
+			else if(flag=="IP_ALREADY_IN_DB")
+			{ $("#submitwrong").html("IP address exists in database, you may already have another account.");
+				$('#new').attr('checked', true);
+			}
+			else if(flag=="AUTH_FAILED")
+			{ $("#submitwrong").html("Wrong password or username.");
+				$('#returning').attr('checked', true);
+			}
+			else if(flag=="MISSING_USERNAME_OR_PWD" || flag=="MISSING_KEYCODE")
+			{	$("#submitwrong").html("An entry is missing.");	    		
+			}
+			else if(flag=="SESSION_EXPIRED")
+			{ $('#returning').attr('checked', true);
+				$("#submitwrong").html("Your session has expired, please login again.");
+			}
+			else if(flag=="WRONG_URL")
+			{ $('#returning').attr('checked', true);
+				$("#submitwrong").html("Wrong URL please login again.");
+			}
+			else if(flag=="WRONG_TIME")
+			{	$('#new').attr('checked', true);
+				$("#submitwrong").html("You cannot login at this time.");
+			}
+			else if(flag=="LOGIN_NOT_OPEN")
+			{	$('#new').attr('checked', true);
+				$("#submitwrong").html("Login is not opened.");
+			}
+			else if(flag=="KEYCODE_NONEXISTANT_OR_USED")
+			{ $('#new').attr('checked', true);
+				$("#submitwrong").html("Key code already used.");
+			}
+			else if(flag=="KEYCODE_ALREADY_USED")
+			{ $('#new').attr('checked', true);
+				$("#submitwrong").html("Key code already used.");
+			}
+			else if(flag=="KEYCODE_EMPTY")
+			{ $('#new').attr('checked', true);
+				$("#submitwrong").html("Key code empty.");
+			}
+			else if(flag=="KEYCODE_GIVEN_WHILE_ANOTHER_IN_USE_FOR_A_NON_TERMINATED_GAMESET")
+			{ $('#new').attr('checked', true);
+				$("#submitwrong").html("Key code can't be used : another one is already used for a running gameset.");
+			}
+			else if('APOLOGIES_NORETURN')
+			{$('egrunning_display').hide()
+			}
+			else
+			{ $('#new').attr('checked', true);
+			}    	
+							
+			$("input[name='loginsignin']").change(function()
+			{ $("#retypepwd").toggle($("input[name='loginsignin']:checked").val() == "new");
+				if($("input[name='loginsignin']:checked").val()=="new")
+				{ $("#submit").val("Sign up");	
+				}
+				else
+				{ $("#submit").val("Login");
+				}
+			});
+					
+			$("input[name='loginsignin']").change(); //trigger correct state onload*/
+			update()
+			var int = self.setInterval(function ()
+			{ update()
+			}, 1000);});
+			
+		function verifySubmit()
+		{	if($("input[name='loginsignin']:checked").val()=="new")
+			{ if($("input[name='pwd']").val().length <6)
+				{ $("#submitwrong").html("Your password must be longer than 6 characters.")					
+					return false;
+				}
+				else if($("input[name='pwd']").val() != $("input[name='pwd2']").val())
+				{	$("#submitwrong").html("Passwords do not match.")
+					return false;
+				}
+			}
+			if($("input[name='username']").val()=='' )
+			{ $("#submitwrong").html("empty username.")
+			  return false
+			}
+			
+			if(!isascii($("input[name='username']").val() ))
+			{ $("#submitwrong").html("Non US characters in username.")
+			  return false
+			}
+			if(!isascii($("input[name='pwd']").val()))
+			{ $("#submitwrong").html("Non US characters in password.")
+			  return false
+			}
+			/* {% if EGParameters['job_id']=='' %}*/
+			if(!at_least_one_alphabetical_char($("input[name='username']").val()))
+			{ $("#submitwrong").html("At least one non-numeric character is needed in username.")
+			  return false
+			}
+			/* {% endif %} */
+			var hash = $("#pwd").val();
+			$("#pwd").val(hash);
+			$("#pwd2").val(hash);
+			return true;
+		}
+	</script>
+	<style type="text/css">
+			p {
+				width: 450px;
+				text-align: left;
+			}
+			#logo {
+				float: right;
+				width: 120px;
+			}			
+			a {
+				color: purple;
+			}
+
+        /* Added by Sam */
+        .tooltip {
+	        display:none;
+	        position:absolute;
+	        border:1px solid #333;
+	        background-color:#161616;
+	        border-radius:5px;
+	        padding:10px;
+	        color:#fff;
+	        font-size:12px Arial;
+        }
+		</style>
+
+        <!-- Added by Sam -->
+        <script type="text/javascript">
+        $(document).ready(function() {
+                // Tooltip only Text
+                $('.masterTooltip').hover(function(){
+                        // Hover over code
+                        var title = $(this).attr('title');
+                        $(this).data('tipText', title).removeAttr('title');
+                        $('<p class="tooltip"></p>')
+                        .text(title)
+                        .appendTo('body')
+                        .fadeIn('slow');
+                }, function() {
+                        // Hover out code
+                        $(this).attr('title', $(this).data('tipText'));
+                        $('.tooltip').remove();
+                }).mousemove(function(e) {
+                        var mousex = e.pageX + 20; //Get X coordinates
+                        var mousey = e.pageY + 10; //Get Y coordinates
+                        $('.tooltip')
+                        .css({ top: mousey, left: mousex })
+                });
+        });
+        </script>
+
+
+  </head>
+	<body>
+ <audio controls hidden>
+  <source src="../../static/pic/sound.mp3" type="audio/mpeg">
+</audio>  
+		<table width="800" align="center">
+			<tr>
+				<td>				
+					<img src="../../static/pic/welcome_{{EGParameters['imageType']}}.png" alt="welcome_{{EGParameters['imageType']}}.png">
+				</td>
+				<td align="center">
+					<h2>Welcome to the Estimation Game !</h2></td>
+			</tr>
+			<tr>
+			  <td><div id="test"></div></td>
+        <td>			
+			  <div id="egrunning_display" style="display:{% if EGParameters['EGRunning'] %}block{%else%}none{% endif %}">
+					<table border="0">
+			    	<tr>
+            	<td><h3 id="timerInfo"></h3>
+							By loging in, you will be taken to the experiment {% if EGParameters['skipConsentInstruct']=='y' %}, which includes instructions and consent agreement.{% endif %}<br>
+              Only US characters are accepted.
+              </td>
+            </tr>
+            <tr>
+			      	<td><form id="login" style="text-align: center;" action="" method="post" onSubmit="return verifySubmit();">
+              	<table border="1">
+                  <tr>
+                  <td>
+                  <table>
+                    <tr>
+                      <td nowrap align="center" colspan="2"><div id="submitwrong" align="center" class="red16"></div></td>
+                    </tr>
+                    <tr>
+                    	<td align="left">
+                      	<div id="keyCodeMode" style="display:block">
+                          <!--if EGParameters['keyCodeMode']!='n'-->
+                                Keycode:&nbsp;&nbsp;&nbsp;
+                              <!--</td>
+                              <td nowrap align="left"> -->
+                                  <input type="text" name="keyCodeBegin" id="keyCodeBegin" value="{{loginValues['keyCodeBegin']}}"> 
+                        <!--endif -->
+                        </div>
+                       </td>
+                    <tr>
+                        <!-- Added by sam -->
+                        <!-- Dans le cas ou on travail avec CrowdFlower, on souhaite obtenir le ContributorID -->
+                        {% if EGParameters['job_id']!='' %}
+                        <td nowrap align="left">
+                          <a href="https://tasks.crowdflower.com/profile" style="color:#FFF" target="_blank">CrowdFlower Contributor ID:</a>
+                          &nbsp;<img src="../../static/pic/info.jpg" width="20" class="masterTooltip" title="Click on &quot;CrowdFlower Contributor ID&quot; to find your ID" />
+                          <!--</td>
+                          <td nowrap> -->
+                          <input type="text" name="username" id="username" value="{{loginValues['username']}}"><span class="white14"></span>
+                      	</td>
+                      <!-- Dans le cas ou on ne travaille pas avec CrowdFlower -->
+                        {% else %}
+                        <td nowrap>
+                          Username:
+                          <input type="text" name="username" id="username" value="{{loginValues['username']}}"><span class="white14">&nbsp;At least one non-numeric character</span>
+                     		 </td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                    
+                    <td><div style="display:{% if(EGParameters['withPassword']=='y')%}block{% else %}none{% endif%}"><table><tr>
+                      <td nowrap align="left">
+                        Password:
+                      </td>
+                      <td nowrap align="left">
+                          <input type="password" id="pwd" name="pwd" value="{% if EGParameters['withPassword']=='n' %}xxxxxx{% endif %}"><span class="white14">&nbsp;At least 6 characters</span>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                      <td nowrap colspan="2">
+                          <input type="radio" name="loginsignin" id="new" value="new" {% if loginValues['loginsignin']=='new'%} checked {% endif%}>
+                          New user
+                          <input type="radio" name="loginsignin" id="returning" value="returning" {% if loginValues['loginsignin']=='returning'%} checked {% endif%}>
+                          Returning user                    
+                      </td>
+                    </tr>
+                    <tr>
+                      <td nowrap colspan="2">
+                        <span id="retypepwd">Retype password :
+                          <input type="password" id="pwd2" name="pwd2" value="{% if EGParameters['withPassword']=='n' %}xxxxxx{% endif %}"></span>
+                      </td>
+                    </tr></table></div>
+                    
+                    </td></tr>
+                    <tr>
+                      <td nowrap align="center" colspan="2">
+                      <input type="submit" style="font-size:16pt" id="submit" value="Login" name="submit"/>
+                      </td>
+                    </tr>
+                    </table>
+                    </td>
+                  </tr>
+		        		</table>
+								</form>
+              </td>
+		      	</tr>
+		    	</table>
+          </div>
+         <div id="egnotrunning_display"	style="display:{% if EGParameters['EGRunning'] %}none{%else%}block{% endif %}">Sorry, but Estimation Game is not currently running.<br>Come back later, Please !
+				 </div>        
+				</td>
+		  </tr>
+		</table>
+</body>
+</html>

@@ -1,0 +1,423 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+a img {
+    border: 0;
+}
+/* END server privileges */
+
+
+/* leave some space between icons and text */
+.icon {
+	vertical-align: middle;
+	margin-right: 0.3em;
+	margin-left: 0.3em;
+}
+/* no extra space in table cells */
+td .icon {
+	margin: 0;
+	vertical-align: middle;
+}
+
+.selectallarrow {
+    margin-right: 0.3em;
+    margin-left: 0.6em;
+}
+
+/* buttons in some browsers (eg. Konqueror) are block elements, this breaks design */
+button { display: inline; }
+
+/* Textarea */
+textarea { overflow: auto; }
+
+.nospace { margin: 0; padding: 0; }
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    display: block;
+    margin: 0.2em 0.2em 0 0.2em;
+    padding: 0.2em 0.2em 0 0.2em;
+    white-space: nowrap;
+}
+
+/* disabled tabs */
+span.tab {
+    color: #666666;
+}
+
+/* disabled drop/empty tabs */
+span.tabcaution {
+    color: #ff6666;
+}
+
+/* enabled drop/empty tabs */
+a.tabcaution {
+    color: #FF0000;
+}
+a.tabcaution:hover {
+	color: #FFFFFF;
+	background-color: #033CFC;
+}
+
+/* default tab styles */
+.tab, .tabcaution, .tabactive {
+    background-color: #E5E5E5;
+    border: 1pt solid #D5D5D5;
+    border-bottom: 0;
+    -moz-border-radius-topleft: 0.4em;
+    -moz-border-radius-topright: 0.4em;
+}
+
+/* enabled hover/active tabs */
+a.tab:hover, a.tabcaution:hover, .tabactive, .tabactive:hover {
+    margin: 0;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    text-decoration: none;
+}
+
+a.tab:hover, .tabactive {
+    background-color: #D5D5D5;
+}
+
+/* disabled drop/empty tabs */
+span.tab, span.tabcaution {
+    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
+}
+/* end topmenu */
+
+
+/* data tables */
+table.data caption,
+table.data th,
+table.data td {
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    margin: 0;
+    margin: 0.1em;
+    vertical-align: top;
+}
+
+
+/* odd table rows 1,3,5,7,... */
+table tr.odd th,
+table tr.odd {
+    background-color: #E5E5E5;
+    text-align: left;
+}
+
+/* even table rows 2,4,6,8,... */
+table tr.even th,
+table tr.even {
+    background-color: #D5D5D5;
+    text-align: left;
+}
+table tr.warning th,
+table tr.warning {
+	text-align: left;
+	background-color: #C9F;
+}
+
+
+/* marked tbale rows */
+table tr.marked th,
+table tr.marked {
+    background-color: #9F0;
+}
+
+table tr.mission th, table tr.mission {
+	background-color: #FFCC99;
+}
+
+
+/* hovered table rows */
+table tr.odd:hover,
+table tr.even:hover,
+table tr.odd:hover th,
+table tr.even:hover th,
+table tr.hover th,
+table tr.hover {
+    background-color: #CCFFCC;
+}
+table tr.mission:hover                 {
+	background-color: #CCFFCC;
+}
+
+
+table .value {
+    text-align: right;
+    white-space: nowrap;
+    font-family: "Courier New", Courier, monospace;
+}
+/* IE doesnt handles 'pre' right */
+table [class=value] {
+    white-space: pre;
+}
+/* Always enabled stylesheets (right frame) */
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	margin: 0.5em;
+	padding: 0;
+	font-family: arial, helvetica, geneva, sans-serif;
+	font-size: small;
+	background-repeat: repeat-y;
+	background-color: #FFFFFF;
+}
+
+pre, tt         {font-size: small}
+th              {font-family: arial, helvetica, geneva, sans-serif; font-size: small; font-weight: bold; color: #000000; background-color: #D3DCE3}
+td              {font-family: arial, helvetica, geneva, sans-serif; font-size: small}
+
+form            {font-family: arial, helvetica, geneva, sans-serif; font-size: small; padding: 0px; margin: 0px;}
+input           {
+	font-family: Calibri;
+	font-size: 12px
+}
+input.textfield {
+	font-family: Calibri;
+	font-size: 10px;
+	color: #000000;
+	background-color: #00FFFF
+}
+select          {font-family: arial, helvetica, geneva, sans-serif; font-size: small; color: #000000; background-color: #FFFFFF}
+textarea        {font-family: arial, helvetica, geneva, sans-serif; font-size: small; color: #000000; background-color: #FFFFFF}
+
+hr{ color: #666666; background-color: #666666; border: 0; height: 1px; }
+.table_entete {
+	background-color: #B3FFFF;
+	border: 1pt solid #D5D5D5;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	text-shadow: 3px 3px 3px #999;
+	border-color: #009;
+}
+.table_bord_D5D5D5_009 {
+	border: 1pt solid #D5D5D5;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #009;
+}
+.table_cadre_arrondi {
+	border: 2pt solid #D5D5D5;
+	border-color: #CCC;
+}
+.table_cadre_noir {
+	border: 2pt solid #D5D5D5;
+	border-color: #000;
+}
+
+.table_rectangle_bleu {
+	border: 1pt solid #00F;
+}
+
+.table_cadre_arrondi_rouge {
+	border: 1pt solid #F00;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #F00;
+}
+
+
+.table_bord_666_bckg_099 {
+	border: 2pt solid  #69C;
+	border-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #666;
+	background-color: #099 ;
+}
+
+.table_gris_encadre {
+	border: 1pt solid #D5D5D5;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #666;
+	background-color: #EEE;
+}
+.table_cellule_encadre_gris {
+	border: 0.5pt solid;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	border-color: #999;
+}
+
+
+
+.table_mode_exploitation {
+	background-color: #FFCC00;
+	border: 1pt solid #D5D5D5;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	text-shadow: 3px 3px 3px #999;
+}
+.table_chargementencours {
+	background-color: #FFCCFF;
+	border: 1pt solid #D5D5D5;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;
+	-moz-border-radius-bottomleft: 0.4em;
+	-moz-border-radius-bottomright: 0.4em;
+	text-shadow: 3px 3px 3px #CCC;
+}
+
+
+
+/* enabled hover/active tabs */
+a.tab:hover, a.tabcaution:hover, .tabactive, .tabactive:hover {
+    margin: 0;
+    padding: 0.2em 0.4em 0.2em 0.4em;
+    text-decoration: none;
+}
+
+a.tab:hover, .tabactive {
+    background-color: #D5D5D5;
+}
+
+/* disabled drop/empty tabs */
+span.tab, span.tabcaution {
+    cursor: url(themes/original/img/error.ico), url(../themes/original/img/error.ico), default;
+}
+
+.error {
+    background-color: #FFFFCC;
+    color: #ff0000;
+}
+
+
+/* disabled text */
+.disabled, .disabled a:link, disabled a:active, .disabled a:visited {
+    font-family: arial, helvetica, geneva, sans-serif;
+    font-size:   small;
+    color:       #666666;
+}
+.disabled a:hover {
+    text-decoration: none;
+}
+tr.disabled td, td.disabled {
+    background-color: #cccccc;
+}
+
+#TooltipContainer {
+    position:   absolute;
+    z-index:    99;
+    width:      20em;
+    height:     auto;
+    overflow:   visible;
+    visibility: hidden;
+    background-color: #ffffcc;
+    color:            #006600;
+    border:           0.1em solid #000000;
+    padding:          0.5em;
+    font-family:      arial, helvetica, geneva, sans-serif;
+    font-size:        small;
+}
+
+fieldset {
+    margin-top: 1em;
+}
+
+fieldset.tblFooters {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: right;
+    float: none;
+    clear: both;
+}
+table tr.head th, table tr.head {
+	background-color: #D3DCE3;
+	text-align: center;
+}
+.mauvemajuscule {
+	color: #990099;
+	text-transform: uppercase;
+}
+
+.listing,
+.stx table {
+    /* The default table for document listings. Contains name, document types, modification times etc in a file-browser-like fashion */
+    border-collapse: collapse;
+    border-left: 1px solid #8cacbb;
+    border-bottom: 1px solid #8cacbb;
+    font-size: 85%;
+    margin: 1em 0em 1em 0em;
+}
+.listing th,
+.stx table th {
+    background: #dee7ec;
+    border-top: 1px solid #8cacbb;
+    border-bottom: 1px solid #8cacbb;
+    border-right: 1px solid #8cacbb;
+    font-weight: normal;
+    padding: 0.25em 1em;
+}
+.listing .listingCheckbox {
+    text-align: center;
+}
+.listing td,
+.stx table td {
+    border-right: 1px solid #8cacbb;
+    padding: 0.25em 1em;
+}
+
+.listing a {
+    text-decoration: none;
+}
+
+.listing a:hover {
+    text-decoration: underline;
+}
+.listing img {
+    vertical-align: middle;
+}
+
+/* Vertical addition class */
+
+.vertical {
+    background-color: White;	
+}
+.vertical th {
+    padding: 0.5em;
+}
+
+.vertical td {
+    border-top: 1px solid #8cacbb;
+    padding: 0.5em;
+}
+
+.nolisting,
+.nostx table {
+    /* The default table for document listings. Contains name, document types, modification times etc in a file-browser-like fashion */
+}
+.nolisting td{
+    border-right: 0px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    padding: 0px;
+}

@@ -1,0 +1,11 @@
+from fractale_new import fractale_new
+import random
+
+def fractale_complex():
+	pic_num = random.randint(10000000,99999999);
+	param = False
+	while (not param):
+		print(" \n \n New ")
+		out = fractale_new(pic_num)
+		param = out[2]
+	return [out[0],out[1],pic_num]

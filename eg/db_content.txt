@@ -1,0 +1,7 @@
+1. keycode
+keyCodeBegin	keyCodeEnd	status	User	Gameset Id	Total Reward	Total Reward
+51204160	56471923					
+3. questionnaire
+userid	email	extraverted	critical	dependable	anxious	open	reserved	sympathetic	disorganized	calm	conventional	conventional
+2. decision
+gamesets_id	games_id	decisions_num	rounds_id	image_id	Gameset Id	pic_name	image_complexity	image_color	image_percent	participants_workerId	decisions_value	decisions_reward	decisions_status	decisions_status

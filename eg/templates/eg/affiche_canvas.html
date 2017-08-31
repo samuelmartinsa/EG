@@ -1,0 +1,555 @@
+<?php require_once('_const_fonc.php');
+$codeuser=deconnecte_ou_connecte();
+$mode_debug=false;
+if($mode_exploit=="test")
+{ $mode_debug=false;
+//$mode_debug=true;
+}
+if($mode_debug)
+{ foreach($_POST as $key=>$val)
+	{ echo $key.'=>'.$val.'<br>';
+	}
+	foreach($_GET as $key=>$val)
+	{ echo $key.'=>'.$val.'<br>';
+	}
+}
+$rep_upload=$GLOBALS['path_to_rep_upload'];
+$erreur='';
+$affiche_succes=false;
+$msg_succes='';
+$form_affiche_canvas="form_affiche_canvas";
+$id_bois=isset($_POST['id_bois'])?$_POST['id_bois']:0;
+$id_echantillon=isset($_GET['id_echantillon'])?$_GET['id_echantillon']:(isset($_POST['id_echantillon'])?$_POST['id_echantillon']:0);
+$id_face=isset($_GET['id_face'])?$_GET['id_face']:(isset($_POST['id_face'])?$_POST['id_face']:"");
+$libface=isset($_GET['libface'])?$_GET['libface']:(isset($_POST['libface'])?$_POST['libface']:0);
+$lambda=isset($_GET['lambda'])?$_GET['lambda']:(isset($_POST['lambda'])?$_POST['lambda']:"");
+$lambda1=isset($_GET['lambda1'])?$_GET['lambda1']:(isset($_POST['lambda1'])?$_POST['lambda1']:0);
+$lambda2=isset($_GET['lambda2'])?$_GET['lambda2']:(isset($_POST['lambda2'])?$_POST['lambda2']:10000000);
+ 
+$inverse="";
+if($lambda=="inverse")
+{ $inverse="1/";
+}
+
+
+$rs=mysql_query("select id_bois,libbois from bois") or die(mysql_error());
+$tab_bois=array();
+$first=true;
+while($row_rs=mysql_fetch_assoc($rs))
+{ $tab_bois[$row_rs['id_bois']]=$row_rs;
+	if($id_bois==0 && $first)
+	{ $id_bois=$row_rs['id_bois'];
+	}
+	$first=false;
+}
+
+$rs=mysql_query("select id_echantillon,id_bois,libechantillon from echantillon") or die(mysql_error());
+$tab_echantillon=array();
+$first=true;
+while($row_rs=mysql_fetch_assoc($rs))
+{ $tab_echantillon[$row_rs['id_echantillon']]=$row_rs;
+	if($id_echantillon==0 && $first)
+	{ $id_echantillon=$row_rs['id_echantillon'];
+	}
+	$first=false;
+}
+
+$tab_coordonnees_min_max=get_tab_coordonnees_min_max($GLOBALS['path_to_rep_upload'],$id_face,$lambda,0+$lambda1,0+$lambda2);
+if($tab_coordonnees_min_max['erreur']=='')
+{ $minlongueur_onde=$tab_coordonnees_min_max['minlongueur_onde'];
+	$maxlongueur_onde=$tab_coordonnees_min_max['maxlongueur_onde'];
+	$minreflectance=$tab_coordonnees_min_max['minreflectance'];
+	$maxreflectance=$tab_coordonnees_min_max['maxreflectance'];
+	$tab_coordonnees=$tab_coordonnees_min_max['tab_coordonnees'];
+}
+?>
+<html>
+<head>
+		<title>Trispirabois - <?php echo $tab_bois[$id_bois]['libbois'] ?> - Ech : <?php echo $tab_echantillon[$id_echantillon]['libechantillon'] ?> - Face : <?php echo $libface ?></title>
+		<link rel="stylesheet" href="styles/trispirabois.css" type="text/css">
+		<link rel="stylesheet" href="styles/normal.css" type="text/css">
+		<link rel="stylesheet" href="styles/tableau_bd.css" type="text/css">
+		<script src="SpryAssets/SpryTooltip.js" type="text/javascript"></script>
+    <link href="SpryAssets/SpryTooltip.css" rel="stylesheet" type="text/css" />
+	  <script src="_java_script/alerts.js" type="text/javascript"></script>
+	  <script src="_java_script/jquery-min.js" type="text/javascript"></script>
+<script language="javascript">
+var w;
+function OuvrirVisible(url,nom)
+{ w=window.open(url,nom,"scrollbars = yes,width=750,height=750,location=no,menubar=no,status=no,directories=no,top=1,left=1");
+	w.document.close();
+	w.focus();
+}
+function Fermer() 
+{ if (w.document) { w.close(); }
+}
+var action_en_cours='';
+var element_en_cours='texte';
+var nbbois=0;nbechantillon=0;nbface=0;
+var tab=new Array();
+var tab_bois=new Array();
+var tab_echantillon=new Array();
+var tab_face=new Array();
+var tab_coordonnees=new Array();
+// tableau des abscisses representees qui permettra en fonction des coordonnees de la souris d'afficher les coordonnees
+var tab_x=new Array();
+var	blanc="rgb(255,255,255)"
+var	noir="rgb(0,0,0)"
+var	rouge="rgb(255,0,0)"
+var	bleu="rgb(0,0,255)"
+var	rose="rgb(255,57,255)"
+var gris="rgb(120,120,120)"
+
+var canvas;
+var canvas_zoom;
+var context;
+var context_zoom;
+var largeur_img=700
+var hauteur_img=700
+var x_min=0;
+var x_max=0;//derniere abscisse dont le point est représente
+var	axe_x=60;
+var	axe_y=60;
+var image;
+var ratio=1; 
+var start_select_zoom = false;
+var cadre_zoom=new Object();
+cadre_zoom.x_down=0;cadre_zoom.y_down=0;cadre_zoom.x_up=0;cadre_zoom.y_up=0;
+var x, y, x1, y1;
+var unite_x
+var multiplicateur_lambda
+var exposant_unite_x
+<?php if($lambda=="")
+{?> unite_x='cm'
+exposant_unite_x='-1'
+multiplicateur_lambda=10e-1
+<?php 
+}
+else
+{?> unite_x='e-5 Mm'
+exposant_unite_x=''
+multiplicateur_lambda=10e+5
+<?php 
+}?>
+<?php /* if($lambda=="")
+{?> unite_x='e-1 nm'
+exposant_unite_x=''
+multiplicateur_lambda=10
+<?php 
+}
+else
+{?> unite_x='e-8 nm'
+exposant_unite_x='-1'
+multiplicateur_lambda=10e+8
+<?php 
+} */?>
+var nb_decimales_lambda=0
+var unite_y='%'
+var multiplicateur_reflectance=1
+var nb_decimales_reflectance=1
+
+<?php
+$nb=0;
+foreach($tab_coordonnees as $row)
+	{ ?>tab_coordonnees[<?php echo $nb ?>]={longueur_onde:<?php echo $row['longueur_onde']; ?>,reflectance:<?php echo $row['reflectance']; ?>}
+		<?php		
+		$nb++; 
+	}
+?>
+nbcoordonnees=<?php echo $nb; ?>
+
+function position_objet(objet,position,event)
+{	event.returnValue = false;
+	//Coordonnees de la souris
+	var x = event.clientX + (document.documentElement.scrollLeft + document.body.scrollLeft);
+	var y = event.clientY + (document.documentElement.scrollTop + document.body.scrollTop);
+
+	//Coordonnées de l'élément
+	var eX = 0;
+	var eY = 0;
+	var element = objet;
+	i=0;
+	do
+	{ i++;
+		eX += element.offsetLeft;
+		eY += element.offsetTop;
+		element = element.offsetParent;
+	} while( element && element.style.position != position);
+	return new Array(eX,eY);
+}
+
+function coordonnee_x(x,repere)
+{ return (x-repere['dx'])*repere['x']+repere['origine']['axe_x'];
+}
+function coordonnee_y(y,repere)
+{ return repere['cadre']['hauteur']-(y-repere['dy'])*repere['y']-repere['origine']['axe_y'];
+}
+
+function plot(canvas,tab_coordonnees,ratio) 
+{ largeur_img=700*ratio;
+	hauteur_img=700*ratio;
+	/* window.innerHeight=hauteur_img+120
+	window.innerWidth=largeur_img+20 */
+	canvas.width=largeur_img
+	canvas.height=hauteur_img
+	context = canvas.getContext("2d");
+	context.fillStyle = blanc;
+	context.fillRect(0,0,largeur_img, hauteur_img)
+	font = 'bold 7.5pt Courier';
+	fontSize=7.5
+	context.font =font
+	//axes
+	largeur_x=largeur_img-axe_x;
+	hauteur_y=hauteur_img-axe_y-30;
+	context.fillStyle = noir
+	context.fillRect(axe_x, 0, 1, hauteur_img)
+	// tete de fleche y
+	context.beginPath();
+	context.moveTo(axe_x,0);context.lineTo(axe_x-5,5);context.lineTo(axe_x+5,5);context.lineTo(axe_x,0);
+	context.fillStyle = noir;
+	context.fill();
+	context.strokeStyle = noir;
+	context.lineJoin = 'miter';
+	context.stroke();
+	//axe y
+	context.fillRect(0, hauteur_img-axe_y, largeur_img, 1)
+	// tete de fleche x
+	context.beginPath();
+	context.moveTo(largeur_img,hauteur_img-axe_y);context.lineTo(largeur_img-5,hauteur_img-axe_y-5);context.lineTo(largeur_img-5,hauteur_img-axe_y+5);context.lineTo(largeur_img,hauteur_img-axe_y);
+	context.fillStyle = noir;
+	context.fill();
+	context.strokeStyle = noir;
+	context.lineJoin = 'miter';
+	context.stroke();
+	//unite
+	textSize=context.measureText(unite_x)
+	largeur_texte = textSize.width
+	hauteur_texte = fontSize
+	context.textBaseline = 'bottom';
+	context.fillText(unite_x,largeur_img-largeur_texte-10,hauteur_img-hauteur_texte-10)
+	ht = fontSize
+	if(exposant_unite_x!='')
+	{ font = 'bold 5.5pt Courier';
+	  fontSize=5.5
+		context.font =font
+		textSize=context.measureText(exposant_unite_x)
+		largeur_texte = textSize.width
+		hauteur_texte = fontSize
+		context.textBaseline = 'bottom';
+		context.fillText(exposant_unite_x,largeur_img-10,hauteur_img-hauteur_texte-ht-10)
+	}
+	font = 'bold 7.5pt Courier';
+	fontSize=7.5
+	context.font =font
+	//unite y
+	textSize=context.measureText(unite_y)
+	largeur_texte = textSize.width
+	hauteur_texte = fontSize
+	context.textBaseline = 'bottom';
+	context.fillText(unite_y,axe_x-20,20)
+	// graduations
+	
+	texte=<?php echo $minlongueur_onde ?>;
+	texte=formate_echelle(texte,multiplicateur_lambda,nb_decimales_lambda,'.')
+	textSize=context.measureText(texte)
+	largeur_texte = textSize.width
+	hauteur_texte = fontSize
+	context.fillStyle = blanc
+	context.fillRect(axe_x-largeur_texte/2,hauteur_img-axe_y+hauteur_texte-2,largeur_texte,hauteur_texte+2)
+	context.fillStyle = rose
+	context.textBaseline = 'bottom';
+	context.fillText(texte,axe_x-largeur_texte/2,hauteur_img-axe_y+hauteur_texte+10)
+	texte=<?php echo $minreflectance; ?>;
+	texte=formate_echelle(texte,multiplicateur_reflectance,nb_decimales_reflectance,'.')
+	textSize=context.measureText(texte)
+	largeur_texte = textSize.width
+	hauteur_texte = fontSize
+	context.fillStyle = blanc
+	context.fillRect(axe_x-largeur_texte,hauteur_img-axe_y-hauteur_texte-2,largeur_texte,hauteur_texte+2)
+	context.fillStyle = rose
+	context.textBaseline = 'bottom';
+	context.fillText(texte,axe_x-largeur_texte-5,hauteur_img-axe_y-hauteur_texte)
+	// graduation tous les 1/10 de la largeur et hauteur du graphe
+	context.fillStyle = noir
+	i=0;
+	pos_grad=0;
+	while(pos_grad < (9/10)*largeur_x-15)
+	{ pos_grad=pos_grad+(1/10)*largeur_x;
+		i++;
+		context.fillRect(axe_y+pos_grad, hauteur_img-axe_x-3, 1, 6);
+		texte=<?php echo $minlongueur_onde ?>+(i/10)*(<?php echo $maxlongueur_onde ?>-<?php echo $minlongueur_onde ?>);
+		texte=formate_echelle(texte,multiplicateur_lambda,nb_decimales_lambda,'.')
+		textSize=context.measureText(texte)
+		largeur_texte = textSize.width
+		hauteur_texte = fontSize
+		context.fillText(texte,axe_y+pos_grad-(largeur_texte/2),hauteur_img-axe_x+hauteur_texte+10)
+		//imagettftext(img,font_size,angle,axe_y+pos_grad-largeur_texte/2,hauteur_img-axe_y+hauteur_texte+10, color, font,texte );
+ 	}
+	i=0;
+	pos_grad=hauteur_img-axe_x;
+	fin=false
+	while(!fin)
+	{ pos_grad=pos_grad-(1/10)*hauteur_y;
+		i++;
+		if(pos_grad>(1/10)*hauteur_y)
+		{ context.fillRect(axe_x-3, pos_grad, 6, 1);
+			texte=<?php echo $minreflectance ?>+((i)/10)*(<?php echo $maxreflectance ?>-<?php echo $minreflectance ?>);
+			texte=formate_echelle(texte,multiplicateur_reflectance,nb_decimales_reflectance,'.')
+			textSize=context.measureText(texte)
+			largeur_texte = textSize.width
+			context.fillText(texte,axe_x-largeur_texte-5,pos_grad+5)
+		}
+		else
+		{ fin=true
+		}
+	}
+	
+	// repere=array('origine'=>array('axe_x'=>axe_x,'axe_y'=>axe_y),'x'=>7/100,'y'=>100,'dx'=>0,'dy'=>0,'cadre'=>array('largeur'=>largeur_img,'hauteur'=>hauteur_img));
+	repere=	{	origine:{axe_x:axe_x,axe_y:axe_y},
+						x:(largeur_x-15)/(<?php echo $maxlongueur_onde ?>-<?php echo $minlongueur_onde ?>),
+						y:hauteur_y/(<?php echo $maxreflectance ?>-<?php echo $minreflectance ?>),
+						dx:<?php echo $minlongueur_onde ?>,
+						dy:<?php echo $minreflectance ?>,
+						cadre:{largeur:largeur_img,hauteur:hauteur_img}
+					};
+	context.beginPath();
+	context.strokeStyle = rose
+	context.fillStyle = rose
+	first=true;
+	tab_x=new Array();
+	first_x=true
+	for(i=0;i<tab_coordonnees.length;i++)
+	{ un_point=tab_coordonnees[i]
+		x=coordonnee_x(un_point.longueur_onde,repere);
+		y=coordonnee_y(un_point.reflectance,repere);
+		if(first)
+		{ context.moveTo(x,y);
+			first=false
+		}
+		else
+		{ context.lineTo(x,y)
+		}
+		// recupere les abscisses et ordonnees calculees dans le repere : permettra de les afficher au passage souris
+		un_point.x=x
+		un_point.y=y
+		tab_coordonnees[i]=un_point
+		tab_x[Math.ceil(x)]=tab_coordonnees[i]
+		if(first_x)
+		{ x_min=Math.ceil(x)
+			first_x=false
+		}
+		//document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML+'<br>x='+tab_coordonnees[i].x+' y='+tab_coordonnees[i].y+' Math.ceil(x)='+Math.ceil(x)+' x='+tab_coordonnees[i].x+' y='+tab_coordonnees[i].y
+	}
+	context.stroke();
+	x_max=Math.ceil(x);
+	//context.scale(ratio,ratio)
+	document.getElementById("img_plot").src = canvas.toDataURL();
+}
+
+function getOffset(e) 
+{ var cx = 0;
+	var cy = 0;
+
+	while(e && !isNaN(e.offsetLeft) && !isNaN(e.offsetTop)) 
+	{ cx += e.offsetLeft - e.scrollLeft;
+		cy += e.offsetTop - e.scrollTop;
+		e = e.offsetParent;
+	}
+	return { top: cy, left: cx };
+}
+
+function posmouse(event)
+{ e=event
+	if(e.offsetX || e.offsetY) 
+	{		x = e.pageX - getOffset(canvas).left - window.pageXOffset;//
+			y = e.pageY - getOffset(canvas).top - window.pageYOffset;//
+	}
+	else if(e.layerX || e.layerY) {
+			x = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft- getOffset(canvas).left - window.pageXOffset;//
+			y = e.clientY + document.body.scrollTop + document.documentElement.scrollTop - getOffset(canvas).top - window.pageYOffset;//
+	}
+	return {x:x, y:y }
+} /**/  
+
+function mouseover(event) 
+{ //x1=0;y1=0;image=context.getImageData(0,0,1,1);
+}
+
+function mouseout(event) 
+{ context.drawImage(document.getElementById("img_plot"),0,0)
+	affiche_coordonnees(tab_x.length-1)
+}
+
+function mousemovement(event) 
+{	context.drawImage(document.getElementById("img_plot"),0,0)
+	if(start_select_zoom)
+	{	coord_plan=posmouse(event)
+		context.beginPath();
+		context.strokeStyle = gris
+		context.strokeRect(cadre_zoom.x_down,cadre_zoom.y_down,coord_plan.x-cadre_zoom.x_down,coord_plan.y-cadre_zoom.y_down);
+		context.stroke();
+	}
+	
+	coord_plan=posmouse(event)
+	x=coord_plan.x
+	if(x<x_min)
+	{ x=x_min
+	}
+	else
+	{	if(x<=x_max)
+		{ while(x<largeur_img && !tab_x[x])
+			{ x++;
+			}
+		}
+		else
+		{ x=x_max
+		}
+	}
+	if(tab_x[x])
+	{ affiche_coordonnees(x)
+	}
+}
+
+function mousedown(event)
+{ start_select_zoom=true
+	coord_plan=posmouse(event)
+	cadre_zoom.x_down=coord_plan.x
+	cadre_zoom.y_down=coord_plan.y
+}
+function mouseup(event)
+{ coord_plan=posmouse(event)
+	cadre_zoom.x_up=coord_plan.x
+	cadre_zoom.y_up=coord_plan.y
+	if(cadre_zoom.x_down>cadre_zoom.x_up)
+	{ temp=cadre_zoom.x_down;
+		cadre_zoom.x_down=cadre_zoom.x_up
+		cadre_zoom.x_up=temp
+	}
+	if(cadre_zoom.x_down>=x_min)
+	{ while(cadre_zoom.x_down>0 && !tab_x[cadre_zoom.x_down])
+		{ cadre_zoom.x_down--;
+		}
+	}
+	else
+	{ cadre_zoom.x_down=x_min
+	}
+	if(cadre_zoom.x_up<=x_max)
+	{ while(cadre_zoom.x_up<x_max && !tab_x[cadre_zoom.x_up])
+		{ cadre_zoom.x_up++;
+		}
+	}
+	else
+	{ cadre_zoom.x_up=x_max
+	}
+	start_select_zoom=false
+	if(cadre_zoom.x_up!=cadre_zoom.x_down)
+	{ OuvrirVisible('affiche_canvas.php?id_face='+<?php echo $id_face ?>+'&id_echantillon='+<?php echo $id_echantillon ?>+'&libface=<?php echo $libface ?>&lambda=<?php echo $lambda ?>&lambda1='+(tab_x[cadre_zoom.x_down]).longueur_onde+'&lambda2='+(tab_x[cadre_zoom.x_up]).longueur_onde,'zoom')
+	}
+}
+
+function affiche_coordonnees(x)
+{	//context.fillText(x,x,y)
+	point=tab_x[x]
+	context.beginPath();
+	context.strokeStyle = bleu
+	context.arc(point.x,point.y,5,0,2*Math.PI);
+	context.stroke();
+	context.font = 'bold 10pt Courier';
+	fontSize=10
+	texte_coord_longueur_onde='<?php echo $lambda==''?'\u03c3':'\u03BB' ?> : '+formate_echelle(Math.min(point.longueur_onde,10000),multiplicateur_lambda,nb_decimales_lambda,'.')
+	texte_coord_reflectance='R : '+formate_echelle(point.reflectance,multiplicateur_reflectance,nb_decimales_reflectance,'.')
+	pos_texte_coord_x=point.x+8
+	textSize_coord_longueur_onde=context.measureText(texte_coord_longueur_onde)
+	textSize_coord_reflectance=context.measureText(texte_coord_reflectance)
+	if(point.x>largeur_img/2)
+	{ pos_texte_coord_x =point.x-Math.max(textSize_coord_longueur_onde.width,textSize_coord_reflectance.width)-12
+	}
+	pos_texte_coord_y=point.y
+	if(point.y>largeur_img/2)
+	{ pos_texte_coord_y=point.y-10
+	}
+	/* context.beginPath();
+	context.fillStyle = "rgb(255,255,255)"
+	context.strokeStyle = "rgb(0,0,255)"
+	context.strokeRect(point.x,point.y,Math.max(textSize_coord_longueur_onde.width,text_Size_coord_reflectance.width),10);
+	context.fillRect(pos_texte_coord_x,point.y,Math.max(textSize_coord_longueur_onde.width,text_Size_coord_reflectance.width),10);*/
+	context.stroke(); 
+	context.beginPath();
+	context.fillStyle = noir
+	context.fillText(texte_coord_longueur_onde,pos_texte_coord_x,pos_texte_coord_y)
+	pos_texte_coord_y=pos_texte_coord_y+fontSize+2
+	context.fillText(texte_coord_reflectance,pos_texte_coord_x,pos_texte_coord_y)
+	context.stroke();
+}
+
+function affiche_canvas()
+{		document.getElementById('div_canvas').style.display = 'block';
+		document.getElementById('div_canvas').style.position = 'absolute';
+		document.getElementById('div_canvas').style.left = '1px';
+		document.getElementById('div_canvas').style.top = '1px';
+}
+
+$(document).ready( function()
+{ // Récupérer la zone de dessin
+	canvas = document.getElementById('canvas_courbe');
+	context = canvas.getContext('2d');
+	// gestionnaires d'événements
+	canvas.addEventListener('mousemove', mousemovement, false);
+	canvas.addEventListener('mouseover', mouseover, false);
+	canvas.addEventListener('mouseout', mouseout, false);
+	canvas.addEventListener('mousedown', mousedown, false);
+	canvas.addEventListener('mouseup', mouseup, false);
+
+	ratio=1
+	plot(canvas,tab_coordonnees,ratio)//tab_face[nbface].codeface
+}
+);
+
+
+</script>
+</head>
+<body>
+<table>
+	<tr>
+  	<td>
+    	<table>
+      	<tr>
+        	<td><img src="images/espaceur.gif" width="100" height="1">
+          </td>
+        	<td><form name="<?php echo $form_affiche_canvas ?>" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+          		<input type="hidden" name="id_bois" id="id_bois" value="<?php echo $id_bois ?>">
+              <input type="hidden" name="id_echantillon" id="id_echantillon" value="<?php echo $id_echantillon ?>">
+              <input type="hidden" name="id_face" id="id_face" value="<?php echo $id_face ?>">
+              <input type="hidden" name="libface" id="libface" value="<?php echo $libface ?>">
+							<input type="hidden" name="lambda" id="lambda" value="<?php echo $lambda ?>" >
+              <input type="image" name="b_lambda" src="images/b_lambda<?php echo $lambda==''?'':'_inverse' ?>.png"
+               onClick="document.forms['<?php echo $form_affiche_canvas ?>'].elements['lambda'].value='<?php echo $lambda==''?'inverse':'' ?>'">
+          		</form>
+          </td>
+          <td><img src="images/b_zoom_plus.png" onClick="ratio=ratio*110/100;plot(canvas,tab_coordonnees,ratio)">
+          </td>
+          <td><img src="images/b_zoom_moins.png" onClick="ratio=ratio*90/100;plot(canvas,tab_coordonnees,ratio)">
+          </td>
+          <td nowrap><?php echo $tab_bois[$id_bois]['libbois'] ?> - Echantillon : <?php echo $tab_echantillon[$id_echantillon]['libechantillon'] ?> - Face : <?php echo $libface ?>
+          </td>
+        </tr>
+        <tr><td colspan="4"></td>
+          <td class="orangegrascalibri11" align="center">
+            Les valeurs ne sont pas forc&eacute;ment toutes repr&eacute;sent&eacute;es sur la courbe.<br>
+            <span class="mauvegrascalibri11">S&eacute;lectionnez un cadre sur le graphique pour en extraire une partie agrandie.</span> 
+          </td>
+        </tr>
+			</table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <canvas id="canvas_courbe"></canvas>
+    </td>
+  </tr>
+</table>
+<canvas id="canvas_courbe_zoom" style="display:none"></canvas>
+<img id="img_plot" src="<?php //echo $src ?>" width="200" height="200" style="display:none"/><!--if((new String(this.src)).indexOf('espaceur.gif')==-1){OuvrirVisible(this.src,'plot')} -->
+<div id='debug'></div>
+</body>
+</html>

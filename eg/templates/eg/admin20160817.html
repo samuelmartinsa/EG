@@ -1,0 +1,563 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>EG admin</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../../static/css/eg.css" type="text/css">
+<style>
+table td 
+{ font-family:Calibri;
+	font-size:14pt
+}
+a:link {
+	text-decoration: underline;
+	font-family:Calibri; color:white
+}
+a:visited {
+	text-decoration: underline;
+}
+a:hover { background-color:#0FF;
+	text-decoration: none;
+}
+a:active {
+	text-decoration: underline;
+}
+</style>
+  <link rel="stylesheet" href="../../static/SpryAssets/SpryTooltip.css">
+	<script src="../../static/SpryAssets/SpryTooltip.js" type="text/javascript"></script>
+	<script src="../../static/jquery-1.10.2.min.js" type="text/javascript"> </script>
+	{% if adminState=='logged'%}
+	<script type="text/javascript">
+		function computeTotals()
+		{ frm=document.forms['formadmin'];
+			numGames=parseInt(frm.elements['numGames'].value,10)
+			if(isNaN(numGames))
+			{ numGames=0;
+				frm.elements['numGames'].value=0
+			}
+			numRounds=parseInt(frm.elements['numRounds'].value,10)
+			if(isNaN(numRounds))
+			{ numRounds=0;
+				frm.elements['numRounds'].value=0
+			}
+			loneRoundDuration=parseInt(frm.elements['loneRoundDuration'].value,10)
+			if(isNaN(loneRoundDuration))
+			{ loneRoundDuration=0;
+				frm.elements['loneRoundDuration'].value=0
+			}
+			socialRoundDuration=parseInt(frm.elements['socialRoundDuration'].value,10)
+			if(isNaN(socialRoundDuration))
+			{ socialRoundDuration=0;
+				frm.elements['socialRoundDuration'].value=0
+			}
+			gameSetDuration=numGames*(loneRoundDuration+socialRoundDuration*(numRounds-1))
+			$('#gameSetDuration').html(new String((gameSetDuration-gameSetDuration%60)/60)+' mn '+new String(gameSetDuration%60)+' sec')
+			
+			
+			if(frm.elements['imageType'][0].checked)
+			{ imageType='fractal'
+			}
+			else
+			{ imageType='peanut'
+			}
+			
+			if(frm.elements['playMode'][0].checked)
+			{ numImagesPerGame=3
+			}
+			else
+			{ numImagesPerGame=1
+			}
+			if(frm.elements['freeImages'][0].checked)
+			{ numFreeImages=parseInt($('#total'+imageType+'ImagesNumber').html(),10)
+			}
+			else
+			{ numFreeImages=parseInt($('#free'+imageType+'ImagesNumber').html(),10)
+			}
+
+			numImages=parseInt(frm.elements['numImages'].value,10)
+			if(isNaN(numImages))
+			{ numImages=0;
+				frm.elements['numImages'].value=0
+			}
+			if(numGames!=0)
+			{ totalImages=numFreeImages+numImages
+				$('#numGameSetsLimitImages').html(Math.floor((totalImages)/(numGames*numImagesPerGame)))
+			}
+			numFreeKeyCode=parseInt($('#numFreeKeyCode').html(),10)
+			numNewKeyCodes=parseInt(frm.elements['numNewKeyCodes'].value,10)
+			if(isNaN(numNewKeyCodes))
+			{ numNewKeyCodes=0;
+				frm.elements['numNewKeyCodes'].value=0
+			}
+			numExpectedParticipants=parseInt(frm.elements['numExpectedParticipants'].value,10)
+			if(isNaN(numExpectedParticipants))
+			{ numExpectedParticipants=0;
+				frm.elements['numExpectedParticipants'].value=0
+			}
+			if(numExpectedParticipants!=0)
+			{ totalFreeKeyCode=numFreeKeyCode+numNewKeyCodes
+				if(frm.elements['redundantMode'].checked)
+				{	$('#numGameSetsLimitKeycodes').html(totalFreeKeyCode)
+				}
+				else
+				{ $('#numGameSetsLimitKeycodes').html(Math.floor(totalFreeKeyCode/numExpectedParticipants))
+				}
+			}
+		}
+		
+		function stringdate()
+		{ var currentdate = new Date();
+			var datetime = currentdate.getDay() + "-"+currentdate.getMonth()
+			+ "-" + currentdate.getFullYear() + "-" 
+			+ currentdate.getHours() + "-" 
+			+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+			return datetime;
+		}
+		
+		function update()
+		{ var url='/eg/admin?sessionId={{sessionId}}&time='+stringdate()
+			$.get(url,'getFlag=true',
+			function(adminAttributes) 
+			{ if(adminAttributes['EGRunning'])
+				{ $('#egrunning_display').show()
+					$('#egnotrunning_display').hide()
+					if(adminAttributes['activateTimer']=='y')
+					{	if(adminAttributes['loginState']=='beforeLogin')
+						{ $("#timerInfo").html('You will be allowed to connect in '+adminAttributes['timeLeft']);
+						}
+						else if(adminAttributes['loginState']=='openLogin')
+						{ $("#timerInfo").html('You have '+adminAttributes['timeLeft']+' time left to log in');
+						}
+						else 
+						{ $("#timerInfo").html('Login is closed');
+						}
+						
+						if(adminAttributes['gameSetState']=='Running')
+						{ $("#timerInfo").html($("#timerInfo").html()+'<br>Game set may be running');
+							//document.getElementById('submitstop').disabled=true
+							document.getElementById('submitstop').value='Wait'
+							document.getElementById('submitstop').className="submit_button_bckg_F90"
+						}
+						else if(adminAttributes['gameSetState']=='afterRunning')
+						{	$("#timerInfo").html($("#timerInfo").html()+'<br>Game set is terminated, participants should accept debriefing');
+							//document.getElementById('submitstop').disabled=false
+							document.getElementById('submitstop').value='Stop'
+							document.getElementById('submitstop').className="submit_button_bckg_F00"
+						}
+					}
+					else
+					{ $("#timerInfo").html('Timer is not activated : login delay is not applied, users can login when they want');
+					}
+					EG_session_info="<TABLE align='center' border='1'>"
+					tablelines=adminAttributes['EG_session_info'].split('###')
+					for(numline=0;numline<tablelines.length;numline++)
+					{ EG_session_info+="<tr>"
+						line=tablelines[numline].split('!#!')
+						for(numcol=0;numcol<line.length;numcol++)
+						{ EG_session_info+="<td>"
+							EG_session_info+=line[numcol]
+							EG_session_info+="</td>"
+						}
+						EG_session_info+="</tr>"
+					}
+					EG_session_info+="<TABLE>"
+					$('#EG_session_info').html(EG_session_info)
+				}
+				else
+				{ $('#egrunning_display').hide()
+					$('#egnotrunning_display').show()
+				}
+			},"json");//end $.get
+		} 
+		 
+		$(document).ready( function()
+		{	computeTotals()
+			update()
+			var int = self.setInterval(function ()
+			{ update()
+			}, 5000);
+		});
+
+	</script>		
+  {% endif %}
+
+	</head>
+<body style="font-size:14pt;background: #FFFFFF;">
+<table border="0" align="center">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table border="0" align="center" class="table_header">
+      <tr>
+        <td class="blue18">Estimation Game Administration Interface</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center">
+    {% if adminState=='' or adminState=='loginError'%} <!---->
+      <form action="admin" method="post">
+        <table border="0" class="table_bord_666_bckg_099">
+          {% if adminState=='loginError'%}
+          <tr>
+            <td class="bleucalibri12">&nbsp;</td>
+            <td class="rougecalibri11">{{loginError}}</td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td class="bleucalibri12">login :</td>
+            <td><input type="text" name="username" ></td>
+          </tr>
+          <tr>
+            <td class="bleucalibri12">password :</td>
+            <td><input type="password" name="pwd" ></td>
+          </tr>
+          <tr>
+            <td class="bleucalibri12">&nbsp;</td>
+            <td align="center"><input name="submit" type="submit" class="submit_button_bckg_03C" value="Submit"></td>
+          </tr>
+        </table>
+      </form>
+  {% elif adminState=='logged'%}
+  <!-- avoid ENTER key send a submit on the first submit field in the form-->
+  <form name="formadmin" id="formadmin" action="admin" method="post"
+  onChange="computeTotals()" 
+  onKeyPress="if(event.keyCode==13){alert('Don\'t use Enter Key');return false}"
+  >
+  <input type="image" src="../../static/pic/spacer.gif" width="0" height="0">
+  <input type="hidden" name="sessionId" value="{{sessionId}}">
+  <table align="center" cellspacing="2" class="table_bord_666_bckg_099">
+    <tr>
+      <td width="181" nowrap class="blancalibri12"  valign="top">
+        <table border="0" width="100%">
+          <tr>
+            <td><a href="monitor?sessionId={{sessionId}}" target="_blank" >Monitoring</a></td>
+          	<td align="right"><img src="../../static/pic/b_info_italic.png" width="35" height="35" id="sprytrigger_admin_info">
+                <div class="tooltipContent_cadre" id="admin_info">
+                  <span class="black12">
+                  Use existing games : use existing images of games which ids are stored in the file good_game_id.csv, activate "Add robots mode",<br>
+                  disable "Check IP address" and fix the "Participants number" to 6 and "Rounds number" to 3<br>
+                  "Add robots mode" : robots will be created to simulate players and added in the minute the real user is in the waiting room,<br>
+                  disable "Check IP address".<br>
+                  Activate Timer : disable loging before start hour and enable only during delay to log in a game set<br> 
+                  Check IP address : if checked, an other simultaneous login with the same IP address is forbidden<br>
+                  Currently, if the number of images is not suffisant during the game, an error is sent to users and the game set is stopped.<br>
+                  'Start' : set parameters to start the game (EGRunning)<br>
+                  &nbsp;- applies new parameters, <br>
+                  &nbsp;- <b>deletes game sets having wait_in_room status</b>, linked participants, games and keycodes,<br>
+                  &nbsp;- frees images linked to deleted game sets, <br>
+                  &nbsp;- changes status of STARTED  game sets to TERMINATED, <br>
+                  &nbsp;- changes status of keycodes from IN_USE to USED, <br>
+                  &nbsp;- changes status of IP addresses from 'in use' to 'not in use' <br>
+                  'Stop' : possible until people may log in and after the time needed for a game set execution<br>
+                  'Wait' : people have logged in and a game set may be started. 'Stop' button is replaced by 'Wait'.<br>
+                  It's possible to stop the game by clicking on 'Wait' but not recommanded at all : it's a way to let administrator correct<br>
+                  something wrong. In fact, the next 'Start' will disturb the begun game sets if some parameters are changed.
+                	</span>
+                </div>
+                <script type="text/javascript">
+                  var sprytooltip_admin_info = new Spry.Widget.Tooltip("admin_info", "#sprytrigger_admin_info", {offsetX:0, offsetY:20});
+                </script>
+          </td>
+          </tr>
+        </table></td>
+      <td width="303" align="left" nowrap>
+      	<table width="100%" border="0">
+          <tr>            
+            <td>
+            	{% if EGParameters['EGRunning'] %}
+              <table>
+              	<tr>
+                	<td>
+                    <input name="submitstop" id="submitstop" type="submit" class="submit_button_bckg_F00" value="Stop"
+                    onClick="if(this.value=='Wait')
+                    				{ return confirm('Game sets may be running'+'\nUsers will not be able to login if you stop.\nAre you sure?')
+                            }
+                            else
+                            { return confirm('Users will not be able to login if you stop.\nAre you sure?')
+                            }
+                            "
+                    >
+                  </td>
+                	<td>
+                    &nbsp;EG Is Running on port {{EGParameters['serverPort']}}
+                  </td>
+              	</tr>
+              	<tr>
+                	<td></td>
+                  <td>
+              			<h3 id="timerInfo"></h3>
+                	</td>
+              	</tr>
+                <tr>
+                  <td colspan="2"><div id='EG_session_info'></div>
+                  </td>
+                </tr>
+              </table>
+      				{% else %}              
+                <input name="submitstart" type="submit" class="submit_button_bckg_092" value="Start"
+                  onClick="if($('input:radio[name=playMode]:checked' ).val()=='continuous' && document.getElementById('numRounds').value!=2)
+                  				{ document.getElementById('numRounds').value=2;
+                          	alert('Play mode continuous : Rounds number set to 2 !');
+                          }
+                  				return confirm('Images limitation: '+$('#numGameSetsLimitImages').html()+' game sets'+'\n'+'Key codes limitation: '+$('#numGameSetsLimitKeycodes').html()+' game sets')"
+                  >
+            	<img src="../../static/pic/spacer.gif" width="100" height="1" >&nbsp;EG Is Not Running
+              {% endif %}
+            </td>
+            <td align="right" valign="top">
+            <input name="submitlogout" type="submit" class="submit_button_bckg_666" value="Logout">
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+    {% if warning!='' %}
+		<tr>
+      <td colspan="2" align="center" bgcolor="#FFFFFF" class="orange16">Exception on parameters : {{warning}}</td>
+    </tr>
+    {% endif %}
+    <tr>
+      <td nowrap>Use existing games</td>
+    	<td>
+            	
+            	<input type="checkbox" name="useExistingGames" {% if EGParameters['useExistingGames']=='y'%} checked {% endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}
+                 onClick="if(this.checked)
+                 					{ frm=document.forms['formadmin'];
+                            if(confirm('Works only with 6 participants : change participants number ?'))
+                            { frm.elements['numExpectedParticipants'].value=6
+                              frm.elements['numExpectedParticipants'].disabled=true;
+                              frm.elements['addRobotsMode'].checked=true
+                              frm.elements['addRobotsMode'].disabled=true
+                              frm.elements['checkIP'].checked=false
+                              frm.elements['checkIP'].disabled=true
+                              frm.elements['numRounds'].value=3
+                            }
+                          }
+                          else
+                          { frm.elements['numExpectedParticipants'].disabled=false;
+                            frm.elements['addRobotsMode'].disabled=false
+                            if(frm.elements['addRobotsMode'].checked)
+                            { frm.elements['checkIP'].checked=false
+                            	frm.elements['checkIP'].disabled=true
+                            }
+                            else
+                            { frm.elements['checkIP'].disabled=false
+                            }
+                          }
+                          
+                 ">
+						</td>
+						<td>
+            </td>
+    </tr>
+   	<tr>
+   	  <td nowrap>Add robots Mode</td>
+   	  <td><input type="checkbox" name="addRobotsMode" {% if EGParameters['addRobotsMode']=='y'%} checked {% endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}
+            		onClick="if(this.checked)
+                				{ frm.elements['checkIP'].checked=false
+                          frm.elements['checkIP'].disabled=true
+                        }
+                        else
+                        { frm.elements['checkIP'].disabled=false
+                        }
+                        
+								"></td>
+ 	  </tr>
+   	<tr>
+   	  <td nowrap>Redundant images Mode</td>
+   	  <td><input type="checkbox" name="redundantMode" {% if EGParameters['redundantMode']=='y'%} checked {% endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}
+      					onClick="if(this.checked)
+                				{ frm.elements['numGames'].disabled=true
+                        }
+                        else
+                        { frm.elements['numGames'].disabled=false
+                        }
+                        
+								"></td>
+ 	  </tr>
+   	<tr>
+   	  <td nowrap>Experiment will start in (hh:mn)
+      	</td>
+        <td>
+      	<table>
+        	<tr>
+   	  			<td width="35" nowrap>
+            	<input type="text" name="starthour" value="{{EGParameters['starthour']}}" size="5" maxlength="5" {% if EGParameters['EGRunning'] %} disabled{%endif%}>
+            </td>
+            <td nowrap><input type="checkbox" name="activateTimer" {% if EGParameters['activateTimer']=='y'%} checked {% endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}>
+            </td>
+            <td width="134" nowrap>Activate Timer</td>
+            <td><input type="checkbox" name="checkIP" {% if EGParameters['checkIP']=='y'%} checked {% endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}>
+            </td>
+            <td width="160">Check IP address
+            </td>
+          </tr>
+        </table>
+      </td>
+ 	  </tr>
+    <tr valign="top">
+      <td nowrap>Skip steps</td>
+      <td nowrap><table>
+        <tr>
+          <td nowrap>Consent, questionnaire, instruct</td>
+          <td nowrap><input type="checkbox" name="skipConsentInstruct" {% if EGParameters['skipConsentInstruct']=='y'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          <td nowrap>Just the questionnaire</td>
+          <td nowrap><input type="checkbox" name="skipQuestionnaire" {% if EGParameters['skipQuestionnaire']=='y'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td nowrap>With key codes</td>
+      <td nowrap><input type="checkbox" name="keyCodeMode" {% if EGParameters['keyCodeMode']=='y'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+      <td nowrap>With password</td>
+      <td nowrap><input type="checkbox" name="withPassword" {% if EGParameters['withPassword']=='y'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+    	<td nowrap>Max delay to log in a game set (mn.)
+      </td>
+      <td nowrap><input type="text" name="maxDelayToLoginGameSet" value="{{EGParameters['maxDelayToLoginGameSet']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+    	<td nowrap>Max delay to begin a game set (mn.)
+      </td>
+      <td nowrap><input type="text" name="maxDelayToBeginGameSet" value="{{EGParameters['maxDelayToBeginGameSet']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+   	<tr>
+      <td nowrap>Play mode</td>
+      <td nowrap><table>
+        <tr>
+          <td nowrap><input name="playMode" id="playMode" type="radio" value="discrete" {% if EGParameters['playMode']=='discrete'%}checked {%endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%}
+          					 onClick="document.getElementById('numRounds').value=3;document.getElementById('numRounds').readOnly=false;">
+          </td>
+          <td nowrap>Discrete</td>
+          <td nowrap><input name="playMode" id="playMode" type="radio" value="continuous" {% if EGParameters['playMode']=='continuous'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}
+          					 onClick="document.getElementById('numRounds').value=2;document.getElementById('numRounds').readOnly=true;
+                              ">
+          </td>
+          <td nowrap>Continuous</td>
+        </tr>
+      </table></td>
+    </tr>
+   	<tr>
+   	  <td nowrap>Estimation type</td>
+   	  <td nowrap>
+      	<table>
+          <tr>
+          	<td nowrap><input name="position_or_value" type="radio" value="position" {% if EGParameters['position_or_value']=='position'%}checked {%endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%} >
+      			</td>
+      			<td nowrap>Position</td>
+   	  			<td nowrap><input name="position_or_value" type="radio" value="value" {% if EGParameters['position_or_value']=='value'%}checked {%endif%} {% if EGParameters['EGRunning'] %} disabled{%endif%} >
+          	<td nowrap>Value</td>
+          </tr>
+        </table>
+    	</td>
+ 	  </tr>
+    <tr>
+      <td nowrap>Images type</td>
+      <td nowrap><table>
+        <tr>
+          <td nowrap><input type="radio" name="imageType" value="fractal"  {% if EGParameters['imageType']=='fractal'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          <td nowrap>Fractal</td>
+          <td nowrap><input type="radio" name="imageType" value="peanut" {% if EGParameters['imageType']=='peanut'%}checked {%endif%}{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          <td nowrap>Peanuts</td>
+          </tr>
+      </table>
+        </td>
+    </tr>
+    <tr>
+      <td nowrap>Duplicate existing images</td>
+      <td nowrap><table>
+        <tr>
+          <td nowrap><input type="radio" name="freeImages" value="y" {% if EGParameters['freeImages']=='y'%}checked {%endif%}{% if EGParameters['EGRunning'] or EGParameters['freeImagesNumber']==EGParameters['totalImagesNumber']%} disabled{%endif%}></td>
+          <td nowrap>Yes</td>
+          <td nowrap><input type="radio" name="freeImages" value="n" {% if EGParameters['freeImages']=='n'%}checked {%endif%}{% if EGParameters['EGRunning'] or EGParameters['freeImagesNumber']==EGParameters['totalImagesNumber'] %} disabled{%endif%}></td>
+          <td nowrap>No</td>
+          <td nowrap> Fractal : <span id="freefractalImagesNumber">{{EGParameters['freefractalImagesNumber']}}</span> free/<span id="totalfractalImagesNumber">{{EGParameters['totalfractalImagesNumber']}}</span> total<br>
+          						Peanut  : <span id="freepeanutImagesNumber">{{EGParameters['freepeanutImagesNumber']}}</span> free/<span id="totalpeanutImagesNumber">{{EGParameters['totalpeanutImagesNumber']}}</span> total
+          </td> 
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td nowrap>Generate images</td>
+      <td nowrap><input type="text" name="numImages" value="{{EGParameters['numImages']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+      <td valign="top" nowrap>Generate new user-gameset key codes</td>
+      <td>
+      	<table>
+      		<tr>
+      			<td><input name="numNewKeyCodes" type="text" value="{{EGParameters['numNewKeyCodes']}}"{% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+      			<td>{% if numFreeKeyCode>0 %}
+            			<a href="result?sessionId={{sessionId}}&what=db_get_free_keys" target="_blank">Export <span id="numFreeKeyCode">{{numFreeKeyCode}}</span> free keyCodeBegin,keyCodeEnd</a>
+    						{% else %}
+                <span id="numFreeKeyCode">{{numFreeKeyCode}}</span> free keys to export 
+    						{% endif %}
+                
+            </td>
+          </tr>
+        </table>
+      </td>				
+    </tr>
+    <tr>
+      <td nowrap>Games number</td>
+      <td nowrap>
+      	<input type="text" name="numGames" id="numGames" value="{{EGParameters['numGames']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}>
+      </td>
+    </tr>
+    <tr>
+      <td nowrap>Rounds number</td>
+      <td nowrap><input name="numRounds" type="text" id="numRounds" value="{{EGParameters['numRounds']}}"  {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+      <td nowrap>Participants number</td>
+      <td nowrap><input type="text" name="numExpectedParticipants" id="numExpectedParticipants" value="{{EGParameters['numExpectedParticipants']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+    </tr>
+    <tr>
+      <td nowrap>Round duration (sec.)</td>
+      <td nowrap><table border="0">
+        <tr>
+          <td>Lone:&nbsp;</td>
+          <td><input type="text" name="loneRoundDuration" value="{{EGParameters['loneRoundDuration']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          <td>Social:&nbsp;</td>
+          <td><input type="text" name="socialRoundDuration" value="{{EGParameters['socialRoundDuration']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr valign="top">
+      <td nowrap>Max reward points</td>
+      <td nowrap><table border="0">
+        <tr>
+          <td>Lone:&nbsp;</td>
+          <td><input type="text" name="loneMaxReward" value="{{EGParameters['loneMaxReward']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          <td>Social:&nbsp;</td>
+          <td><input type="text" name="socialMaxReward" value="{{EGParameters['socialMaxReward']}}" {% if EGParameters['EGRunning'] %} disabled{%endif%}></td>
+          </tr>
+        </table></td>
+    </tr>
+		<tr>
+    	<td colspan="2">
+      	<table class="table_bord_69C_bckg_666" align="center">
+        	<tr>
+          	<td>Game set duration : <span id="gameSetDuration"></span> | 
+            </td>
+          	<td>Free Images for : <span id="numGameSetsLimitImages"></span> game set | 
+            </td>
+          	<td>Free Keycodes for : <span id="numGameSetsLimitKeycodes"></span> game set
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+ {% endif %}
+</td>
+  </tr>
+</table>
+</body>
+</html>

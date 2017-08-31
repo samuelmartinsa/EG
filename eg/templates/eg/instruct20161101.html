@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html>
+<head>
+<title>Instructions</title>
+<script src="../../static/jquery-min.js" type="text/javascript"> </script>
+<script src="../../static/task.js" type="text/javascript"> </script>
+<link rel=stylesheet href="../../static/css/eg.css" type="text/css" >
+<script type="text/javascript">
+var urlParam = searchToObject();
+if(window.location.href.indexOf("instruct") == -1 || window.location.href.indexOf("hitId") == -1 || urlParam["hitId"] != "{{ hitId }}" || window.location.href.indexOf("assignmentId") == -1 || urlParam["assignmentId"] != "{{ assignmentId }}" || window.location.href.indexOf("workerId") == -1 || urlParam["workerId"] != "{{ workerId }}" || window.location.href.indexOf("sessionId") == -1 || urlParam["sessionId"] != "{{ sessionId }}") 
+{ window.location = '/eg/instruct?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}';
+}
+function searchToObject() 
+{ var pairs = window.location.search.substring(1).split("&"),
+	obj = {},
+	pair,
+	i;
+
+	for ( i in pairs ) {
+			if ( pairs[i] === "" ) continue;
+	
+		pair = pairs[i].split("=");
+		obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+	}
+
+	return obj;
+}  
+function onexit() 
+{ self.close()
+}
+</script>
+</head>
+<body>
+    	
+<table width="800" align="center">
+	<tr>
+  	<td>
+	<p class="white22" align="center"><b>Instructions</b></p>
+	<p class="white18"><b>Description of the experiment</b></p>
+	<p style="text-align: justify;">
+		{% if playMode=="discrete" %}
+      During the experiment, you will participate in several games. At the beginning of a game, you will see 3 different images.
+        Your goal is to find the&nbsp;
+        {% if EGParameters["imageType"]=='fractal'%}
+          percentage (from 0 to 100) of some colors in each image.
+        {% else %}
+          number of items (for instance peanuts in explanations below) in each image.
+        {% endif %}
+     {% else %}
+     <!-- continuous -->   
+        During the experiment, you will participate in several games. At the beginning of a game, you will see an image.
+        Your goal is to find the&nbsp;
+        {% if EGParameters["imageType"]=='fractal'%}
+          percentage (from 0 to 100) of some color in the image.
+        {% else %}
+          number of items (for instance peanuts in explanations below) in the image.
+        {% endif %}
+     {% endif %}
+
+    </p>
+    <p style="text-align: justify;">
+    Each game is composed of <b>{{EGParameters['numRounds']}} rounds</b> : 1 "lone" and {{EGParameters['numRounds']-1}} "social" round(s).
+    Each round of a game gives you an opportunity to do a new estimate and earn more points.
+    You must click on the Submit button after you entered your decisions. You have a limited time to do so.
+    You have to do your first decision on your own during the "lone" round.<br> 
+    {% if playMode=="discrete" %}
+    Afterward, you will receive information from other players.
+    {% else %}
+    <!-- continuous -->
+    Afterward, during the "social" round, every player can do as many decisions as he wants and will receive information from other players:<br>
+    - firstly, players decisions of the "lone" round are given<br>  
+    - then , every new decision , the information is refreshed.<br>
+    {% endif %} </p>
+    <table border="0" align="center" cellpadding="4" cellspacing="4">
+      <tr>
+        <td bgcolor="#A870C4"><table border="0">
+          <tr>
+            <td nowrap bgcolor="#FF7070"><span style="text-align: justify;">Explanations are given below  in colored panels</span></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table>
+    <div id="lone" align="center">
+      <p class="white18"><b>Example of a lone round</b></p>
+    <p class="white18">    <img src='../../static/pic/lone_round_{{EGParameters["playMode"]}}_{{EGParameters["imageType"]}}.gif' alt='pic_lone_{{EGParameters["imageType"]}}' width="1020" height="510">    </p>
+  </div>
+    
+    <div id="social" align="center">
+    <p class="white18"><b>Example of a social round</b></p>
+    <img width="1020" src='../../static/pic/social_round_{{EGParameters["playMode"]}}_{{EGParameters["imageType"]}}.gif' alt='pic_social_{{EGParameters["imageType"]}}' >
+    </div>
+    
+	{% if EGParameters['site']!='eg_open'%}
+	<p class="white22" id="points"><b>How much money will I earn?</b></p>
+
+    You will receive a bonus of $1 if your answers are less than 5% away from the correct answers more than 
+{% if EGParameters["imageType"]=='fractal'%} half {% else %} one third {% endif %} of the time. <b> Beware, only the best participants will manage to obtain the bonus ! </b>
+
+	At the end of the experiment, your will be asked to submit your email 
+address in order to receive your money via a Paypal account. Don't 
+forget: <b>no email = no money</b>
+	{% endif %}
+
+	<p class="white22" align="center">When you are ready for the {{EGParameters['numGames']}} games, click on 
+		
+		</p><form id="accept" style="text-align: center;" action="#" method="post">
+			<input name="assignmentId" value="{{ assignmentId }}" type="hidden">
+			<input name="workerId" value="{{ workerId }}" type="hidden">
+			<input name="hitId" value="{{ hitId }}" type="hidden">
+			<input name="instructed" value="true" type="hidden">
+			<input style="font-size:16pt" value="I Understand" type="submit">
+		</form>
+<p></p>
+
+</td></tr></table>
+
+</body>
+</html>

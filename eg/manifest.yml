@@ -1,0 +1,17 @@
+---
+applications:
+  .:
+    name: estimation-game-1234
+    framework:
+      name: wsgi
+      info:
+        mem: 64M
+        description: Python WSGI Application
+        exec: 
+    infra: eu-aws
+    url: ${name}.${target-base}
+    mem: 1G
+    instances: 1
+    services:
+      db_mturk:
+        type: mysql

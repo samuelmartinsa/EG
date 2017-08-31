@@ -1,0 +1,84 @@
+Reinstalle avec python-2.7.msi pour la version de python dans c:\Program Files (x86)\Python27
+Variables env. : c:\...\Python27 et c:\...\Python27\Scripts
+python distribute_setup.py
+easy_install pip
+pip install flask
+pip install SQLAlchemy
+
+Mysql :
+MySQL-python-1.2.3.win32-py2.7.exe : donne path install python c:\Program Files (x86)\Python27
+MySQL-python-1.2.3.win-amd64-py2.7.exe pour serveur
+
+Modif config.txt : passwd root mysql, port 5000 http
+Verif Install : exemple hello.py
+---------------------
+#! /usr/bin/python
+# -*- coding:utf-8 -*-
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello !"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+-----------------------
+python hello.py
+navigateur http://localhost:5000
+pip install Pillow
+Modif. fractale_new.py : from PIL import Image
+Lance python wsgi.py
+
+besoind d'une fonte non Window dépendant : 
+Pillow-2.3.0.win32-py2.7.exe => Font font=ImageFont.load_default()
+contient aussi numpy, scipy
+
+config apache pour accès port 80 :
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+<VirtualHost *:80>
+    <Proxy *>
+        Order Deny,Allow
+        Allow from all
+    </Proxy>
+    ServerName localhost
+    ProxyPass /eg http://localhost:3127/eg
+    ProxyPassReverse /eg http://localhost:3127/eg
+
+    Alias /static c:/users/pgend/documents/htdocs/eg/static
+
+    <Directory />
+        Order Allow,Deny
+        Allow From All
+        Options -Indexes
+    </Directory>
+
+    <Directory "C:\Users\pgend\Documents\htdocs\eg\static">
+        # directives to effect the static directory
+        Options +Indexes
+    </Directory>
+</VirtualHost>
+<VirtualHost *:8080>
+    <Proxy *>
+        Order Deny,Allow
+       Allow from all
+   </Proxy>
+    ServerName localhost
+    DocumentRoot /eg-test
+    ProxyPass /eg http://localhost:5000/eg
+    ProxyPassReverse /eg http://localhost:5000/eg
+
+    Alias /static c:/users/pgend/documents/htdocs/eg_test/static
+
+    
+
+    <Directory "C:\Users\pgend\Documents\htdocs\eg_test\static">
+        # directives to effect the static directory
+        Options +Indexes
+    </Directory>
+
+</VirtualHost>
+

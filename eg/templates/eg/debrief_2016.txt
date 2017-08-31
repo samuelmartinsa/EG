@@ -1,0 +1,35 @@
+You have achieved a total of {{ totalreward }}/{{maxpoints}} points.
+
+{% if rewardcode != 0 and rewardcode != "0" and
+EGParameters['keyCodeMode']=='y' %} 
+
+Your reward code is "{{ rewardcode}}", use it to get your CrowdFlower payment.
+
+Congratulations ! You are eligible to a BONUS of $ {{ bonus}}. You will receive this bonus when you submit your rewardcode.
+
+Bonus conversion table :
+- between 1 and 49 points : $0.02
+- between 50 and 99 points : $0.05
+- between 100 and 199 points : $0.10 
+- between 200 and 299 points : $0.20 
+- more than 300 points : $0.50
+
+{% endif %}
+
+What are your feelings regarding this game ? Was it boring, frustrating, entertaining, fair... ? This will help us improving the experiment. Many thanks.
+
+<TEXT BOX>
+
+<SUBMIT BUTTON : "Submit your comments and access the correct answer">
+
+Contact the principal investigator Samuel Martin at : samuel.martin (at) univ-lorraine.fr
+
+---------------
+PAGE SUIVANTE :
+---------------
+
+Thank you for your participation in our study! Your anonymous data makes an important contribution to our understanding of human perception and memory.
+
+For information, see below the correct answers in green for all pictures you estimated.
+
+<TABLEAU REPONSES CORRECTES>

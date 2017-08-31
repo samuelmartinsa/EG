@@ -1,0 +1,366 @@
+body         { color: black; font-style: normal; font-variant: normal; font-weight: normal; 
+               font-size: 9pt; font-family: 
+               verdana, arial, helvetica, sans-serif; line-height: 9pt; 
+               margin-left: 0%; margin-right: 0% }
+
+.perso {
+	background-color: #ffff00;
+	font-family: "book antiqua";
+	font-size: x-small;
+	font-style: italic;
+	font-variant: small-caps;
+	font-weight: bold;
+	line-height: 100%;
+	margin-bottom: 25px;
+	margin-left: 10px;
+	margin-right: 20px;
+	margin-top: 15px;
+	text-align: left;
+	text-indent: 5px;
+	text-transform: capitalize;
+	word-spacing: 30px;
+}
+               
+
+
+.popperlink { POSITION: absolute; VISIBILITY: hidden }
+
+.poppervert { POSITION: absolute; VISIBILITY: hidden; z-index:3; }
+
+/*color #RRed GGreen BBleu
+*/
+A:visited { color: #008000; }
+A:link {
+	color: Blue;
+}
+A:hover   { color: #FF4030; }
+
+A:hover.ejsmenu {color:#000000; text-decoration:none;}
+A.ejsmenu {color:#000000; text-decoration:none;; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+
+/*Définition du tableau type feuille html
+*/
+
+table        {  }
+
+/*ligne de titre d'un tableau <table>
+*/
+
+th {
+	font-family: courier new;
+	font-size: small;
+	text-align: center;
+	text-transform: capitalize;
+}
+ 
+td {
+	font-family: courier new;
+	font-size: small;
+	line-height: 100%;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-align: left;
+}
+ 
+/*ligne de données ou ligne normale d'un tableau <table>
+couleur beige #F0EFD0 en arrière plan
+couleur jaune #2020a0
+*/
+
+tableauVert {
+	color : #f0efd0;
+	border-style: double;
+	border-color: green;
+	font-family: Courier New;
+	font-size: small;
+	}
+
+table.tableau   {
+	color : #f0efd0;
+	border-style: double;
+	border-color: green;
+	}
+
+
+th.tableau	{
+	font-family: Courier New;
+	font-size: small;
+	text-align: center;
+	text-transform: capitalize;
+	background-color : #2020A0;
+	color : #D0F0FF;
+	}
+
+
+
+td.tableau {
+	background-color: yellow;
+	color: black;
+	font-family: courier new;
+	font-size: x-small;
+	line-height: 100%;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	text-align: left;
+}
+	
+	
+.n	{
+	background : #C0C0C0;
+	}
+
+.n2	{
+	background : #FFFFFF;
+	font: 9pt verdana, arial, helvetica, sans-serif; 
+	}
+
+.about	{
+	background-image:url(../img/f_about.gif);
+	font: 10pt verdana, arial, helvetica, sans-serif; 
+	}
+
+.pre	{
+	background : #FFFFFF;
+	color      : #000000;
+        font       : 8pt "Courier New", Monospace;
+	}
+
+.p0	{
+	background : #2020A0;
+	color : #D0F0FF;
+	}
+
+.p1	{
+	background : #2020A0;
+	color : #D0F0FF;
+	background-image:url(../img/cs1.gif);
+	font: 11pt verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	}
+A:hover.p1   {	color:#FFFFD0;}
+A.p1b	{
+	color : #D0F0FF;
+	font: 11pt verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	}
+A:hover.p1b   {	color:#FFFFD0;}
+A:visited.p1b {	color:#C0D0F0;}
+
+
+.p2	{
+	color      : #2020A0;
+	background : #D0F0FF;
+	font: 9pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	font-weight: bold;
+	}
+.p3	{
+	color      : #2020A0;
+	font: 9pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	margin-top: 6px;
+	}
+A:hover.p3   {	
+	color:#2000A0;
+	background : #FFF0A0;
+	}
+A:visited.p1b {	color:#4040A0;}
+
+.tit  {
+	font: 18pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 2pt;
+	font-weight: bold;
+	text-align:center;
+	line-height:22pt;
+	font-weight: bold;
+	}
+
+
+A.a1	{
+	color: #D0F0FF;
+	}
+.a1	{
+	color: #D0F0FF;
+	background: #2020A0;
+	font: 10pt verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	}
+A:hover.a1   {	color:#FFFFD0;	}
+A:visited.a1 {	text-decoration: none; }
+
+
+
+/*classe de style
+couleur background #D0F0FF bleu pâle
+*/
+.b0, b1	{
+	color      : #2020A0;
+	background : #D0F0FF;
+	font: 10pt verdana, arial, helvetica, sans-serif;
+	}
+
+.b1	{
+	font: 11pt verdana, arial, helvetica, sans-serif;
+	}
+
+UL.u1, UL.u1b {
+	font: 9pt verdana, arial, helvetica, sans-serif;
+	margin-bottom: 15px;
+	margin-left: 22px;
+	margin-top: 0px;
+}
+UL.u1b {
+	margin-right: 05px;
+	text-align:justify;
+       }
+
+UL.u2 {
+	font: 11pt verdana, arial, helvetica, sans-serif;
+	line-height: 15pt;
+	list-style-image: url(../img/img0.gif);
+	margin-bottom: 15px;
+	margin-left: 25px;
+	margin-top: 10px;
+}
+
+h1	{
+	font: 18pt  "Arial";
+	color: red;
+	font-weight: bold;
+	text-decoration: underline;
+	line-height: 20pt;}
+
+h2	{
+	font: 16pt "Arial";
+	color: green;
+	text-decoration: underline;
+	font-weight: bold;
+	line-height: 16pt;}
+
+h3     {
+	color      : #2020A0;
+	text-decoration: underline;
+	font: 14pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	font-weight: bold;
+	}
+
+h4     {
+	color      : #2020A0;
+	font: 13pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	font-weight: bold;
+	}
+
+h5     {
+	color      : #2020b0;
+	font: 12pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	font-weight: bold;
+	}
+h6     {
+	color      : #2020c0;
+	font: 11pt verdana, arial, helvetica, sans-serif;
+	letter-spacing: 0pt;
+	font-weight: bold;
+	}
+
+
+p            { line-height: 9pt; text-indent: 0mm; word-spacing: 0; margin-left: 0; 
+               margin-right: 0px; margin-top: 10px; margin-bottom: 10px }
+
+
+.codeDiv{
+	width: 800px; 
+	padding-top: 15px; 
+	padding-bottom: 15px; 
+	border: 1px solid #FF006E; 
+	text-align: left; 
+	background: #dddddd;
+	border-radius: 10px;
+	font: 8pt arial, helvetica, sans-serif;
+	color      : #2020A0;
+}
+
+               
+.code	{
+	color      : #2020A0;
+	/*background : #Dddddd;*/
+	font: 8pt arial, helvetica, sans-serif;
+	/*line-height:150%*/
+
+	}
+	
+.codeTableau {
+	border-left:0px solid #999999; /* bordure droite de la table */
+	border-top:0px solid #999999; /* bordure inférieure de la table */
+	border-right: 0px solid #999999; /* bordure droite de la table */
+	border-bottom: 0px solid #999999; /* bordure inférieure de la table */
+}
+
+.codeTableau caption{
+	font-family: Arial, sans-serif; 
+	font-size: 11px; 
+	font-weight: bold; 
+	color: #666666; 
+	background-color: #CCFFCC;
+}
+
+.codeTableau td{
+	color      : #2020A0;
+	/*background : #Dddddd;*/
+	font: 8pt arial, helvetica, sans-serif;
+	/*line-height:150%*/
+	border-width:1px;
+	border-style:dotted;
+	border-color:black;
+}
+      
+.baseline { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #CCFFCC} 
+
+.baselineBleuGris { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #eff2fb} 
+
+.baselinegreen { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #CCFFCC} 
+
+.baselinered { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #FF6600} 
+
+.baselineblue { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #00CCFF} 
+
+.baselineorange { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #FF9966} 
+
+.baselineyellow { font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 
+bold; color: #666666; background-color: #FFFF66} 
+
+.urlmag { font-family: Arial, 
+Helvetica, sans-serif; font-size: 10px; font-weight: normal; color: #333333; text-align: 
+left} 
+
+.textnews { font-family: Arial, Helvetica, sans-serif; font-size: 11px; 
+color: #666666; font-weight: normal} 
+
+.them { font-family: Arial, Helvetica, sans-serif; 
+font-size: 12px; color: #FFFFFF; font-weight: bold; background-color: #000000; 
+text-align: center} 
+
+.themglob { font-family: Verdana, Arial, Helvetica, sans-serif; 
+font-size: 11px; color: #000000; background-color: #CCCCCC} 
+
+.edito { font-family: 
+Verdana, Arial, Helvetica, sans-serif; font-size: 9px; color: #FFFFFF; text-align: right}
+
+.resp { 
+font-family: Arial, Helvetica, sans-serif; font-size: 9px; color: #9999FF} 
+
+.textnews2 
+{ font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #333333; 
+font-weight: normal; text-align: center}
+
+.eline { font-family: Arial, Helvetica, 
+sans-serif; font-size: 11px; font-weight: bold; color: #666666; background-color: 
+#CCFFCC; text-align: center}         

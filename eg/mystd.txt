@@ -1,0 +1,4 @@
+__file_
+wsgi.py
+ospath
+/usr/lib/cgi-bin/estimation-game/pic/img

@@ -1,0 +1,625 @@
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+do_multiget : YES
+http://localhost:8080/eg/login	3.57
+login OK
+http://localhost:8080/eg/login	4.75
+login OK
+http://localhost:8080/eg/login	14.71
+login OK
+http://localhost:8080/eg/login	15.32
+login OK
+http://localhost:8080/eg/login	15.54
+login OK
+http://localhost:8080/eg/login	15.73
+login OK
+http://localhost:8080/eg/login	16.49
+login OK
+http://localhost:8080/eg/login	16.67
+login OK
+http://localhost:8080/eg/login	17.25
+login OK
+http://localhost:8080/eg/login	17.29
+login OK
+http://localhost:8080/eg/login	17.54
+login OK
+http://localhost:8080/eg/login	17.99
+login OK
+http://localhost:8080/eg/login	17.87
+login OK
+http://localhost:8080/eg/login	18.18
+login OK
+http://localhost:8080/eg/login	18.23
+login OK
+http://localhost:8080/eg/login	18.11
+login OK
+http://localhost:8080/eg/login	18.27
+login OK
+http://localhost:8080/eg/login	18.15
+login OK
+http://localhost:8080/eg/login	18.39
+login OK
+http://localhost:8080/eg/login	18.36
+login OK
+http://localhost:8080/eg/consent	8.48
+consent OK
+http://localhost:8080/eg/consent	8.27
+consent OK
+http://localhost:8080/eg/consent	4.52
+consent OK
+http://localhost:8080/eg/consent	4.61
+consent OK
+http://localhost:8080/eg/consent	5.02
+consent OK
+http://localhost:8080/eg/consent	6.92
+consent OK
+http://localhost:8080/eg/consent	7.16
+consent OK
+http://localhost:8080/eg/consent	7.01
+consent OK
+http://localhost:8080/eg/consent	6.43
+consent OK
+http://localhost:8080/eg/consent	6.88
+consent OK
+http://localhost:8080/eg/consent	7.87
+consent OK
+http://localhost:8080/eg/consent	7.31
+consent OK
+http://localhost:8080/eg/consent	8.92
+consent OK
+http://localhost:8080/eg/consent	9.69
+consent OK
+http://localhost:8080/eg/consent	12.92
+consent OK
+http://localhost:8080/eg/consent	13.85
+consent OK
+http://localhost:8080/eg/questionnaire_first	11.92
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	12.17
+questionnaire_first OK
+http://localhost:8080/eg/consent	15.57
+consent OK
+http://localhost:8080/eg/consent	15.89
+consent OK
+http://localhost:8080/eg/questionnaire_first	12.17
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	12.8
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	12.45
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	12.64
+questionnaire_first OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/questionnaire_first	12.46
+questionnaire_first OK
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/questionnaire_first	12.19
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	12.19
+questionnaire_first OK
+http://localhost:8080/eg/consent	16.86
+consent OK
+http://localhost:8080/eg/questionnaire_first	12.21
+questionnaire_first OK
+http://localhost:8080/eg/consent	17.64
+consent OK
+http://localhost:8080/eg/questionnaire_first	10.42
+questionnaire_first OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/questionnaire_first	12.27
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	9.22
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	8.08
+questionnaire_first OK
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/waitingroom	0.02
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/questionnaire_first	4.86
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	3.87
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/questionnaire_first	2.71
+questionnaire_first OK
+http://localhost:8080/eg/questionnaire_first	2.69
+questionnaire_first OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.02
+instruct OK
+http://localhost:8080/eg/questionnaire_first	1.08
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/questionnaire_first	1.04
+questionnaire_first OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/instruct	0.01
+instruct OK
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0
+http://localhost:8080/eg/waitingroom	0.01
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=92
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=94
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=103
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=104
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=95
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=107
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=105
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=96
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=98
+http://localhost:8080/eg/waitingroom	1.13
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=111
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=93
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=100
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=108
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=106
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=99
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=101
+http://localhost:8080/eg/expconsensus	1.07
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=97
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=109
+http://localhost:8080/eg/expconsensus	1.11
+http://localhost:8080/eg/expconsensus	1.55
+http://localhost:8080/eg/expconsensus	1.74
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=110
+http://localhost:8080/eg/waitingroom	0
+wait_in_room OK for workerId=102
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	3.5
+http://localhost:8080/eg/expconsensus	0.04
+http://localhost:8080/eg/expconsensus	3.71
+http://localhost:8080/eg/expconsensus	3.57
+http://localhost:8080/eg/expconsensus	0.03
+http://localhost:8080/eg/expconsensus	3.77
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	3.69
+http://localhost:8080/eg/expconsensus	3.25
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	4.48
+http://localhost:8080/eg/expconsensus	3.25
+http://localhost:8080/eg/expconsensus	2.99
+http://localhost:8080/eg/expconsensus	4.08
+http://localhost:8080/eg/expconsensus	3.6
+http://localhost:8080/eg/expconsensus	3.54
+http://localhost:8080/eg/expconsensus	3.34
+http://localhost:8080/eg/expconsensus	3.07
+http://localhost:8080/eg/expconsensus	2.04
+http://localhost:8080/eg/expconsensus	0.68
+http://localhost:8080/eg/expconsensus	0.92
+http://localhost:8080/eg/expconsensus	0.66
+http://localhost:8080/eg/expconsensus	0.59
+http://localhost:8080/eg/expconsensus	0.45
+http://localhost:8080/eg/expconsensus	0.49
+http://localhost:8080/eg/expconsensus	0.4
+http://localhost:8080/eg/expconsensus	0.12
+http://localhost:8080/eg/expconsensus	2.18
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.03
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=92, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=104, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=103, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=94, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=105, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=96, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=95, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=107, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=98, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=111, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=101, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=93, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=109, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=108, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=97, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=106, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=99, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=100, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=110, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=102, game=1 ,round=1
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.03
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.01
+http://localhost:8080/eg/expconsensus	0.02
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=107, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=94, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=98, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0
+POST : workerId=111, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=92, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=101, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=93, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=109, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=108, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=97, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=106, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=99, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=100, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=104, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=110, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=105, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+POST : workerId=103, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=95, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=96, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.02
+POST : workerId=102, game=1 ,round=2
+http://localhost:8080/eg/expconsensus	0.01
+workerId=107expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=94expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=98expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=111expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=92expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=101expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=93expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=109expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=108expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=97expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=106expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=99expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=100expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=104expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=110expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=105expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.02
+workerId=103expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=95expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.03
+workerId=96expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/expconsensus	0.01
+workerId=102expconsensus OK
+GAMESET_OVER
+http://localhost:8080/eg/debriefing	0.03
+workerId=107
+debriefing OK
+http://localhost:8080/eg/debriefing	0.03
+workerId=98
+debriefing OK
+http://localhost:8080/eg/debriefing	0.03
+workerId=94
+debriefing OK
+http://localhost:8080/eg/debriefing	0.03
+workerId=111
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=92
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=101
+debriefing OK
+http://localhost:8080/eg/debriefing	0.03
+workerId=93
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=109
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=108
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=97
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=106
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=99
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=100
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=104
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=110
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=105
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=103
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=95
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=96
+debriefing OK
+http://localhost:8080/eg/debriefing	0.02
+workerId=102
+debriefing OK
+

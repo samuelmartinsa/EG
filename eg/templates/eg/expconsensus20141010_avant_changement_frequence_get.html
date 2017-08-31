@@ -1,0 +1,676 @@
+<!doctype html>
+
+<html><head>
+		<title>Estimation game</title>
+		<meta charset="utf-8">
+    
+		
+		<link rel=stylesheet href="../../static/css/eg.css" type="text/css">
+    
+	  <script src="../../static/jquery-min.js" type="text/javascript"></script>
+		<script src="../../static/gen_validatorv4.js" type="text/javascript"> </script>
+		<script src="../../static/json3.js"></script>
+		
+		<!-- TIMER (Knob)-->
+		<link href="../../static/jQuery-Knob-master/knob.css" media="screen" rel="stylesheet" type="text/css"/>
+		<script src="../../static/jQuery-Knob-master/js/jquery.knob.js"></script>
+		<script src="../../static/jQuery-Knob-master/myknob.js" type="text/javascript"></script>
+    
+		<link href="../../static/zoomeg/style.css" rel="stylesheet" type="text/css"/>
+    <script src="../../static/zoomeg/cnx.js" type="text/javascript"></script>
+    <script src="../../Scripts/swfobject_modified.js" type="text/javascript"></script>
+    <script type="text/javascript">	
+			var playMode="{{ playMode }}"
+			var columnNumber=parseInt("{{ columnNumber }}",10)
+		</script>
+    <script src="../../static/zoomeg/zoom.js" type="text/javascript"></script>
+		<script type="text/javascript">			
+			//var listOfEstimations = [];
+			var prevChoice = [];
+			var prevGame=-1;
+			var tab_roundduration=new Array();
+			tab_roundduration['LONE']="{{EGParameters['loneRoundDuration']}}" 
+			tab_roundduration['SOCIAL']="{{EGParameters['socialRoundDuration']}}" 
+			<!-- return date-time with dd-mm-yyyy-HH-mn-sec format for user's display -->
+			
+			function stringdate()
+			{	var currentdate = new Date();
+				var datetime = currentdate.getDay() + "-"+currentdate.getMonth() + "-" + currentdate.getFullYear() + "-" + currentdate.getHours() + "-"	+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+				return datetime;
+			}
+			
+			/* transforms styles #color values to percent displayed as #decision id form values */
+			function refreshSwatch() 
+			{	var red = $( "#red" ).slider( "value" );
+				var green = $( "#green" ).slider( "value" );
+				var blue = $( "#blue" ).slider( "value" );
+				var perc = parseFloat(red)/10;
+				var perc2 = parseFloat(green/10);
+				var perc3 = parseFloat(blue/10);			
+				$( "#decision0" ).val(perc);
+				$( "#decision1" ).val(perc2);
+				$( "#decision2" ).val(perc3);
+			}
+			
+			function transformStringListRoundValues2Array(prevRoundHTML)
+			{	try
+ 				{ tabstring=prevRoundHTML
+					while(tabstring.indexOf(" ")!=-1)
+					{ tabstring=tabstring.substr(0,tabstring.indexOf(" "))+tabstring.substr(tabstring.indexOf(" ")+1,tabstring.length)
+					}
+					tabstring=tabstring.substr(2,tabstring.length)
+					tabstring=tabstring.substr(0,tabstring.length-2)
+					tablist=tabstring.split("],[")
+					var listRoundValues=Array()
+					for(i=0;i<tablist.length;i++)
+					{ listRoundValues[i]=tablist[i].split(",")
+					}
+				}
+				catch(e)
+				{	alert('catch transformStringListRoundValues2Array')
+				}
+				return listRoundValues
+			}
+			
+			function isDifferentFromPreviousEstimations(prevRoundHTML,listRoundValues)
+			{ return prevRoundHTML!=listRoundValues;
+			}
+			
+			function createRoundImages(canvas,listRoundValues,prevChoice,distinct,xMax,imgHeight,imgWidth,zoom,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+			{ //alert('appel createRoundImages '+listRoundValues);
+				zoomedImgWidth=imgWidth*zoom
+				canvas.width=zoomedImgWidth
+				canvas.height=imgHeight
+				ratio=(imgWidth/xMax)*zoom
+				xAxisPos=imgHeight/2
+				imgNumber_of_one_round = 0
+				// The choice of WorkerId must be printed and not hidden with the choice of an other worker : printed after others players prints 
+				xWorkerId=xMax+1
+				for(numEvaluatedImg=0;numEvaluatedImg<listRoundValues.length;numEvaluatedImg++)
+				{	oneEvaluatedImg=listRoundValues[numEvaluatedImg]
+					imgNumber_of_one_round = imgNumber_of_one_round + 1
+					draw = canvas.getContext("2d");
+					draw.fillStyle = "rgb(255,255,255)";
+					draw.fillRect(0,0,zoomedImgWidth,imgHeight)
+					draw.font = 'bold 8pt Courier';
+					// draw = ImageDraw.Draw(img_prevround)
+					// x axis
+					draw.fillStyle = "rgb(0,0,0)"
+					draw.fillRect(0,xAxisPos,zoomedImgWidth,1)
+					for(x=0;x<parseInt(xMax);x++)
+					{	//draw.fillRect(x*ratio,xAxisPos-2,1,2)
+						if(x%graduationStep1 == 0)
+						{ draw.fillRect(x*ratio-1,xAxisPos-4,2,4)
+							/*textSize=draw.measureText(String(x));
+							textWidth = textSize.width
+							draw.fillText(x,x*ratio-textWidth/2, xAxisPos+15);*/
+							//, xLabelFormat.format(x),fill=(0,0,0), font=font);
+						}
+						if(x%graduationStep2 == 0)
+						{ draw.fillRect(x*ratio-1,xAxisPos-8,2,8)
+							textSize=draw.measureText(String(x))
+							textWidth = textSize.width
+							draw.fillText(String(x),x*ratio-textWidth/2, xAxisPos+15)
+							//, xLabelFormat.format(x),fill=(0,0,0), font=font);
+						}
+					}// round responses values over the x axis
+					for(j in oneEvaluatedImg)
+					{ oneValue=oneEvaluatedImg[j]
+						if(oneValue!=0)
+						{ x = oneValue*ratio;	
+							centerX = x;centerY = 10;radius=2;
+							draw.beginPath();
+							draw.arc(centerX, centerY, radius, 0, 2*Math.PI, false);
+							draw.fillStyle = "rgb(0,0,255)";
+							draw.fill();
+							draw.lineWidth = 5;
+							draw.strokeStyle = 'rgb(0,0,255)';
+							draw.stroke();
+						}
+					}
+					//user choice in red
+					centerX = prevChoice[numEvaluatedImg]*ratio; centerY = 10;radius=2
+					draw.beginPath();
+					draw.arc(centerX, centerY, radius, 0, 2*Math.PI, false)
+					draw.fillStyle = "rgb(255,0,0)"
+					draw.fill();
+					draw.lineWidth = 5;
+					draw.strokeStyle = 'rgb(255,0,0)';
+					draw.stroke();
+					//alert("img_prevround"+imgNumber_of_one_round+distinct)
+					document.getElementById("img_prevround"+imgNumber_of_one_round+distinct).src = canvas.toDataURL();
+					//document.getElementById("img_prevround"+imgNumber_of_one_round+distinct).width=zoomedImgWidth//document.getElementById("img_prevround"+imgNumber_of_one_round+distinct).width=zoomedImgWidth;
+				}
+			}
+						
+			(function($)
+			{ $.extend({ playSound: function() { return $("<embed src='"+arguments[0]+"' hidden='true' autostart='true' loop='false' class='playSound'>").appendTo('body');}});
+			})(jQuery);
+			
+			// Subject info, including condition and counterbalance codes.		
+			$(document).ready( function()
+			{	var urlParam = searchToObject();
+				if(	window.location.href.indexOf("expconsensus") == -1 
+						|| window.location.href.indexOf("hitId") == -1 || urlParam["hitId"] != "{{ hitId }}" 
+						|| window.location.href.indexOf("assignmentId") == -1 || urlParam["assignmentId"] != "{{ assignmentId }}" 
+						|| window.location.href.indexOf("workerId") == -1 || urlParam["workerId"] != "{{ workerId }}" 
+						|| window.location.href.indexOf("sessionId") == -1 || urlParam["sessionId"] != "{{ sessionId }}"
+					)
+				{ window.location = '/eg/expconsensus?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}';
+				}
+				
+				// transforms the document url search string to an array of pair name/value  
+				function searchToObject() 
+				{	var pairs = window.location.search.substring(1).split("&");
+					var obj = {};
+					var pair;
+					var i;
+					for ( i in pairs ) 
+					{ if ( pairs[i] === "" ) continue;
+						pair = pairs[i].split("=");
+						obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+					}
+					return obj;
+				}
+				//for robot : assignmentId='{{ assignmentId }}'
+				var assignmentId = "{{ assignmentId }}";
+				var workerId = "{{ workerId }}";
+				var hitId = "{{ hitId }}";
+				var sessionId = "{{ sessionId }}";
+				var round = "{{ round }}";
+				var game = "{{ game }}";
+				document.round = "{{ round }}";
+				var prevRoundHTML = "{{ prevRoundHTML }}";			
+				var status = "{{ status }}";
+				var missingChoices = "{{ missingChoices }}";
+				var question = "{{ question }}";
+				var sound = "{{ sound }}";
+				var staticPath = "{{ staticPath }}";
+				var roundType = "{{ roundType }}";
+				var maxDecisionValue="{{EGParameters['maxDecisionValue']}}"
+				var imageType="{{EGParameters['imageType']}}"
+				var playMode="{{EGParameters['playMode']}}"   
+				
+				question=question.split(",");
+				if(sound==1)
+				{ $.playSound(staticPath+'pic/sound.mp3');
+				}      
+				
+				if(status=="CHOICE_TO_BE_MADE")
+				{	$("#waiting").hide();
+				}
+				else if(status=="CHOICE_MADE")
+				{	$("#playing").hide();
+				}
+				
+				var imageurl = String("{{ imageurl }}");
+				imageurl = imageurl.replace('[','');
+				imageurl = imageurl.replace(']','');
+				imageurl = imageurl.replace('\'','');
+				imageurl = imageurl.replace(/'/g,'');								
+				imageurl=imageurl.split(",");
+				imageurl[0] = imageurl[0].replace(/'/g,'');						
+				/*if(document.forms['expconsensus'].elements["zoomrunning"].value=='no')
+				{ for(var i=0;i<columnNumber;i++)
+					{	//if(isNewExpconsensusRound=='True')// "discrete" case : only one load is suffisant for each social roundd
+						{ var imageWidth=(playMode=="discrete"?250:1000)
+							//htmltext = '<img id="img_prevround'+i+'" src="">';
+							//$("#span_img_prevround"+(i+1)).html(htmltext);
+							listRoundValues=prevRoundHTML
+							canvas= document.getElementById("canvas");
+							sessionId=''; gameId=game; roundId=round; distinct=''; xMax=500; imgHeight=60; imgWidth=500; zoom=1; xLabelFormat='';graduationStep1=50;graduationStep2=100;estimationPointSize=8
+							createRoundImages(canvas,listRoundValues,sessionId,workerId,gameId,roundId,distinct,xMax,imgHeight,imgWidth,zoom,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+							/*canvas= document.getElementById("canvasz");
+							sessionId=''; gameId=1; roundId=1; distinct='z'; xMax=500; imgHeight=60; imgWidth=500; zoom=8; xLabelFormat='';graduationStep1=5;graduationStep2=100;estimationPointSize=8
+							createRoundImages(canvas,listRoundValues,sessionId,workerId,gameId,roundId,distinct,xMax,imgHeight,imgWidth,zoom,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+							*///trace=$("#trace").html();
+							//$("#trace").html('social '+isNewExpconsensusRound+' '+round+' img_prevround_'+game+'_'+(round-1)+'_'+(i+1)+'_'+sessionId+'.jpg'+'?_ts=' + new Date().getTime());
+						/*}
+					}
+				}
+				/*for(var i=0;i<imageurl.length;i++)
+				{	$("#image"+(i+1)).html('<img height="'+imgsize+'" width="'+imgsize+'" src="'+imageurl[i]+'"'+' alt="'+imageurl[i]+'">');
+				}*/
+				var canvasImageToEvaluate = document.getElementById('canvasImageToEvaluate');
+				var context = canvasImageToEvaluate.getContext('2d');
+				
+				var imageObj = new Image();
+				imageObj.src = document.getElementById('gameset_pic_name').src;
+				imageObj.onload = function() 
+				{ for(i=0;i<3;i++)
+					{// draw cropped image
+						var sourceX = 200*i;
+						var sourceY = 200*(parseInt(game,10)-1);
+						var sourceWidth = 200;
+						var sourceHeight = 200;
+						var destWidth = sourceWidth;
+						var destHeight = sourceHeight;
+						var destX = 0;
+						var destY = 0;
+						context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+						document.getElementById('image'+(i+1)).src=canvasImageToEvaluate.toDataURL();
+					}
+				};
+
+				// usefull or not ? : update(assignmentId,workerId,hitId,sessionId);
+				// Launch a listener checking if a choice has been made or if the round is over
+				var int = self.setInterval(function() 
+				{	update(assignmentId,workerId,hitId,sessionId);
+				}, 1000);
+
+			}); // end of $(document).ready
+
+			function update(assignmentId,workerId,hitId,sessionId)
+			{ var url = "/eg/expconsensus".concat("?hitId=",hitId,"&assignmentId=",assignmentId,"&workerId=",workerId,"&sessionId=",sessionId,"&time=",stringdate());				
+				$.get(url, "getFlag=true", 
+				function(expconsensusAttributes) 
+				{	var assignmentId = expconsensusAttributes["assignmentId"];
+					var workerId = expconsensusAttributes["workerId"];
+					var hitId = expconsensusAttributes["hitId"];
+					var sessionId = expconsensusAttributes["sessionId"];
+					var sound = expconsensusAttributes["sound"];
+					var missingChoices = expconsensusAttributes["missingChoices"]; 
+					var status = expconsensusAttributes["status"];
+					var staticPath = expconsensusAttributes["staticPath"];
+					var round = expconsensusAttributes["round"];
+					var game = expconsensusAttributes["game"];
+					if(expconsensusAttributes["prevRoundHTML"]===undefined)
+					{ expconsensusAttributes["prevRoundHTML"]='[[0],[0],[0]]'
+					}
+					var prevChoice = "";
+					var roundType = expconsensusAttributes["roundType"];
+					var reward = expconsensusAttributes["reward"];
+					var maxDecisionValue=expconsensusAttributes['maxDecisionValue']
+					var imageType=expconsensusAttributes['imageType']
+					var playMode=expconsensusAttributes['playMode']
+					   
+					/*if(roundType == "SOCIAL")
+					{	prevRoundHTML = JSON.parse(expconsensusAttributes["prevRoundHTML"]);        			
+						prevChoice = expconsensusAttributes["prevChoice"];
+					}*/        		        		        		
+					var imageurl = String(expconsensusAttributes["imageurl"]);
+					var question = String(expconsensusAttributes["question"]);
+					//var isNewExpconsensusRound=expconsensusAttributes['isNewExpconsensusRound']        		
+          if(sound==1)
+					{ $.playSound(staticPath+'pic/sound.mp3');
+          }      
+					question=question.split(",");
+					imageurl=imageurl.split(",");
+					$("#round").html("<span class='black18'>Game "+game+" - Round ".concat(round,' (You are playing for ',3*reward,' points )</span>')); 
+					document.forms['expconsensus'].elements['roundNum'].value = round;
+					var color= expconsensusAttributes["color"];
+					if(expconsensusAttributes["imageType"]=='fractal')
+					{ for(var i=1; i<=columnNumber;i++)
+						{ $("#question"+i).html('<img height="20" width="100" src="'+staticPath+'pic/'+color[i-1]+'.png" alt='+staticPath+'pic/'+color[i-1]+'>');
+						}
+					}
+	        // Set the normal page
+					var actionurl = "/eg/expconsensus";			
+					actionurl = actionurl.concat("?hitId=",hitId,"&assignmentId=",assignmentId,"&workerId=",workerId,"&sessionId=",sessionId);			
+					var mydecision = $('#expconsensus');
+					mydecision.action = actionurl;
+	        var indexOfMyEstimations = [] ;
+		      var imgsize = "200";
+					if(game!=prevGame)
+					{ prevGame=game;
+						var canvasImageToEvaluate = document.getElementById('canvasImageToEvaluate');
+						var context = canvasImageToEvaluate.getContext('2d');
+						var imageObj = new Image();
+						imageObj.src = document.getElementById('gameset_pic_name').src;
+						for(i=0;i<3;i++)
+						{// draw cropped image
+							var sourceX = imgsize*i;
+							var sourceY = imgsize*(parseInt(game,10)-1);
+							var sourceWidth = imgsize;
+							var sourceHeight = imgsize;
+							var destWidth = sourceWidth;
+							var destHeight = sourceHeight;
+							var destX = 0;
+							var destY = 0;
+							context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+							document.getElementById('image'+(i+1)).src=canvasImageToEvaluate.toDataURL();
+						}
+					}
+
+		      if(roundType=="LONE") 
+					{	for(var k=0;k<$(".social").length;k++)
+						{	$(".social").eq(k).hide();	
+		        }					
+						$("#prevRoundSentence1").html('')
+						$("#prevRoundSentence2").html('');
+						for(var i=0;i<columnNumber;i++)
+						{ $("#prevround"+(i+1)).html("");
+							$("#div_img_prevround"+(i+1)).hide();
+							$("#sortedListOfDecisions"+String(i+1)).html("");
+						}
+						//$("#trace").html('lone '+isNewExpconsensusRound+' '+round);
+					}
+					else if(roundType == "SOCIAL")
+					{	for(var k=0;k<$(".social").size();k++)
+						{	$(".social").eq(k).css("display:table-row;");
+		        	$(".social").eq(k).show();
+		        }
+						        			        		
+						$("#prevRoundSentence1").html('You&nbsp;can&nbsp;zoom&nbsp;in&nbsp;by&nbsp;moving mouse over the graphical graduated rule.<br><b>You in red</b>, others in blue')
+						$("#prevRoundSentence2").html('Estimations in the previous round <br>(<b>you in red</b>) ');
+						if(document.forms['expconsensus'].elements["zoomrunning"].value=='no')
+						{	//alert('expconsensusAttributes["prevRoundHTML"] '+expconsensusAttributes["prevRoundHTML"])
+							prevRoundHTML = JSON.parse(expconsensusAttributes["prevRoundHTML"]);
+							//alert('prevRoundHTML '+prevRoundHTML)        			
+							prevChoice = expconsensusAttributes["prevChoice"];
+							
+							listOfEstimations = [];				    
+							listOfEstimations[0] = prevRoundHTML[0].sort(function(a,b){return a-b});
+							listOfEstimations[1] = prevRoundHTML[1].sort(function(a,b){return a-b});
+							listOfEstimations[2] = prevRoundHTML[2].sort(function(a,b){return a-b});				    
+							for(var j = 0; j<3; j++) 
+							{ for(var i = listOfEstimations[j].length - 1; i >= 0; i--) 
+								{ if(listOfEstimations[j][i] === prevChoice[j]) 
+									{ listOfEstimations[j].splice(i, 1);						       
+										indexOfMyEstimations[j] = i;
+										break;
+									}
+								}
+							}
+							for(var j = 0; j<3; j++) 
+							{ up = "";
+								down = "&nbsp";
+								if(indexOfMyEstimations[j]==0)
+								{	up = up + '<button type="button" disabled style="color:red; padding-right:0px; padding-left:0px;">' + String(prevChoice[j]) + '</button>';     
+								}
+								for(var i=0 ; i<listOfEstimations[j].length; i++)
+								{ if(listOfEstimations[j][i]!=0)
+									{ up = up + '<button type="button" disabled style="color:blue; padding-right:0px; padding-left:0px;">' + String(listOfEstimations[j][i]) + '</button>';
+									}
+									if(i==indexOfMyEstimations[j]-1)
+									{	up = up + '<button type="button" disabled style="color:red; padding-right:0px; padding-left:0px;">' + String(prevChoice[j]) + '</button>';     
+									}
+								}                  
+								$("#sortedListOfDecisions"+String(j+1)).html(up);
+							}
+							canvas= document.getElementById("canvas");canvasZoom = document.getElementById("canvasZoom");
+							for(i=0;i<3;i++)
+							{ $("#div_img_prevround"+(i+1)).show();
+							}
+						 	//for(var i=0;i<columnNumber;i++)
+							{	//if(isNewExpconsensusRound=='True')// "discrete" case : only one load is suffisant for each social roundd
+								{ //var imageWidth=(playMode=="discrete"?250:1000)
+									if(expconsensusAttributes["prevRoundHTML"]!==undefined && isDifferentFromPreviousEstimations(document.forms['expconsensus'].elements["savedPrevRoundHTML"].value,expconsensusAttributes["prevRoundHTML"]))
+									{	
+										listRoundValues=transformStringListRoundValues2Array(expconsensusAttributes["prevRoundHTML"])
+										//alert(listRoundValues+' listRoundValues.length='+listRoundValues.length)
+										document.forms['expconsensus'].elements["savedPrevRoundHTML"].value=expconsensusAttributes["prevRoundHTML"]
+										gameId=game; roundId=round; distinct=''; xLabelFormat='';estimationPointSize=8
+										imgHeight=60;imgWidth=500; zoom1=1;zoom2=8; estimationPointSize=8; xMax=parseInt(maxDecisionValue,10)
+										if(playMode=='continuous')
+										{	imgWidth=1000; graduationStep1=1;graduationStep2=50;
+										}
+										if(imageType=='fractal')
+										{ graduationStep1=10;graduationStep2=20;
+											if(playMode=='continuous')
+											{graduationStep1=5;graduationStep2=50;}
+											createRoundImages(canvas,listRoundValues,prevChoice,distinct,xMax,imgHeight,imgWidth,zoom1,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+											graduationStep1=1;graduationStep2=5;distinct='z';
+											if(playMode=='continuous')
+											{graduationStep1=1;graduationStep2=10;}
+											createRoundImages(canvasZoom,listRoundValues,prevChoice,distinct,xMax,imgHeight,imgWidth,zoom2,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+										}
+										else if(imageType=='peanut')
+										{	graduationStep1=50;graduationStep2=100;
+											if(playMode=='continuous')
+											{graduationStep1=5;graduationStep2=50;}
+											createRoundImages(canvas,listRoundValues,prevChoice,distinct,xMax,imgHeight,imgWidth,zoom1,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+											graduationStep1=1;graduationStep2=10;distinct='z';
+											if(playMode=='continuous')
+											{graduationStep1=1;graduationStep2=10;}
+											createRoundImages(canvasZoom,listRoundValues,prevChoice,distinct,xMax,imgHeight,imgWidth,zoom2,xLabelFormat,graduationStep1,graduationStep2,estimationPointSize) 
+										}
+										// preserve data in an hidden textarea for comparison with next ListRoundValues
+										//alert(expconsensusAttributes["prevRoundHTML"])
+										
+									}
+									//trace=$("#trace").html();
+									//$("#trace").html('social '+isNewExpconsensusRound+' '+round+' img_prevround_'+game+'_'+(round-1)+'_'+(i+1)+'_'+sessionId+'.jpg'+'?_ts=' + new Date().getTime());
+								}
+							}
+						}
+					}
+					 
+					/*for(var i=0;i<imageurl.length;i++)
+					{	$("#image"+(i+1)).html('<img height="'+imgsize+'" width="'+imgsize+'" src="'+imageurl[i]+'"'+' alt="'+imageurl[i]+'">');
+					}*/
+					//alert(status);				
+	        if(status=="CHOICE_MADE")
+					{	$("#waiting").show();
+	    			var timeleft = expconsensusAttributes['remainingTime'];
+	    			var totalTime = expconsensusAttributes['totalTime'];	
+						var timeleft_string;
+						if(timeleft>1000 || timeleft<0)
+						{	timeleft_string = 0;
+						}
+						else
+						{	timeleft_string = timeleft;
+            }
+	        	$("#waiting").html("Waiting for answers from ".concat(missingChoices," more participants. <br><br>Time left : ", timeleft_string," / ",totalTime,"."));
+	        	$("#playing").hide();
+						//show killtime widget until 5 sec. before the next round (-10 sec. because the server waits for several seconds after 0 before the next round) 
+						if(timeleft>5 && timeleft<tab_roundduration[roundType]-10)
+						{ $("#killtime").show();
+						}
+						else
+						{ $("#killtime").hide();
+						}
+	        }
+					else if(status=="GAME_OVER")
+					{	//alert("The game is over");
+	    		}
+					else if(status=="GAMESET_OVER")
+					{	window.location.href="/eg/debriefing?hitId="+hitId+"&assignmentId="+assignmentId+"&workerId="+workerId+"&sessionId="+sessionId;
+	    		}
+					else if(status=="CHOICE_TO_BE_MADE")
+					{	$("#waiting").hide();	    				
+						$("#killtime").hide();        			
+						$("#playing").show();
+						var timeleft = expconsensusAttributes['remainingTime'];
+						var totalTime = expconsensusAttributes['totalTime'];	    					    				
+						var timeleftnotbig = timeleft;
+						if(timeleftnotbig>200)
+						{	timeleftnotbig = 0;
+						}
+						// HERE	    				
+						mydial(totalTime,timeleftnotbig);
+													
+						var completedTime = 100*(totalTime-timeleft)/totalTime;
+						if(completedTime>100 || completedTime<0 || isNaN(completedTime))
+						{	completedTime = 60;
+						}
+						if(timeleft<1000 && timeleft>=0)
+						{	$("#remainingTimebox").show();
+				      $("#remainingTime").html(String(timeleft));
+							$("#div_submit").hide();
+				    }
+						if(timeleft<=10)
+						{ if(timeleft%2==0)
+							{ submit_color="#FF0000"
+							}
+							else
+							{ submit_color="#000000"
+							}
+							document.getElementById("submit").style.color=submit_color
+							$("#div_submit").show();
+							document.getElementById("submit_now").style.color=submit_color
+						}
+						else
+						{ document.getElementById("submit").style.color="#000000"
+						}
+						$("#auto").val(0);
+	    		}    				    			
+	   		},"json");// end of $.get(url,data="getFlag=true",function(expconsensusAttributes),format="json")
+
+			}// end of update function
+			/*function myslider(id,myestimation,listOfEstimations)
+			{	alert(String(listOfEstimations));
+				$( "#"+id ).slider({ values: listOfEstimations });
+			}*/
+			<!--  Post 3 fields even only 1 will be really used : currently required in order continuous mode works in wsgi -->
+			function userSubmit()
+			{ for(var i=0;i<3;i++)
+				{ $("#auto"+i).val(0);
+				}
+				return true;
+			}
+			
+			function isEven(n) 
+			{	return isNumber(n) && (n % 2 == 0);
+			}
+			function isNumber(n)
+			{ return n === parseFloat(n);
+			}
+		/*********************
+		* Get things started *
+		********************/
+		
+		</script>
+		<style>
+			#swatch 
+			{	width: 120px;
+				height: 100px;
+				margin-top: 18px;
+				margin-left: 350px;
+				background-image: none;
+			}
+			.ui-progress 
+			{	height: 60px;
+			  border-radius: 60px;			  
+			  box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
+			  border: 1px solid #4c8932;			  
+			}
+		</style>
+	</head>
+	<body>
+  <!-- trace if needed for JS debug -->
+  <div id="trace"></div>
+  <!-- Here the createRoundImages function works : hidden but needed to draw something in canvas and then create images-->
+  <div ><!-- style="display:none" -->
+  	<canvas id="canvas" style="display:none"></canvas><!--  -->
+  </div>
+  <div><!-- style="display:none"  -->
+  	<canvas id="canvasZoom" style="display:none"></canvas><!--  -->
+  </div>
+  <div ><!-- don't remove dimensions of canvasImageToEvaluate. We don't know why but the result of the crop image in javascript is 200x150 !! -->
+  	<canvas id="canvasImageToEvaluate" style="display:none"  width="200" height="200"></canvas><!--  -->
+  </div>
+  <div style="display:none" align="center"><img id="gameset_pic_name" src="../../static/pic/estimationPic/{{gameset_pic_name}}"></div>
+	<div align="center">
+    <div id="waiting" class="white14"></div>
+    <div id="playing">
+		<table border="1">
+			<tr><td style="border-style:none none none none;"></td><td style="border-style:none;" align="center" colspan="{{columnNumber}}"><button align=center><div id="round" ></div></button></td> </tr>
+			<tr><td style="border-style:none none none none;"></td><td style="border-style:none;" align="center" colspan="{{columnNumber}}" class="white22">{{question}}</td> </tr>
+			<tr style="border:none;">
+      	<td style="border-style:none;"></td>
+        {% for numcolumn in range(1,columnNumber+1) %}
+				<td align="center" style="border-style:none;" class="white22"><span id="question{{numcolumn}}"></span></td>
+        {% endfor %}
+			</tr>
+		<form id="expconsensus" name="expconsensus" action="" method="post">
+			<tr>
+				<td align="center">
+          <!-- hidden fields used to communicate with the zoom.js package which stop or start refresh image estimation -->
+        	<input type="hidden" id="zoomrunning" name="zoomrunning" value="no">
+          <textarea name="savedPrevRoundHTML" class="black14" style="display:none"></textarea>
+          <!--  adjust zoom image width -->
+        	<input type="hidden" id="playmode" name="playmode" value="{{playMode}}">
+					<div id="remainingTimebox" align="center" style="display:block">
+						<p class="white14" align="center"> Time left </p>
+						<input type="text" value=0 id="dial" data-thickness=".3" data-skin="tron" data-fgcolor="#000000" data-width="120">
+						<br>
+					</div>
+          <div id="div_submit" align="center" style="display:none;">
+             <input style="font-size:16pt; color:#FF0000; font-weight:bold" type="submit" id="submit_now" value="Submit now !" onClick="userSubmit()">
+          </div>
+				</td>
+        {% for numcolumn in range(1,columnNumber+1) %}
+				<td style="text-align:center"><img id="image{{numcolumn}}" src=""></td>
+        {% endfor %}
+			</tr>
+			<tr>
+				<td class="white14"><span id="prevRoundSentence1"></span></td>
+        {% for numcolumn in range(1,columnNumber+1) %}
+				<td style="text-align:center"><div id="div_img_prevround{{numcolumn}}" align="center"><img id="img_prevround{{numcolumn}}" src="" width="{% if playMode=='discrete'%}250{% else %}1000{% endif %}" height="60" border="0" class="cnxzoom"></div></td><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+        {% endfor %}
+			</tr>
+        {% if playMode=="continuous" %}
+        	<div id="div_img_prevround2"><img id="img_prevround2" style="display:none" src="" width="{% if playMode=='discrete'%}250{% else %}1000{% endif %}" height="60" border="0" class="cnxzoom"></div></td><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+					<div id="div_img_prevround3"><img id="img_prevround3" style="display:none" src="" width="{% if playMode=='discrete'%}250{% else %}1000{% endif %}" height="60" border="0" class="cnxzoom"></div></td><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+        {% endif %} 
+			<tr>
+				<td><span id="prevRoundSentence2" class="white14"></span></td>
+        {% for numcolumn in range(1,columnNumber+1) %}
+				<td style="text-align:center"><div id="sortedListOfDecisions{{numcolumn}}"></div>
+ 				</td>
+        {% endfor %}
+			</tr>
+			<tr>
+				<td class="white14">Your new estimations <br>range {{minDecisionValue}} - {{maxDecisionValue}}</td>
+        {% for numcolumn in range(0,columnNumber) %}
+				<td style="text-align:center"><input class="black14" type="number" id="decision{{numcolumn}}" name="decision{{numcolumn}}" max="{{maxDecisionValue}}" min="{{minDecisionValue}}" size="6"></td>
+        {% endfor %}
+        <!-- to change later : currently we send 3 decision fields in continuous mode even the first one is suffisant : necessary to work with wsgi which still works with 3 decisions -->
+        {% if playMode=="continuous" %}
+        	<input type="hidden" id="decision1" name="decision1" value="0">
+          <input type="hidden" id="decision2" name="decision2" value="0">
+        {% endif %} 
+			</tr>
+			<tr>
+        <td style="border-style:none none none none;"></td>
+        <td style="border-style:none; text-align:center" colspan="{{columnNumber}}">
+          <input style="font-size:16pt; color:#000000" id="submit" type="submit" value="Submit" onClick="userSubmit()">
+          <input type="hidden" name="roundNum" value="0">		
+        	<!-- to change later : currently we send 3 decision fields in continuous mode even the first one is suffisant : necessary to work with wsgi which still works with 3 decisions -->
+          {% for numcolumn in range(0,3) %}
+          <input type="hidden" id="auto{{numcolumn}}" name="auto{{numcolumn}}" value="1">
+          {% endfor %}
+          </form>
+      	</td> 
+      </tr>
+    </table>
+				<span id="prevRoundSentence1"></span>
+        {% for numcolumn in range(1,columnNumber+1) %}
+				<!-- --><div id="div_img_prevround{{numcolumn}}z" style="display:none"><img id="img_prevround{{numcolumn}}z" src="" width="{% if playMode=='discrete'%} 2000 {% else %}4000{% endif %}" height="60"></div><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+        {% endfor %}
+        {% if playMode=="continuous" %}
+          <!-- --><div id="div_img_prevround2z" style="display:none"><img id="img_prevround2z" style="display:none" src="" width="{% if playMode=='discrete'%} 2000 {% else %}4000{% endif %}" height="60"></div><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+          <!-- --><div id="div_img_prevround3z" style="display:none"><img id="img_prevround2z" style="display:none" src="" width="{% if playMode=='discrete'%} 2000 {% else %}4000{% endif %}" height="60"></div><!--<img src="" id="1" width="100" height="33" border="0" class="cnxzoom"> -->
+        {% endif %} 
+			
+    
+	<script type="text/javascript">
+			var frmvalidator  = new Validator("expconsensus");
+			for(var i=0;i<columnNumber;i++)
+			{ frmvalidator.addValidation("decision"+i,"numeric","Numeric value only");        
+				frmvalidator.addValidation("decision"+i,"req");        
+				frmvalidator.addValidation("decision"+i,"lt={{EGParameters['maxDecisionValue']}}","Value must be smaller than {{EGParameters['maxDecisionValue']}}");
+				frmvalidator.addValidation("decision"+i,"gt={{EGParameters['minDecisionValue']}}","Value must be greater than {{EGParameters['minDecisionValue']}}");
+			}
+		</script>
+    </div>
+    
+    <div id="killtime" style="display:none;" align="center" class="white14">
+    	<p>You can kill mosquitos while waiting for the next round...</p>
+      <p>&nbsp;</p><p></p>
+        <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="700" height="400">
+          <param name="movie" value="../../static/kill.swf">
+          <param name="quality" value="high">
+          <param name="wmode" value="opaque">
+          <param name="swfversion" value="6.0.65.0">
+          <object type="application/x-shockwave-flash" data="../../static/kill.swf" width="700" height="400">
+            <param name="quality" value="high">
+            <param name="wmode" value="opaque">
+            <param name="swfversion" value="6.0.65.0">
+          </object>
+        </object>
+    </div>
+</div>
+	</body>
+</html>

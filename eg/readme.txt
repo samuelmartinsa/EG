@@ -1,0 +1,56 @@
+-------------------------
+readme.txt - January 2014
+-------------------------
+
+This file explains how to set up the estimation game on an Ubuntu machine. I assume that the LAMP (Apache, mysql, php) suite is arealy installed (see https://help.ubuntu.com/community/ApacheMySQLPHP).
+We also assume that Python 2.7 is installed along with the libraries required in the project (MySQL-python, sqlalchemy and flask).
+
+0) Installing Flask, sqlalchemy, MySQLdb : type in the commande line :
+   -  "sudo pip install Flask"
+   -  "sudo pip install SQLAlchemy"
+   -  "sudo apt-get install python-mysqldb"
+
+
+1) Put the folder called "estimation_game" (the folder which should contain the file readme.txt and the rest of the app) in the folder "/usr/lib/cgi-bin".
+
+2) In the estimation-game folder, there is a file called "site-available.txt". Copy this file in folder "/etc/apache2/sites-available".
+
+3) Edit the newly copied file and make the following modifications :
+
+        ----------------------
+        Working locally
+        ----------------------
+	Change "ServerName 130.104.236.134" to "ServerName localhost".
+
+        ----------------------
+        Working remotely
+        ----------------------
+	Change "ServerName 130.104.236.134" to "ServerName <ip>" where <ip> is the ipadress of your machine.
+
+4) Install Phpmyadmin : type in the command line :
+   "sudo apt-get install phpmyadmin"
+   when asked, use login/password : root/159753
+
+5) Open "/etc/apache2/apache2.conf" and add the following line at the bottom of the file :
+   "Include /etc/phpmyadmin/apache.conf"
+
+6) Restart Apache : type "sudo service apache2 restart" in the command line
+
+7) In a web browser open phpmyadmin using url "http://localhost/phpmyadmin", log in using the login/password coupled you used in the phpmyadmin install.
+
+8) Create a table called "db_mturk"
+
+9) Launch the app using "sudo python wsgi.py" from the folder "/usr/lib/cgi-bin/estimation_game"
+
+10) In the browser go to url :
+        ----------------------
+        Working locally
+        ----------------------
+	"http://localhost:3127/eg/login"
+
+        ----------------------
+        Working remotely
+        ----------------------
+	"http://<ip>/eg/login" where <ip> is the address of the server you are launching the app from.
+
+If all worked properly, you should see the login page of the app !!! Enjoy

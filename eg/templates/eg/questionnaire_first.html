@@ -1,0 +1,445 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Estimation game</title>
+		<meta charset="utf-8">
+		<link rel="Favicon" href="../../static/favicon.ico"></link>
+		<link rel="stylesheet" href="../../static/css/eg.css" type="text/css">
+		<script src="../../static/jquery-min.js" type="text/javascript"> </script>
+		<script src="../../static/gen_validatorv4.js" type="text/javascript"> </script>
+		<script src="../../static/json3.js"></script>
+		<script src="../../static/task.js" type="text/javascript"> </script>
+    <!--20140602 test sans <link rel="stylesheet" href="../../static/jquery-ui.css">-->
+		<!--20140602 test sans <script src="../../static/jquery-ui.js"></script>-->
+		<script type="text/javascript">
+		
+		function stringdate(){
+			var currentdate = new Date();
+			var datetime = currentdate.getDay() + "-"+currentdate.getMonth() 
+			+ "-" + currentdate.getFullYear() + "-" 
+			+ currentdate.getHours() + "-" 
+			+ currentdate.getMinutes() + "-" + currentdate.getSeconds();
+			return datetime;
+		}
+		
+		
+		$(document).ready( function(){
+			var urlParam = searchToObject();
+			if(window.location.href.indexOf("questionnaire_first") == -1 || window.location.href.indexOf("hitId") == -1 || urlParam["hitId"] != "{{ hitId }}" || window.location.href.indexOf("assignmentId") == -1 || urlParam["assignmentId"] != "{{ assignmentId }}" || window.location.href.indexOf("workerId") == -1 || urlParam["workerId"] != "{{ workerId }}" || window.location.href.indexOf("sessionId") == -1 || urlParam["sessionId"] != "{{ sessionId }}") {
+	 			  window.location = '/eg/questionnaire_first?hitId={{ hitId }}&assignmentId={{ assignmentId }}&workerId={{ workerId }}&sessionId={{sessionId}}';
+			}
+			
+		  function searchToObject() 
+			{ var pairs = window.location.search.substring(1).split("&"),
+				obj = {},
+				pair,
+				i;
+	
+				for ( i in pairs ) 
+				{ if ( pairs[i] === "" ) continue;
+					pair = pairs[i].split("=");
+					obj[ decodeURIComponent( pair[0] ) ] = decodeURIComponent( pair[1] );
+				}
+			
+				return obj;
+			} 
+			
+			 										
+			var assignmentId = "{{ assignmentId }}";
+			var workerId = "{{ workerId }}";
+			var hitId = "{{ hitId }}";
+			var sessionId = "{{ sessionId }}";
+			var url = "/eg/questionnaire_first".concat("?hitId=",hitId,"&assignmentId=",assignmentId,"&workerId=",workerId,"&sessionId=",sessionId,"&time=",stringdate());
+			$.get(url, "getFlag=true", function(questionnaireHTML) {
+			
+				var workerId = questionnaireHTML["workerId"];				
+		        var hitId = questionnaireHTML["hitId"];
+		        var assignmentId = questionnaireHTML["assignmentId"];
+		        var sessionId = questionnaireHTML["sessionId"] ;
+		        var anxious = questionnaireHTML["anxious"];
+		        if(anxious>0){
+		        	$("input[name='anxious']:checked").val(anxious);
+		        }
+		        var calm = questionnaireHTML["calm"];
+		        if(calm>0){
+		        	$("input[name='calm']:checked").val(calm);
+		        }
+		        var conventional = questionnaireHTML["conventional"];
+		        var critical = questionnaireHTML["critical"];
+		        var dependable = questionnaireHTML["dependable"];
+		        var disorganized = questionnaireHTML["disorganized"];
+		        var extraverted = questionnaireHTML["extraverted"];
+		        var open = questionnaireHTML["open"];
+		        var reserved = questionnaireHTML["reserved"];
+		        var sympathetic = questionnaireHTML["sympathetic"];
+				
+				
+				$("#test").html(workerId);
+			});
+		});		
+		
+		/*********************
+		* Get things started *
+		********************/		
+		
+		
+		</script>
+				
+	</head>
+<body>
+      <form id="questionnaire" name="questionnaire" action="" method="post">
+<table width="800" align="center">
+	<tr>
+  	<td>
+      <p align="center" class="white22">Questionnaire</p>
+      
+      <p align="justify">
+        Before we proceed to the instruction page and you start the game, we require
+        you to answer a few questions. It is important that you trustfully answer the questions.
+        This will help us to properly assess your results.
+      </p>		
+      
+      <p align="justify">
+        Here are a number of personality traits that may or may not apply to you. 
+        Please write rate each statement to indicate the extent to which you agree or disagree with that statement. 
+        You should rate the extent to which the pair of traits applies to you, 
+        even if one characteristic applies more strongly than the other.
+      </p>		
+      <p align="justify">I see myself as ...</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <table border="1" align="center">
+          <tr>
+            <td nowrap></td> <td align="center" nowrap>Disagree<br>strongly</td>
+            <td align="center" nowrap>Disagree<br>moderately</td>
+            <td align="center" nowrap>Disagree<br>a little</td> 
+            <td align="center" nowrap>Neither agree nor<br>disagree</td>
+            <td align="center" nowrap>Agree<br>a little</td>
+            <td align="center" nowrap>Agree<br>moderately</td>
+            <td align="center" nowrap>Agree<br>strongly</td>
+          </tr>
+          <tr>
+            <td nowrap>Extraverted, enthousiastic</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="extraverted" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Critical, quarrelsome</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="critical" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Reliable, self-disciplined</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="dependable" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Anxious, easily upset</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="anxious" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Open to new experiences, complex</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="open" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Reserved, quiet</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="reserved" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Sympathetic, warm</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="sympathetic" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Disorganized, careless</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="disorganized" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Calm, emotionally stable</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="calm" value="7">
+            </td>
+          </tr>
+          <tr>
+            <td nowrap>Conventional, uncreative</td> 
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="1">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="2">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="3">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="4">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="5">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="6">
+            </td>
+            <td align="center" nowrap>
+            <input type="radio" name="conventional" value="7">
+            </td>			
+          </tr>
+          <!--1 2 3 4 5 6 7-->					
+        </table>
+		</td>
+  </tr>
+  <tr>
+    <td>
+      <table border="0">
+        <tr>
+          <td nowrap>Are you a?</td>
+          <td><table border="0">
+            <tr>
+              <td nowrap><input type="radio" name="sexe" value="1"></td>
+              <td nowrap>Man </td>
+              <td nowrap><input type="radio" name="sexe" value="2"></td>
+              <td nowrap>Woman</td>
+              <td nowrap><input type="radio" name="sexe" value="3"></td>
+              <td nowrap> don't want to answer</td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td nowrap>Are you a native <br>
+          English speaker?</td>
+          <td><table border="0">
+            <tr>
+              <td nowrap><input type="radio" name="nativespeakenglish" value="1"></td>
+              <td nowrap>		          Yes</td>
+              <td nowrap><input type="radio" name="nativespeakenglish" value="2"></td>
+              <td nowrap>		          No</td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td nowrap>What is the highest grade<br>
+           of school you 
+          have completed?</td>
+          <td><table border="0">
+            <tr>
+              <td nowrap><input type="radio" name="schoolgrade" value="1"></td>
+              <td nowrap> Elementary School</td>
+              <td nowrap><input type="radio" name="schoolgrade" value="2"></td>
+              <td nowrap>High school</td>
+              <td nowrap><input type="radio" name="schoolgrade" value="3"></td>
+              <td nowrap>College</td>
+              <td nowrap><input type="radio" name="schoolgrade" value="4">
+                Graduate</td>
+              <td nowrap>&nbsp;</td>
+              </tr>
+          </table>
+        </td>
+	    </tr>
+	  	</table>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <p>&nbsp;	  </p>
+        <p align="center">
+          <input style="font-size:16pt" type="submit" value="Submit">
+        </p>
+        <script type="text/javascript">
+          var frmvalidator  = new Validator("questionnaire");
+          frmvalidator.addValidation("extraverted","selone","Extraversion rate missing");
+          frmvalidator.addValidation("critical","selone","Criticality rate missing");
+          frmvalidator.addValidation("dependable","selone","Reliability rate missing");
+          frmvalidator.addValidation("anxious","selone","Anxiosity rate missing");
+          frmvalidator.addValidation("open","selone","Openness rate missing");
+          frmvalidator.addValidation("reserved","selone","Reservedness rate missing");
+          frmvalidator.addValidation("sympathetic","selone","Sympathy rate missing");
+          frmvalidator.addValidation("disorganized","selone","Disorganizedness rate missing");
+          frmvalidator.addValidation("calm","selone","Calmness rate missing");
+          frmvalidator.addValidation("conventional","selone","Conventionality rate missing");
+          frmvalidator.addValidation("sexe","selone","Man, Woman, Others missing");
+          frmvalidator.addValidation("nativespeakenglish","selone","Native English speaker missing");
+          frmvalidator.addValidation("schoolgrade","selone","School grade missing");
+      </script>
+  	</td>
+  </tr>
+</table    
+      ></form>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>EG monitoring</title>
+		<meta charset="utf-8">
+    <link rel="stylesheet" href="../../static/SpryAssets/SpryTooltip.css">
+    <script src="../../static/SpryAssets/SpryTooltip.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="../../static/css/eg.css" type="text/css">
+		<style>
+    table td 
+    { font-family:Calibri;
+      font-size:14pt
+    }
+    a:link {
+      text-decoration: underline;
+      font-family:Calibri; color:white
+    }
+    a:visited {
+      text-decoration: underline;
+    }
+    a:hover { background-color:#0FF;
+      text-decoration: none;
+    }
+    a:active {
+      text-decoration: underline;
+    }
+    
+    </style>
+	</head>
+<body style="font-size:14pt;background: #FFFFFF;">
+<table border="0" align="left">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table border="0" align="center" class="table_header">
+      <tr>
+        <td class="blue18">Estimation Game Monitoring Interface</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+  {% if error=='' %}
+  <tr>
+    <td>&nbsp;
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+  		<table align="center" cellspacing="2" class="table_bord_666_bckg_099">
+        <tr>
+          <td width="181" nowrap class="blancalibri12"><a href="monitor?sessionId={{sessionId}}">Refresh data</a></td>
+          <td width="303" align="left" nowrap>
+          	<table width="100%" border="0">
+              <tr>
+                <td>
+                  {% if EGParameters['EGRunning'] %}
+                        &nbsp;EG Is Running on port {{EGParameters['serverPort']}}
+                  {% else %}              
+                  			&nbsp;EG Is Not Running
+                  {% endif %}
+                </td>
+              </tr>
+            </table></td>
+         </tr>
+        <tr>
+          <td nowrap>Play mode : </td>
+          <td nowrap>{{EGParameters['playMode']}}</td>
+        </tr>
+        <tr>
+          <td nowrap>Images type : </td>
+          <td nowrap>{{EGParameters['imageType']}} ({{EGParameters['free'+EGParameters['imageType']+'ImagesNumber']}} free/{{EGParameters['total'+EGParameters['imageType']+'ImagesNumber']}} total)</td>
+        </tr>
+        <tr>
+        	<td align="right"><img src="../../static/pic/b_info_italic.png" width="35" height="35" id="sprytrigger_admin_info">
+                <div class="tooltipContent_cadre" id="admin_info">
+                  <span class="black12">Be careful :<br>
+                  &nbsp;- <b>deletes game sets having wait_in_room status</b>, linked participants, games and keycodes<br>
+                  &nbsp;- frees images linked to deleted game sets, <br>
+                  &nbsp;- changes status of STARTED  game sets to TERMINATED, <br>
+                  &nbsp;- changes status of keycodes from IN_USE to USED <br>
+                	</span>
+                </div>
+                <script type="text/javascript">
+                  var sprytooltip_admin_info = new Spry.Widget.Tooltip("admin_info", "#sprytrigger_admin_info", {offsetX:0, offsetY:20});
+                </script>
+                </td>
+          			<td nowrap>
+                   <form name="monitor" action="monitor" method="POST">
+                  	<input type="hidden" name="sessionId" value="{{sessionId}}">
+                  	<input type="submit" name="clean_tables_after_end_on_start" value="Prepare paiement after EG session of gamesets"
+                    onClick="return confirm('Game sets may be in wait_in_room status : they will be deleted'+
+                    												'\nSee the info. button for more informations'+
+                    												'\nAre you sure?')"
+                             >
+									</form>
+          </td>
+        </tr>
+				{% for keyword in EGDBContent%}
+        <tr>
+          <td nowrap valign="top">{{keyword}}
+          </td>
+          <td>
+            <table border="1">
+              {% for numline in EGDBContent[keyword]%}
+              <tr>{% set numcolumn=0%}
+                {% for value in EGDBContent[keyword][numline] %}
+                <td align="center" nowrap>
+                {%if keyword=='keycode' and numcolumn==7 and value!=''%}
+                  <form name="monitor" action="monitor" method="POST">
+                  	<input type="hidden" name="sessionId" value="{{sessionId}}">
+                  	<input type="hidden" name="keyCodeBegin" value="{{EGDBContent[keyword][numline][0]}}">
+                		<input type="hidden" name="newstatusvalue" value="{{value}}">
+                    {% set checked='yes' %}
+                    {% if value=='PAID'%}
+                    	{% set checked='no' %}
+                    {% endif %} 
+                    <input type="image" name="image_checked" src="../../static/pic/b_checked_{{checked}}.png"
+                    onClick="return confirm('Key code {{EGDBContent[keyword][numline][0]}}: change status to {{value}}?')">
+                  </form>
+                {% else %}
+                	{{value}}
+                {% endif %}
+                </td>
+                	{% set numcolumn=numcolumn+1%}
+                {% endfor%}
+              </tr>
+              {%endfor%}
+            </table>
+          </td>
+        </tr>
+      {%endfor %}
+			</form>
+			<tr>
+      <td></td>
+      <td nowrap>
+				<table>
+        	<tr>
+          	<td>Results from yyyy-mm-dd :</td><td><input type="text" name="datebegin" id="datebegin"></td>
+        		<td>to yyyy-mm-dd : </td><td><input type="text" name="dateend" id="dateend"></td>
+            <td><input type="button" id="export_decision" value="Export decisions" 
+            		onClick="window.open('http://'+document.location.hostname+'/eg_php/db_get_decision.php?playmode={{EGParameters['playMode']}}&database={{EGParameters['database']}}&datebegin='+document.getElementById('datebegin').value+'&dateend='+document.getElementById('dateend').value) 
+                         ">
+            </td>
+            <td><input type="button" id="export_user" value="Export users" 
+            		onClick="window.open('http://'+document.location.hostname+'/eg_php/db_get_user.php?database={{EGParameters['database']}}&datebegin='+document.getElementById('datebegin').value+'&dateend='+document.getElementById('dateend').value)">
+            </td>
+          </tr>
+        </table>
+      </td>
+     <!-- <td>
+        <form name="monitor" action="monitor" method="POST">
+        <input type="hidden" name="sessionId" value="{{sessionId}}">
+        <input type="submit" name="dump_db" value="Dump DB">
+        </form>
+				<a href="../../static/tmp/dump_db.sql" target="_blank">Export results</a>
+      </td>-->
+    </tr>
+	{% else %}
+  	<tr>
+    	<td>{{error}}
+      </td>
+    </tr>
+  {% endif%}
+  </table>
+</body>
+</html>

@@ -1,0 +1,498 @@
+.bouton_txt_effacer_champ:hover
+{
+        text-decoration:underline;
+}
+
+.bouton_submit_bckg_03C
+{
+	color:#FFFFFF;
+	font-size:12pt;
+	cursor:pointer;
+	background-color: #03C;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.bouton_submit_bckg_CCC
+{
+	color:#CCC;
+	font-size:12pt;
+	cursor:pointer;
+	background-color: #CCC;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.bouton_submit_bckg_092
+{
+	color:#FFFFFF;
+	font-size:12pt;
+	cursor:pointer;
+	background-color: #092;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.bouton_submit_bckg_F00
+{
+	color:#FFFFFF;
+	font-size:12pt;
+	cursor:pointer;
+	background-color: #F00;
+	font-family: Calibri;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+
+#form fieldset {
+    padding:10px;
+	font-size:120%;
+	width:50%;
+	margin-bottom:15px;
+} 
+#form legend {
+    color: #a0522d;
+	font-weight: bold;
+	padding-left: 20px; 
+	background: url(/images/coche.png) no-repeat; 
+}
+#form textarea {
+display:block;
+}
+#form label {
+display:block;
+font-size:90%;
+}
+.input_disabled {
+	background-color: #EEE;
+	font-family: Calibri;
+	font-size: 18px;
+	color: #000;
+}
+
+.legend_fiche_dossier_pers
+{
+color: #fff;
+background: #0000FF;
+border: 1px solid #781351;
+padding: 2px 6px
+} 
+
+input:focus,textarea:focus,select.focus,checkbox:focus {
+	background-color:#BEFAFA;
+}
+
+
+.bleucalibri11 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 11pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.bleucalibri12 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 12pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.bleucalibri13 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 13pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.bleucalibri14 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 13pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.bleugrascalibri11 {
+	color: #0000FF;
+	font-weight: bold;
+	font-size: 11pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.bleugrascalibri10 {
+	color: #0000FF;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Calibri;
+	font-style: italic;
+}
+.bleucalibri9 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 9pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.bleucalibri10 {
+	color: #0000FF;
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.blanccalibri10 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.blanccalibri12 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 12pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.blanccalibri14 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 14pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.blanccalibri16 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 16pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+
+.blanccalibri22 {
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 22pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.noircalibri10 {
+	font-family: Calibri;
+	font-size: 10pt;
+}
+.griscalibri10 {
+	font-family: Calibri;
+	font-size: 10pt;
+	color: #D6D6D6;
+}
+.grisgrascalibri11 {
+	font-family: Calibri;
+	font-size: 11pt;
+	color: #D6D6D6;
+	font-weight: bold;
+}
+
+.grisfoncecalibri10 {
+	font-family: Calibri;
+	font-size: 10pt;
+	color: #666666;
+}
+
+.griscalibri9 {
+	font-family: Calibri;
+	font-size: 9pt;
+	color: #D6D6D6;
+}
+
+
+.noircalibri11 {
+	font-family: Calibri;
+	font-size: 11pt;
+}
+
+.noircalibri8 {
+	font-family: Calibri;
+	font-size: 8pt;
+}
+.noircalibri9 {
+	font-family: Calibri;
+	font-size: 9pt;
+}
+.noircourier9 {
+	font-family: Courier;
+	font-size: 9pt;
+}
+
+.noircalibri12 {
+	font-family: Calibri;
+	font-size: 12pt;
+}
+
+.noircalibri14 {
+	font-family: Calibri;
+	font-size: 14pt;
+}
+
+.noirgrascalibri10 {
+	font-family: Calibri;
+	font-size: 10pt;
+	font-weight: bold;
+}
+.noirgrascalibri9 {
+	font-family: Calibri;
+	font-size: 9pt;
+	font-weight: bold;
+}
+
+.noirgrascalibri11 {
+	font-family: Calibri;
+	font-size: 11pt;
+	font-weight: bold;
+}
+
+
+
+
+.analysequestionrouge {
+	color: #FF0000;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.analysecommentairemauve {
+	color: #90F;
+	font-size: 10pt;
+	font-weight: normal;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.infomauve {
+	color: #990099;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.mauvegrascalibri9 {
+	color: #990099;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.mauvecalibri9 {
+	color: #990099;
+	font-size: 9pt;
+	font-family: Calibri;
+}
+
+.mauvegrascalibri10 {
+	color: #990099;
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.mauvecalibri10 {
+	color: #990099;
+	font-size: 10pt;
+	font-family: Calibri;
+}
+
+.mauvegrascalibri11 {
+	color: #990099;
+	font-size: 11pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.mauvecalibri11 {
+	color: #990099;
+	font-size: 11pt;
+	font-family: Calibri;
+}
+
+
+
+
+.analysecommentairevert {
+	color: #0F0;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.rougegrascalibri {
+	color: #FF0000;
+	font-size: 12pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.rougegrascalibri11 {
+	color: #FF0000;
+	font-size: 11pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.rougegrascalibri10 {
+	color: #FF0000;
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+
+
+.rougecalibri9 {
+	color: #FF0000;
+	font-size: 9pt;
+	font-family: Calibri;
+}
+
+.rougecalibri10 {
+	color: #FF0000;
+	font-size: 10pt;
+	font-family: Calibri;
+}
+
+.rougecalibri11 {
+	color: #FF0000;
+	font-size: 11pt;
+	font-family: Calibri;
+}
+
+
+.rougegrascalibri9 {
+	color: #FF0000;
+	font-size: 9pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+
+.rougegrascalibri10 {
+	color: #FF0000;
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+
+.rougegrascalibri11 {
+	color: #FF0000;
+	font-size: 11pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+
+.vertcalibri9 {
+	color: #0F0;
+	font-size: 9pt;
+	font-family: Calibri;
+}
+.orangecalibri9 {
+	color: #FF9900;
+	font-size: 9pt;
+	font-family: Calibri;
+}
+.orangecalibri10 {
+	color: #FF9900;
+	font-size: 10pt;
+	font-family: Calibri;
+}
+
+.orangecalibri11 {
+	color: #FF9900;
+	font-size: 11pt;
+	font-family: Calibri;
+}
+
+
+.orangegrascalibri11 {
+	color: #FF9900;
+	font-size: 11pt;
+	font-family: Calibri;
+	font-weight: bold;
+}
+
+.vertcalibri10 {
+	color: #0F0;
+	font-size: 10pt;
+	font-family: Calibri;
+}
+
+.vertcalibri11 {
+	color: #0F0;
+	font-size: 11pt;
+	font-family: Calibri;
+}
+.vertgrascalibri10 {
+	color: #0F0;
+	font-size: 10pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+.vertgrascalibri11 {
+	color: #0F0;
+	font-size: 11pt;
+	font-weight: bold;
+	font-family: Calibri;
+}
+
+.mauvegrascalibri11 {
+	color: #990099;
+	font-weight: bold;
+	font-size: 11pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+.mauvegrascalibri9 {
+	color: #990099;
+	font-weight: bold;
+	font-size: 9pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+.visu_verdanableu7 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7.5pt;
+	color: #0000FF;
+}
+.visu_verdananoir7 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7pt;
+	color: #000000;
+}
+
+.visu_verdanamauve7 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7pt;
+	color: #990099;
+}
+.visu_verdanavert7 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7pt;
+	color: #0F0;
+}
+
+a:link {
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: underline;
+}
+a:hover { background-color:#0FF;
+	text-decoration: none;
+}
+a:active {
+	text-decoration: underline;
+}
+.bleugrascalibri10 {
+	color: #0000FF;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Calibri;
+	font-style: normal;
+}
+
+

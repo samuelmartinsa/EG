@@ -1,0 +1,10 @@
+The website is hosted on :
+http://estimation-game-1234.eu01.aws.af.cm/expconsensus?hitId=2&assignmentId=2&workerId=2
+The website company which hosts our site :
+https://console.appfog.com/
+To update the website :
+-Launch a Ruby console and go to the folder in the cgi-bin : appfog/estimation-game
+-type : af login
+-type : af update estimation-game-1234
+To get the log :
+-type : af logs estimation-game-1234

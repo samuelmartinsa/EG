@@ -1,0 +1,1049 @@
+ -------------------------------------
+recup eg exploit sur pc local eg_test
+renomme eg_test -> eg_test_avec_init_db20161207 : en cours init_db() =>modif db_no_sqla, wsgi_no_sqla
+--------------------------------------
+modifier waiting room, expconsensus et robot_eg pour frequence get = 5sec pour mesurer temps reponse
+copie waitingroom, expconsensus et robot_eg -> 20161206
+
+admin :
+- get toutes les (nbgamesets en cours + 1)*10 sec 
+
+wsgi_no_sqla : modifs notées # 20161211
+- plus d'appel à intermediate page
+- A FAIRE verifier qu'un sessionId n'existe pas deja ou prend time microsecondes
+- A FAIRE envoyer gameid et roundid par expconsensus pour accelerer : evite des select de verif
+- A FAIRE post ajax 
+- A FAIRE supprimer robot_controler
+
+modifier robot_eg.php 
+- pour envoi d'une requête par sec et mesurer les temps de réponse
+- faire un exit si le gameset n'a plus cours : evite que les robots continuent à fonctionner
+
+expconsensus : 
+- appel à regénération d'image apres un POST sans passer par serveur OK
+- pbl regeneration image modifiée apres post => canvas remplace image
+- A FAIRE LONE : apres le POST, un get puis affiche killmosquitos durant le temps restant - 5 sec
+- A FAIRE SOCIAL : un get de trop au rafraichissement
+idées :
+tant que POST pas fait et timeleft <5 dans le LONE, pas de get
+Pas de rafraichissement ecran après le POST du LONE : evite intermediate page OK
+introduire un decalage entre les rounds des gamesets
+
+Arrivé une fois dans le 2ème round après avoir soumis des réponses!!! Skipping to next page...
+Click here to join the game
+Arrivé une fois dans le 1er round apres le POST, l'image est encore affichée
+
+le controle sur champ alphanum ne fonctionne plus dans login.html
+
+
+
+
+mettre un try catch sur l'admin pour erreur Exception during reset or similar OperationalError: (2006, 'MySQL server has gone away')
+sur Stop : nettoyer les gamesets, supprimer les robots = exit des robots si EGRunning=False
+Ecrire les messages d'erreur 500 en bd et faire apparaitre dans l'admin
+Si pas de keycodebegin dans admin : afficher que pas de bonus car pas de rewardcode
+ne pas commencer un gameset si plus d'images
+
+Gestion des participants qui n'ont pas pu participer à un gameset car en waiting room => les supprimer des users
+Gestion des maxDelayToLoginGameSet et maxDelayToBeginGameSet
+
+completed : en fractales, le nombre devrait être décimal
+
+
+verifier que clean_tables_after_end_on_start est cohérent avec l'état des gamesets.
+
+-------------------------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "wsgi.py", line 2548, in <module>
+    app.run(host=SERVER_HOST, port=EGParameters['serverPort'], debug=SERVER_DEBUG)
+  File "c:\Program Files (x86)\python27\lib\site-packages\flask\app.py", line 843, in run
+    run_simple(host, port, self, **options)
+  File "c:\Program Files (x86)\python27\lib\site-packages\werkzeug\serving.py", line 694, in run_simple
+    inner()
+  File "c:\Program Files (x86)\python27\lib\site-packages\werkzeug\serving.py", line 659, in inner
+    srv.serve_forever()
+  File "c:\Program Files (x86)\python27\lib\site-packages\werkzeug\serving.py", line 499, in serve_forever
+    HTTPServer.serve_forever(self)
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 227, in serve_forever
+    self._handle_request_noblock()
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 286, in _handle_request_noblock
+    self.handle_error(request, client_address)
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 284, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 310, in process_request
+    self.finish_request(request, client_address)
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 323, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 641, in __init__
+    self.finish()
+  File "c:\Program Files (x86)\python27\lib\SocketServer.py", line 694, in finish
+    self.wfile.flush()
+  File "c:\Program Files (x86)\python27\lib\socket.py", line 301, in flush
+    self._sock.sendall(view[write_offset:write_offset+buffer_size])
+socket.error: [Errno 10053] Une connexion Útablie a ÚtÚ abandonnÚe par un logiciel de votre ordinateur h¶te
+
+pbl : wsgi sur serveur eg_test arrete port 8080 ? = pbl carte réseau 172 activée = fonctionne depuis fac mais pas depuis chez moi
+
+wsgi 15102016
+completed
+expconsensus : continu affiche pas : you are playing for...
+
+Mysql has gone away : voir my.ini
+
+$1 BONUS
+
+calcul reward et bonus discret/continu
+
+
+---------------------------
+A FAIRE :
+utiliser gameset.numExpectedParticipants au lieu de EGParameters['numExpectedParticipants'] en python
+et dans les html
+inflencability : plantage si personne ne joue
+if tab_average[decisionnum]-d2['decisionval']!=0 and tab_average[decisionnum]!=0 and d1['status']==Decision.USER_MADE and d2['status']==Decision
+n.USER_MADE:
+KeyError: 0
+
+
+
+pbl waiting room, debriefing, stop_the_gameset, completed si fleche arrière navigateur : 
+- retour possible sur paiement en attente stop_the_gameset
+en discret : règle trop large sous chaque image en SOCIAL
+manque nb total de points possible dans le debriefing 
+id user et session crowdflower 
+
+plantage 1er user Error 1026, 
+Error: #1028 dans le consent http://localhost:8080/eg/consent?hitId=0&assignmentId=0&workerId=1&sessionId=23873475
+un user passé par stop_the_gameset ne pourra plus jouer
+
+login -> login20160503
+wsgi -> wsgi20160502
+debriefing -> debriefing20160503
+
+par position :
+pbl curseur si liste estim. > taille règle
+par position : la decision est empty 1/2 = ne pas effacer le contenu après un post en continu 
+par position ?
+
+la dernière du social peut etre dans le lone si joue trop tard
+ 
+
+nb decimaux passent mais wsgi se plante : interdire les decimaux en peanut !
+lone : reste encore des cellules encadrées au 2ème round, petit pbl affichage de bordures sous chrome, safari
+
+
+A FAIRE : 
+copie wsgi.py -> wsgi20160309.py
+expconsensus.html -> expconsensus_20160310.html
+indiquer le montant dans le debrief
+
+
+
+----------------
+collective-intelligence :
+vider gamesetrunninglist au fur et a mesure de la fin des gameset (attention au retour de quelqu'un ?)
+
+
+Pbl affichage champ keycode dans login avant que le jeu ne debute
+
+A FAIRE PAS URGENT
+si stop par admin : retour au login dans chaque route de wsgi et fonction update js
+A terminer dans expconsensus, eg_robot
+FAIT : give consent,redirect, waiting room, start_exp_consensus + update js des pages html waitingroom
+
+A FAIRE PAS URGENT
+robots coinces en waiting room (vu une seule fois),...bouclent puis sont dans une partie  
+
+A FAIRE PAS URGENT
+admin.html : activer/desactiver champs selon les autres champs
+si redirect to login : presenter returning user
+manque liste des users si pas de keycode dans admin : 
+
+
+
+expconsensus.html :
+- centrer During the 3 previous games, the average of the distances between your answers and the true values is
+
+
+A revoir le spawn avec phpPath : config.txt : ajout phpPath='C:\Program Files (x86)\PHP\php marche pas
+indiquer le nb de games à faire dans le login et la durée ?
+
+
+access.log : filtrer les entrees
+trop long à attendre les robots au début (après c'est ok), possibilité de raccourcir ce temps de connexion des robots  FAIT
+nombre de joueur attendu à mettre en valeur (en gros et rouge quand il change par exemple) FAIT
+Tu veux que le reviewer puisse reviewer rapidement ?
+Si on impose 3 games, c'est simple. Sinon c'est pas le moment le moment de faire des trucs qui pourraient être un peu longs à faire : je sais pas encore
+Le questionnaire de personnalité est un peu ennuyant, dans le sens où on a envie de jouer. Peut-être qu'il faudrait donner le choix de répondre ou non au questionnaire : par exemple sur la page du questionnaire avoir un bouton "SKIP questionnaire" et à la limite le remettre juste avant le debrief.
+Le SKIP existe dans l'admin. mais il fonctionne pas encore avec les robots en version discrète : c'est un détail dans mon TODONOW.
+
+
+
+------------------------------------------
+
+resultats pour Sam : heure du gameset
+
+diversifier les games d'un gameset
+memoire :
+affichage de n photos rapide puis question :
+-> présente p photos ces personnes y étaient-elles 
+-> combien d'hommes
+-> combien en rouge
+calcul et anagrammes : 
+- des chiffres et des lettres
+battre la mesure :
+- donner 3 sons successifs espacés à l'identique 
+-> cliquer sur l'image qui représente la fréquence
+représenter une image de carrés :
+-> dessiner à la souris ou avec flèches
+passage de n traits :
+->combien de cette forme
+jeu de l'expérience nom de ville couleur :
+-> combien sont associées correctement en les présentant à nouveau dans un autre ordre
+morse :
+- faire voir et/ou ecouter du morse
+-> combien de séquences identiques
+affichage de taches
+
+mémoriser par le toucher de la souris
+
+
+&& dans access log dans GET de expconsensus
+
+
+ExperimentError : 
+rajouter insert de l'erreur dans la bd
+tester nombres à . et , de decisions
+Verifier nb images dispo en entrant dans le gameset=>chaque gameset peut verrouiller ses images au moment ou il debute.
+Ou arreter le gameset si pas d'image dispo
+
+favicon : icône peanut
+14 sur erreur 500 : faire un message au user + message dans la bd si possible.
+18 Possibilité de lancer wsgi : possible ?
+20 extraction complète de la bd format mysql
+
+Intéret de assignmentId='{{ assignmentId }}' dans $(document).ready de waiting room ?
+Dans waiting_room : onbeforeunload = /eg/quitter?
+
+
+Etendre image a gauche et a droite en zoom ou interdire sortie image.
+
+z_grrr : a_voir_erreurs.ppt
+
+enlever cond et counterbalance : à verifier ce que fait /eg/exp
+
+A VOIR PLUS TARD:
+Pbl init db dans interface admin : 
+ne rend pas la main, wsgi ne s'arrête pas => redémarre mysql
+=> wsgi lancé avec init_db.
+=> admin permet de paramétrer mais pas d'initialiser la BD
+
+user pour simulation : demon ?
+
+
+
+A FAIRE :
+
+Modif config.txt : passwd root à mettre en param. Actuellement lisible par requete http://195..../eg_test/config.txt sur port 80 si eg tourne sur port 8080
+flask.Config(root_path, defaults=None)
+app.config.from_pyfile('yourconfig.cfg')
+Mettre fichier config.txt dans dossier non accessible
+
+Interface admin
+A FAIRE :
+- vue du gameset, participants, ...
+
+Version continue 
+A FAIRE : 
+un seul socialRound
+le zoom peut être different de l'image d'estimation actuellement
+=> zoomer reellement l'image 
+ou creer deux images simultanement dans createRoundImages ???
+suppression des champs decision1 et decision2
+NE PAS FAIRE : suppression complete du gameset de wsgi de la table gamesets_participants :
+-> commentaire dans models.py => erreur dans wsgi : définit vacantGameSets et crée un gameset dans gamesets si pas de gameset existant
+----------------------------------------
+
+models.py User : ????    
+def __repr__( self ):
+        return "Subject(%s, %s, %r, %r, %s)" % ( 
+            self.assignmentId, 
+            self.workerId, 
+            self.cond, 
+            self.status,
+            self.codeversion )
+
+prevchoice = db_session.query(Choice).filter(Choice.workerId == workerId and Choice.assignmentId == assignmentId).join(Round).join(Game).filter(Round.gameid==curgame.id).filter(Round.num==curgame.curRoundNum()-1).one()
+      
+
+A faire : loguer les erreurs
+
+
+
+----------------------
+db_get_users OK EXPLOIT 
+consent  : "you will first be taken to a questionnaire" supprimé si "skip the questionnaire" OK EXPLOIT
+debrief : 
+- supprimer l'info sur le "You are X% higher than the rest of the participants
+- reward code pour que les participants puisse gagner les $0.10 auxquelles ils ont tous le droit
+
+modif calcul gain :
+wsgi -> wsgi20160421
+instruct.html -> instruct20160421.html
+debriefing.html -> debriefing20160422
+---------------------
+diminution frequence des gets :
+expconsensus->expconsensus20141010_avant_changement_frequence_get
+login->login20141010_avant_changement_frequence_get : get toutes les 5 sec. au lieu de 1 sec.
+----------------------
+dump bd : commencé
+pbl lien vers db_dump.txt dans monitor.html = /static/tmp/dump_bd.txt
+config.txt :
+dump_command:"c:\\Program Files\\MySQL\\MySQL Server 5.6\\bin\\mysqldump"
+le dump est fait dans static/tmp
+=>rep tmp sur serveur
+
+6 game sets en simultané.
+bande passante = ?
+Mesurer le temps de réponse avec des pings ?
+
+envoyer les coordonnees des cacahuètes, utiliser des images légères ou pas d'image a evaluer ?
+Laisser a chaque joueur le temps de recevoir les images=acquittement du client quand il a reçu l'image puis seulement déclencher le chrono 
+faire moins de GET (pas ttes les secondes)
+faire des tests de bande passante, ou simplement de temps de réponse à un get, avant et après avoir redémarré le serveur
+Envoyer les coordonnees des peanuts.
+- faire telecharger les js, son avant la partie
+- images : telechargement a l'avance ?, mettre images sur autre serveur pour diminuer la charge du serveur, réseau 
+ou creer images en js.
+----------------------
+travail sur version eg_test_continu
+init db : 
+insert des enreg. de codifs. de init_db.sql OK
+rep eg_test = eg_test20140510_22H_avant_continu_derniere_modif
+BD eg_test = bd utilisee dans eg_test20140510_22H_avant_continu_derniere_modif
+Modif. wsgi : version discrete=3 colonnes, continue=1 colonne
+- start_exp_consensus : boucles sur columnNumber
+- registerChoice  : boucles sur columnNumber
+Modif.  models.py (listOfDecisions) : param columNumber et boucle
+copie expconsensus.html (-> expconsensus20140511_ok_avant_continu.html)
+- boucle sur columnNumber
+-----------------------------------------------------------------------------------------
+renomme rep eg_test en eg_test20140510_22H_avant_continu_derniere_modif
+La version eg en exploit du 20140510_22H = eg_test20140510_22H_avant_continu_derniere_modif
+Si pbl exploit, reprendre eg_test20140510_22H_avant_continu_derniere_modif pour modifs
+-----------------------------------------------------------------------------------------
+A FAIRE : 
+Supprimer image du gameset dans db.py : clean_tables_after_end_on_start
+corriger et utiliser curGameNum.
+access.log : filtrer les logs GET admin et login
+
+Ecrire un petit programe de parcours de la BD qui recherche les images physiques a partir du nom, les redimensionne
+et met DELETED si existe pas (=> creer un etat DELETED pour les images)
+arret et redemarrage => experimenterror pour les users d'un gameset alors qu'on peut les remettre en login
+
+---------------------------------------
+EXPLOIT 20161211
+debriefing.html : pas de reward code si pas de submit pour un compensation bonus
+---------------------------------------
+EXPLOIT 20161211
+duplique eg en eg_20161211 = version qui fonctionne apres reinstall serveur le 20161205
+---------------------------------------
+EXPLOIT 20161205
+reinstall complete serveur suite problemes socket error
+---------------------------------------
+EXPLOIT 201612
+reecriture sans sqlalchemy
+----------------------------------
+EXPLOIT 20161101
+détails vidéo
+duplique instruct.html -> instruct20161101.html, waitingroom -> waitingroom20161101,
+expconsensus ->expconsensus20161101
+modif wsgi.py
+eg.css : ajout red14
+_eg_controls.js
+-----------------------------------
+EXPLOIT le 30/10/2016
+- Dans la page de login, OK
+    - l'image apparait à la ligne, ça serait plus logique de la mettre juste après le texte "CrowdFlower Contributor ID :"
+    - les champs de texte pour "Keycode" et "CrowdFlower Contributor ID" apparaissent loin sur la droite, j'ai l'impression que ça n'était pas comme ça avant, est-ce qu'on peut les remetre à la suite du texte ("Keycode" et CrowdFlower Contributor ID") comme c'est le cas pour "Password" ?
+
+- Dans l'admin, sur la ligne "Start with lesser paticicipants", peux-tu remplacer OK
+"Max. delay for the 1st participant in waiting room (mn)" par 
+"Max. delay(mn) before starting an unfilled gameset".
+
+- Ca serait bien que le participant voit le temps max qui reste avant de commencer un gameset dans la waitingroom sous la forme
+"If no one shows up within min:ss [en rouge], you will reveive a $XX compensation bonus."
+-------------------------
+rep eg -> eg_20161029 OK
+sauve bd eg _> eg_20161029 OK
+copie local eg_test -> serveur eg : tout sauf estimationpic et config.txt OK
+
+table keycode_gameset_user : ajout champ bonus vc(10), paidtime datetime
+models : keycode_gameset_user
+Column('cwf_contributor_id',String(128),nullable=True,default=''),
+Column('bonus',String(10), nullable=True,default=''),
+
+Column('paidtime',DateTime, nullable=True)
+Column('resultpaycode',String(128), nullable=True,default=''),
+
+Column('resultpaymessage', Text, nullable=True)
+
+
+gamesets vc(128) nullable, defaut null
+---------------------------
+EN EXPLOIT le 25/10/2016
+install curl dans dossier windows
+tests : reponse_wsgi.py
+ajout des paramètres et des boutons
+Les paramètres que tu ne vois pas :
+- bonusmax=1$ : c'est un garde fou au cas où un bonus (mal calculé par programme) dépasse 1$, le paiement n'a pas lieu
+- timeout = 30 s : délai maxi. pour la réponse du serveur crowdflower
+Un paramètre que tu vois qui te permet de faire des tests de paiement, le temps que tu découvres la suite ci-dessous, au lieu de payer réellement sur crowdflower :
+	CWF Payment 		Test platform
+
+Pour que tu puisses payer réellement (CWF Payment) ou tester (Test platform) :
+mets le job id
+bouton start
+.....déroulement des gamesets...
+bouton stop : deux nouveaux boutons apparaissent avec le job id
+  - bouton preview : affiche la liste des participants à ce job id sous forme de tableau avec des colonnes différentes que celles qu'il y a après un start
+  - pay job : effectue le paiement avec des détails sur le déroulement resultpaycode et resultpaymessage. resultpaycode est un code que je présente après avoir vérifié qu'un cwd_contributor_id est numérique, que le bonus >0,...ou envoyé la requête au serveur de paiement qui répond error ou success
+-------------------
+EN EXPLOIT le 19/10/2016
+login.html : pas de controle d'au moins un caractère non numérique du login si CWF OK
+check_identity : 
+to_return = render_template('/eg/login.html',flag="SESSION_EXPIRED",loginValues=loginValues,EGParameters=EGParameters)
+remplacé par to_return = render_template('/eg/session_has_expired.html'); 
+session_has_expired.html
+-------------------
+EN EXPLOIT le 18/10/2016
+si joueur attend 5mn : affichage gain de 0.02$
+wsgi->wsgi20160912 commente modifs avec # 12092016
+waitingroom->waitingroom20160914
+debriefing
+utilisation codes crowdflower : table gamesets ajout job_id = Column(String(128), nullable=True) de CrowdFlower
+=> models
+-------------------
+EN EXPLOIT le 06/10/2016
+fete science renomme eg_test -> eg_test_20161006
+serveur :
+copie eg -> eg_20161006 et eg_test
+bd renomme eg_test -> eg_test_20161006
+sauve bd eg avec sauvebdeg.bat : e:\www\sauvebd_et_rep_eg\sauvebdeg20161006_19h.sql
+copie serveur eg en local eg
+---------------------------------------
+EN EXPLOIT. le 24082016
+With key codes pas checked : enlever le message en waiting room de bonus 0.02$
+si forceStartAfterWait : afficher nombre participants attendus EGParameters['forceStartAfterWaitNumParticipants'],
+ le temps d'attente max. en waiting room forceStartAfterWaitDelay
+
+Démarrer la partie même si on a moins de n joueurs (où n est le nombre prévu de participant, c'est à dire, en général 6),
+ après disons 2 minutes après que le premier participants soit arrivé dans la waiting room,
+ à condition qu'au moins 2 joueurs soient présent en salle d'attente
+-> copie wsgi -> wsgi20160817, admin -> admin20160817, waitingroom -> waitingroom 20160819
+modifs => commentaires # 19082016
+
+gameset.numExpectedParticipants=nb part réel apres waiting room
+=> si gameset débuté avec deux part et que 3ème arrive en cours de route, il est mis sur un autre gameset
+Tant que 2 mn pas passées, d'autres joueurs peuvent entrer dans le gameset
+tables gameset et games : numExpectedParticants=nb de participants effectif
+-------------------
+EN EXPLOIT le 27/03/2016
+son en début de game, encadres corrects des cellules LONE/SOCIAL
+------------------
+EN EXPLOIT le 25/03/2016 pbl ajaxpost sous IE+Chrome
+=> un simple POST et une réponse NO Content
+------------------
+EN EXPLOIT le 22/03/2016
+eg_test -> eg_test20160321
+Pas de rafraichissement sur les posts : post ajax
+wsgi et expconsensus OK
+petit pbl contourné du retour de l'ajaxpost : instructions notées 24/03/2016 pour vider la zone decision 
+-------------------
+EN EXPLOI eg_test 14/03/2015
+expconsensus -> expconsensus20160314 enleve submit now dans continuous social
+-------------------
+EN EXPLOI eg_test 10/03/2016
+expconsensus.html -> expconsensus_20160309.html
+repositionne curseur dans zone saisie dans expconsensus OK
+debriefing.html
+si score=0 pas comparaison higher than classement OK
+-------------------
+EN EXPLOI eg_test 08/03/2016
+copie wsgi.py -> wsgi20160306
+debriefing.html -> debriefing20160306.html = tableau detaille des decisions, rounds et rewards
+rounds : endTime datetime null
+=> modif models.py, wsgi.py
+eg_test get_db_decisions.php
+--------------------
+EN EXPLOI eg_test 04/03/2016
+admin.html impose 2 rounds en continu
+-------------------
+EN EXPLOIT eg_test 19/02/2016
+LONE : suppr lignes tableau vides
+copie expconsensus -> expconsensus_20160214
+Modifs taille image, règle graduée pour decision par position
+wsgi.py -> wsgi20160203.py, expconsensus -> expconsensus_20160203
+-------------------
+EN EXPLOIT 20160123
+sauve serveur eg_test -> eg_test20160123
+copie eg_test -> eg_test_20151228
+copie expconsensus.html->expconsensus_20151228.html
+admin, wsgi : prise en compte param position_or_value
+
+--------------------
+EXPLOIT 27/12/2015
+eg_test, eg_php
+wsgi, monitor.html : 
+appel à eg_php/db_get_decisions.php et db_get_users.php 
+modif instruct.html pour explications continuous
+--------------------
+Pbl temps de recup des données EXPLOIT. OK le 10/04/2015
+Prog php sur port 8081 : 
+http://195.220.155.5:8081/eg_php/db_get_user.php?datebegin=2015-04-01&dateend=2015-04-10
+http://195.220.155.5:8081/eg_php/db_get_decision.php?datebegin=2015-04-01&dateend=2015-04-01
+développés dans crantest_php qui attaquent eg (copie de la bd au 10/04/2015) et copiés sur eg_php sur le serveur
+--------------------
+collective-intelligence : OK a tester en eg_open_test et eg_open
+Je me suis connecté 2 fois avec le login s99999999 : la première fois, je suis allé jusqu'au debrief,
+ mais je n'ai pas cliqué sur "redirect to login". Ma session a expirée. Je me suis reloggé avec s99999999 : j'ai vu "skip questionnaire" puis sur l'url
+http://collective-intelligence.cran.univ-lorraine.fr/eg/consent?hitId=0&assignmentId=0&workerId=1475&sessionId=94485981
+j'obtiens un Error #1026.
+
+
+
+collective-intelligence : OK
+Je me suis connecté avec s888. Avant de commencer le jeu, c'est à dire dans la waiting room, j'ai quitté la page et suis retourné au login. J'ai tenté de me relogger avec le même login :
+j'ai obtenu le message :
+"Key code can't be used : another one is already used for a running gameset" :
+ce message ne va pas pour cette version vu qu'il n'y a pas de keycode. Peut-être ça veut dire
+qu'il faut attendre la fin de la partie ? Mais elle ne sera jamais fini vu que j'en suis partie ?
+
+keyCodeMode OK
+redundant : OK questionnaire
+- ne pas mettre le questionnaire en mode redondant (laisser le consent et les instructions)
+collective-intelligence :
+Ne pas sauter l'étape du questionnaire
+
+expconsensus : besoin de faire apparaître clairement le nombre de jeux restant OK
+
+login.html: enleve champ keycode si useExistingGames=='y'OK
+debriefing.html : enleve rewardcode et gains en $ si useExistingGames=='y'OK
+instruct.html: : enlever "How much money will I earn?"OK
+
+expconsensus : corrigé pour "affiche image des decisions precedentes dans LONE round"
+=> OK
+mettre une image blanche et pas vide quand pas d'evaluation OK
+Au lancement dans admin : prevoir assez de temps pour que les robots puissent repondre
+
+modif robot_eg : rajout test si doit attendre decisions, $base_url
+
+--------------------
+EXPLOIT. 08/07/2016
+modifs 20160708
+pas de reconnexion possible @ip, msg js debrief
+wsgi->wsgi20160706.py
+modif debrief alert("Thanks....")
+--------------------
+EXPLOIT. 29/03/2015
+eg_test
+- recopie de rep eg en eg_test, bd eg en eg_test
+- eg_test local -> eg_test serveur : fichiers de eg_test, eg_test/templates/eg, eg_test/static/pic, eg_test/static/css
+- reprend fichier config.txt de eg_test exploit. port 5000 (apache 8080), bd eg_test
+eg
+- sauve sur pc local E:\sauve_bd_rep_eg_trispirabois\sauvebd_et_rep_eg\bd_rep_eg_20150329 :
+  rep eg exploit -> eg20150329.zip et bd eg20150329.sql
+- renomme eg serveur en eg_20150329
+- recopie eg_test serveur en eg serveur
+- reprend fichier config.txt de eg exploit. port 3127 (apache 80), bd eg
+
+5 gamesets en // avec 50s et 70s: OK. 
+- copies ecran du deroulement de l'un des gamesets
+- possible quitter et revenir dans le jeu, idem après debriefing
+- les robots répondent en max. : duree_round/2 sec
+- eviter de regénérer des images : il y en a déjà beaucoup
+- les champs de l'interface admin ne sont pas verouillés/déverouillés/positionnés en fonction des différents parametres
+- just the questionnaire coche si consent, instruct et questionnaire coche
+- aucune image autre que celles à dupliquer n'est en double par hasard.
+
+vider gamesetrunninglist au fur et a mesure de la fin des gameset (attention au retour de quelqu'un ?)
+-> fait bouton start
+
+-------------------------------
+EXPLOIT 29/01/2015
+erreurs sqlserver has gone dans :
+give_login 
+ User.query.filter(User.username == username).all()
+ engine.execute("update keycode_gameset_user set userid="+str(user.id)+",status='IN_USE', usagetime='"+str(datetime.now())+"' where keyCodeBegin="+GetSQLValueString(givenKeyCodeBegin, "text"))
+check_identity
+ matches = User.query.filter(User.id == int(workerId)).all();
+-> lance un robot php qui fait un post toutes les 300 sec
+-------------------------------
+EXPLOIT : 26/09/2014
+delete from image where pic_type='peanut'
+instruct.html, wsgi.py, peanuts_light
+lone et social_round_peanut.png, gif
+--------------------------------
+EXPLOIT : 16/06/2014 :
+correction ordre de tri dans extraction export_result
+--------------------------------
+EXPLOIT : 13/06/2014 :
+modif test serious worker : attente d'au moins 1 post dans le round
+--------------------------------
+EXPLOIT : 12/06/2014 :  
+local
+- renomme eg en eg20140612
+- copie rep eg_test local en eg local
+- remplace en local eg/config.txt par eg20140612/config.txt
+- supprime en local eg/satic/pic/estimationPic/*
+local -> serveur
+- copie eg 
+local
+- recup eg20140612/static/pic/estimationPic/* dans eg
+serveur
+- dezip sauvebdcran_et_rep_eg/eg20140609.zip dans sauvebdcran_et_rep_eg
+- remplace serveur eg/config.txt par sauvebdcran_et_rep_eg/eg/config.txt
+- recup sauvebdcran_et_rep_eg/eg/static/pic/estimationPic/* dans eg
+- bd serveur eg : table gamesets datastring -> pic_name
+- lance dans eg : python wsgi.py -p 3127
+
+EXPLOIT 12/06/2014
+peanuts_light : transformation 200*200 adaptative, 8 couleurs
+fractale_new : transformation 200*200 adaptative, 8 couleurs
+wsgi_r (copie -> wsgi_r20140606.py)
+models (copie -> models20140606.py)
+-> table GameSet renomme datastring en pic_name
+create_gameset_picture.py
+db.py : dernier game des gamesets = TERMINATED
+robots : au login ip_in_use='n'
+wait_in_room : annule gameset si plus d'images (not_enough_images_for_the_gameset)
+get_EG_session_info pour admin : modif critere de selection du game en cours pour un user
+admin : duplicate used images au lieu de free images
+wsgi : EGParameters['totalImagesNumber']=Image.query(Image.status == Image.FREE or Image.status == Image.USED).count();
+create_gameset_picture = resize des images avant le paste dans gameset picture
+renomme wsgy_r.py -> wsgi.py
+Petit BUG : duplicate primary key a la creation de KCrobot key code=>try except
+BUG si pas Game.status==Game.STARTED 
+=> 
+try:
+
+ game = db_session.query(Game).join(GameSet).filter(Game.gamesetid==gameset.id).filter(Game.status==Game.STARTED).one()
+except:
+          
+  try:
+
+    game = db_session.query(Game).join(GameSet).filter(Game.num==1).filter(Game.gamesetid==gameset.id).one()
+  except:
+
+    raise ExperimentError('game_not_found_for_gameset_not_terminated')
+
+
+TESTS :
+- OK avec 6 gamesets de 6 users avec robots,+ 6 robots dont 1 n'est pas en waiting room
+- OK avec 7 gamesets de 6 users dont 2 avec des humains. 42 joueurs sur le réseau fac sciences.
+  avant fin du 6ème gameset, lance 20 robots = 3 gamesets 
+- pbl avec 3 gamesets de 20 dont 1 humain, + 1 gameset de 20 robots
+ --> L'humain ne voit pas les images dans les 2 premiers gamesets : Firefox n'affiche pas les images 
+  =  a partir du même PC ? Les posts des robots d'un même gameset sont "simultanés" ? 
+  = tous les gets et posts sont faits sur le même navigateur du même PC
+
+-------------------------------
+EXPLOIT 09/06/2014
+sauve rep eg serveur -> sauvebdcran_et_rep_eg/eg20140609.zip
+sauve bd exploit eg -> sauvebdcran_et_rep_eg/eg20140609.sql
++ copie de sauvebdcran_et_rep_eg/eg20140609.* serveur sur PC local
+
+-------------------------------
+Modifs 04/06/2014
+eg_test -> eg_test_20140604_avant_modif_complete_images
+travail sur attente load des images dans un seul fichier
+
+-------------------------------
+Modifs 28/05/2014 : wsgi_r
+eg_test:
+copie wsgi->wsgi_r marques       # added for robot
+ # end added for robot
++robot_eg +spawn + fichiers html
+
+modif consent.html : 
+sessionId en hidden pour robot
+modif expconsensus.html pour le robot qui doit quitter la waiting room :
+//for robot : assignmentId='{{ assignmentId }}' :
+rajouter un commentaire de ce type dans chaque formulaire+nom (login,consent,...)
+Modif taille images :
+- pic/welcome_peanut.png
+- lone et social_round_peanut.png (500Ko->17Ko)
+----------------------
+Modifs 27/05/2014
+bug wsgi.py : calcul reward fractal
+ajout db.py db_get_decision_questionnaire : ajout username+ note (comment)
+----------------------
+
+EXPLOIT 17/05/2014
+sauve serveur rep eg en eg20140517 et copie de eg_test local en eg local et distant
+travail sur "ancienne version" eg_test=eg_test20140510_22H_avant_continu_derniere_modif
+Modif. : wsgi, models, db, init.sql
+init db db.py : 
+insert des enreg. de codifs. de init_db.sql OK
+----------------------
+EN EXPLOIT le 11/05/2014
+correction apportée en local et distant eg, local eg_test,local eg_test20140510_22H_avant_continu_derniere_modif :
+erreurs d'ecriture raise() au lieu de raise ExperimentError()
+-----------------------
+EN EXPLOIT le 10/05/2014
+enlever espaces avant et arrière de champ keycode
+init db : are you sure
+          insert des enreg. de codifs. de init_db.sql 
+
+-----------------------
+EN EXPLOIT le 10/05/2014
+- instruct, debriefing, monitor
+between 0 and 125 points : 0 $ 
+-----------------------
+EN EXPLOIT le 09/05/2014
+- eg renommé en eg20140509_23H_avant_copie_de_eg_exploit 
+- copie eg exploit sur eg local (modif. config.txt pour password root) + bd eg exploit dans bd eg local
+- eg local renommé en eg20140509_23H_copie_de_eg_exploit
+- local : 
+  duplique rep eg_test en eg, suppr des images de eg/static/pic/estimationPic et recup de celles de eg20140509_23H_copie_de_eg_exploit
+  modif eg local config.txt : bd eg (au lieu de eg_test)
+  modif bd eg local :
+   - users : ajout champ ip_in_use vc(1) NULL
+   - keycode_gameset_user=ajout champ usagetime datetime NULL
+   - table participant_status par copie de bd eg_test (struct + donnees)
+ lance eg>python wsgi.py -p 3127
+- exploit :
+  renomme eg en eg20140502_OK_en_reel = rep utilise pour session du 02/05 en reel
+  duplique bd eg en eg20140502 = bd exploit. avec resultat session du 20140502 reel
+  copie eg local en exploit, suppr des images exploit eg/static/pic/estimationPic et recup de celles de eg20140502_OK_en_reel
+  modif eg exploit config.txt : password
+  modif bd eg exploit :
+   - users : ajout champ ip_in_use vc(1) NULL
+   - keycode_gameset_user=ajout champ usagetime datetime NULL
+   - table participant_status par copie de bd eg_test (struct + donnees)
+  lance eg>python wsgi.py -p 3127
+- local : 
+  renomme eg en eg20140510_testé_avant_mise_en_exploit
+  copie exploit eg en local, modif passwd root config.txt 
+  renomme bd local en eg20140510_teste_avant_mise_en_exploit
+  cree bd eg local par export eg exploit
+------------------------
+EN EXPLOIT le 08/05/2014
+admin, admin.html
+- get_EG_session_info(EGParameters) = tableau des users connectes
+wsgi OK keycodes random avec un try s'il existe 
+Pour n'avoir que keycodes utilisés apres le demarrage du jeu :
+table keycode_gameset_user=ajout champ usagetime datetime
+models
+participant_status = Table(TABLE_PARTICIPANT_STATUS, Base.metadata,
+
+    Column('participant_statuscode', Integer, nullable=False, primary_key=True),
+
+    Column('participant_statuslib', String(128), nullable=False)
+)
+config.txt : ajout 
+eg_test 
+- ajout table participant_status par copie de bd eg_test (struct + donnees)
+Il faut faire un start pour que les valeurs de monitoring soient correctes !!!! => a faire avant PAID
+
+-----------------------
+EN EXPLOIT le 07/05/2014
+monitor.html et wsgi :
+pour payer les gens, j'aurai besoin de la table de conversion points -> dollars (peut-être à mettre dans le monitoring ou l'export), aussi est-ce qu'il y aurait 
+- moyen d'avoir un champ "paid" dans la table participant pour savoir si je ai déjà payé leur bonus ou non .
+=> keycode_gameset_user : status peut passer de IN_USE ou USED à PAID
+- ajout dans l'export des données : sex, education, native english
+- "keycode doesn't exist" remplacé par "keycode already used"
+A TESTER : l'ajout des erreurs
+give_login : user_has_more_than_one_gameset_not_terminated_and_keycode_in_use=1025 
+wait_in_room : user_has_0_or_more_than_1_keycode_in_use=1026
+
+check ip address :
+table users : ajout champ ip_in_use vc(1) NULL
+models : Users : ip_in_use= Column(String(128), nullable=True)
+un utilisateur ne peut pas se connecter avec autre login/password le temps d'une session EG (entre 2 starts)
+-----------------------
+EN EXPLOIT le 06/05/2014 :
+monitor:
+renomme monitor.html en monitor20140506_avant_form_pour_paid.html
+dans monitoring : trier les users par gamesetid
+wsgi :
+Un user ne peut pas avoir plus d'un keycode IN_USE
+en waiting_room si pas de gameset attribué : 
+"update keycode_gameset_user set gamesetid="+str(gameset.id)+
+" where userid="+str(user.id)+" and  status='IN_USE' and gamesetid=-1
+-> ajout de and gamesetid=-1
+clean_tables_after_end_on_start() : bien vérifier qu'en exploit. tout est OK
+passer gamesets started en terminated (sur STOP, START) pour empecher user de se reconnecter a un gameset started
+Ecriture doc. pour login, givenkeycode,...
+------------------------ 
+EN EXPLOIT le 05/05/2014  et copie sur serveur eg_test: 
+- user tente de se connecter une seconde fois avec autre keycode
+- enlevé dans login.html : *not required if you are a "returning user" in a started game set
+modif give_login :
+- dans give_login marqué par # 05/05/2014 BUG Sam : usage of the same keyCode by 2 different users
+
+Test :
+si p1 se connecte avec un kc1 puis se reconnecte avec kc2 avant que la partie ne commence
+-> Key code already used. 
+Après la partie, si p1 se reconnecte avec kc1
+-> Key code doesn't exist.
+=> Mise en comentaire pour l'instant
+Test sur Mac pour police dans canvas JS de expconsensus
+------------------------
+EN EXPLOIT le 03-04/05/2014
+admin :
+Ecriture doc. et réécriture du code des if then else 
+------------------------
+EN EXPLOIT le 01/05/2014
+site test local :
+- prevenir admin avec Wait quand "Max delay to login a game set" a été atteint : le jeu doit se dérouler
+-> nombre de gamesets faisables avec le nombre d'images + message de confirm nb gamesets faisables avec keycodes et images
+
+site eg local = copie de eg_test d'exploit testé par Sam
+eg local copié en exploit.
+modifs eg local et copie exploit dans eg et eg_test, modifs eg_test local  
+- wsgi pour 'new user' par défaut
+- fractal_new : enleve .png en fin de nom d'image = duplication du .png
+eg_test local est différent de eg_test exploit. jusqu'à verif. de la partie faite par sam et ses potes 
+------------------------
+EN EXPLOIT le 30/04/2014
+
+bloquer si pas d'image libre : raise ExperimentError('insuffisant_image_number')
+restituer @mail au user
+Avant 21h - wsgi20140430_avant_modif_des tests_de_verif_login=inclue les modif.avant 21h
+expconsensus : test nb images dispo. et ajout raise exception insuffisant_image_number
+admin.html : message pop-up de warning pour donner à l'admin le nombre de gamesets faisables avec les images et les keycodes. 
+debriefing : email du joueur par défaut s'il existe déjà dans la base.
+wsgi
+Dans l'export des résultats, questionnaire : ajouter le totalreward dans la ligne du user
+=> fait mais il peut y avoir plusieurs gamesets pour totalreward donc plusieurs lignes pour un user
+pour l'ajout d'un champ => relecture de la structure mais pas de reecriture de la BD ou script de recuperation des données après relecture = import au format SQL
+Mettre en rouge msg erreur en log.
+------------------------
+Pour info:
+Envoi de crowdflower :
+_unit_id	_created_at	_canary	_id	_started_at	_channel	_trust	_worker_id	_country	_region	_city	_ip	enter_code_here	code1	code2
+448047903	4/25/2014 01:23		1250814541	4/25/2014 01:20	neodev	1	21583494	MEX	30	CÃ³rdoba	187.171.173.118	10875610	11566351	10875610
+------------------------
+EN EXPLOIT le 28/04/2014
+@ip : HTTP_X_FORWARDED_FOR
+contrôle @ip
+if(EGParameters['checkIP']=='y' and len(matchesIP)>=1):return render_template('/eg/login.html',imageType=EGParameters['imageType'],flag="IP_ALREADY_IN_DB",EGRunning=EGRunning); 
+Ne pas afficher les valeurs 0 (non choix dans les estimations passées)
+=> test sur estimations : if(indexOfMyEstimations[j]==0) et if(oneValue!=0) non affiché si c'est un autre user
+1 extraction des enter et leave Qtime dans monitoring.
+2 nom des images générées : time.png et pas random.png (risque de deux fois le même random)
+3 échapper les ' et \=fait par sqlachemy
+4 Tester la version de navigateur pour prévenir le user (HTML 5)
+9 si erreur login : reafficher les champs saisis
+6 monitoring : liste keycode trop longue. Utiliser creationtime pour trier desc et/ou uniquement keycodes du jour
+------------------------
+EN EXPLOIT le 27/04/2014
+instruct.html : changer image peanut round social
+Min et max values peanuts : 200-499
+admin : verif des champs. Pas démarrage si erreur
+Export format keyCodeBegin,keyCodeEnd
+gameset annulé par manque de participants :
+- les keycode des users virés sont encore utilisables par les users qui les possèdent : status IN_USE
+- les gameset de status=0 or status=1 sont supprimés par l'admin : usage de STOP, START
+champs enterQtime, leaveQtime = tps pour remplir le questionnaire
+si login avant possible de se connecter : mauvais message The last game has already started, please come back later.
+--------------------------------
+EN EXPLOIT le 26/04/2014
+apres arret et un cancel gameset par admin, ActivateTimer coché est sans effet
+=> fonctionne sous ie ou en redémarant firefox
+--------------------------------
+EN EXPLOIT le 26/04/2014
+Bug corrige : vire admin si error!=''
+error!='' => pas d'appel a db_users_gamesets mais dans admin.html appel à db_users_gamesets 
+erreur sur bouton stop de admin juste après un cancel de gameset : plantage sur {% set gamesetid_last=header[4] %}
+2014-04-26 09:50:27,492 Exception on /eg/admin [POST]
+Traceback (most recent call last):
+  File "wsgi.py", line 1527, in admin
+    return render_template('/eg/admin.html',sessionId=adminSessionId,adminState=adminState, error=error,message=message,warning=warning, EGParameters=EGParameters,db_users_gamesets=db_users_gamesets,numFreeKeyCode=numFreeKeyCode)
+  File "C:\Users\pgend\Documents\htdocs\eg_test\templates\eg\admin.html", line 166, in top-level template code
+    {% set gamesetid_last=header[4] %}
+    return obj[argument]
+UndefinedError: dict object has no element 0
+-----------------------------------
+EN EXPLOIT le 25/04/2014
+changer image peanuts page accueil
+We apologize ... en waiting room
+Enlever questionnaire.html :
+dans expconsensus : urlstart = "/eg/debriefing"; au lieu de "/eg/questionnaire";
+-----------------------------------
+EN EXPLOIT le 24/04/2014
+Un user qui se deconnecte pendant un gameset ne peut pas revenir si le délai de logging est dépassé !FAIT LE 22/04/2014
+liste des resultats a la demande avec lien dans monitoring
+liste des keycode a la demande avec lien dans admin
+FAIT LE 20/04/2014
+si gameset a eu lieu mais n'est pas terminé : conserver les données car les users ont pu quitter
+sortie de la waiting room vers login si pas assez de participants. 
+suppression automatique de gamesset : admin peut le supprimer.
+si en waiting room et pas assez de users : est viré mais peut aussi revenir avec le même keycode
+Une seule ligne dans questionnaires par user pour questionnaire_first avec gamesetid=0
+@mail en plus du reward dans monitoring/keycode
+----------------------------------- 
+EN EXPLOIT le 16/04/2014
+pbl touche ENTER dans admin : message alert don't use
+FAIT 14/04/2014
+eg_test->eg_test20140415_7h (contient aussi les modifs non testees du lundi 14/04/2014 am, ci-dessous)
+image -> choice (ou decision). decision 0,1,2 -> image 0,1,2 = registerChoice + ajout imageid pour decision dans models 
+admin : 
+- radio button pour activation du jeu a l'heure donnée dans un champ
+- if(not EGParameters['exploitationMode']=='y' and nowDate-nextGameDate > timedelta(minutes = 4)) : case a cocher en admin
+exception serveur sur champ pas renseigné (image vide)
+copie eg_test en eg_test20140414_12h = version OK vue avec Corentin et Sam le 14 matin
+-----------------------------------
+EN EXPLOIT le 13/04/2014
+graduation step de zoom pour 3 images peanuts : tous les 5
+pour fractal : zoom a cote
+-----------------------------------
+EN EXPLOIT le 10/04/2014 :
+- genere les keycodeend à priori
+- Enlever begin pour key code
+- recup @ ip
+-----------------------------------
+EN EXPLOIT le 09/04/2014
+table keys code : keycodelogin, keycodelogout, userid, gamesetid
+=> wsgi, db, models, config.txt, admin.html, login.html
+-----------------------------------
+EN EXPLOIT le 08/04/2014
+Ajouter champ continuous ou discret dans gameset
+Free images = duplique les non free sans le gameid
+-----------------------------------
+EN EXPLOIT le 31/03/2014
+ajout date+heure dans table gameset
+-----------------------------------
+EN EXPLOIT le 26/03/2014
+Ne pas supprimer les images de estimationPicPath dont le nom est dans la BD pour pouvoir les réutiliser éventuellement.
+controle des valeurs du bon type (entier, float,...)
+
+-----------------------------------
+EN EXPLOIT le 25/03/2014
+playMode=discrete :
+pbl zoom mal affiché : taille en largeur 
+-----------------------------------
+FAIT 24/03/2014
+détail : le joueur qui valide ne voit pas son compteur de temps correctement tant que l'autre n'a pas validé
+En fin de partie, possible de recommencer mais plantage pour le 2ème (1er='g', 2eme='gg')  qui se connecte : en entrant dans waiting room
+
+-----------------------------------
+EN EXPLOIT le 18/03/2014
+Discret :
+- zoom incorrect : zoomeg.js=teste si continu ou discret pour fixer la taille de l'image réelle
+
+EN EXPLOIT le 17/03/2014 (Dde 08/03/2014 Sam)
+-Dans le debrief, est-ce que tu peux remplacer "Let us know what's your feeling for this game:" par
+"Leave us a comment to let us know what are your feelings regarding this game: was it boring, frustrating, entertaining, fair... ? This will help us improving the experiment. Many thanks."
+- Remplacer "If you get ready for the 10 games click on" par "When you are ready for the 10 games click on"
+- La phrase juste avant : "to access your money via a Paypal account" par "to receive your money via a Paypal account"
+- une chose important à faire (que je n'avais pas mentionnée), c'est de ne pas donner la valeur "50" par défaut quand un participant ne donne pas de réponse, mais plutôt stocker dans la base une valeur "nan" (not a number), qu'il ne faudra pas afficher ensuite dans les images d'estimation. Cela évite que les joueurs soient influencé par une valeur arbitraire (50) lorsque quelqu'un ne joue pas.
+- après un logout, le couple "admin"/"admin" fonctionne pour se loger. Par contre, quand je suis arrivé dessus la première fois, il ne m'a pas demander de me loger.
+- je stop, je teste le changement de durée des rounds, le nombre de participant, je start. Je vais sur login, j'utilise le user que j'avais pris tout à l'heure "p1" (qui doit donc être dans la base de données), je me mets en "new user", login, le site me laisse passé, je suppose que ça vient du fait que j'avais mis "init DB = yes" ? J'arrive sur la page expconsensus. Je choisis "20" peanuts. "Submit". J'obtiens une erreur 400 "bad request The browser (or proxy) sent a request that this server could not understand." Je laisse le temps de round s'écouler, j'actualise la page. Le round suivant (social) s'affiche. L'image présentant les estimations ne s'affiche pas.
+- je joue avec 6 joueurs au total, parfois quand je donne une estimation, je submit, le comportement n'est pas normal : j'ai bien le "waiting for 4 more participants" mais au lieu de n'avoir rien d'autre, j'ai encore toutes la partie estimation avec les image qui s'affichent.
+- Est-ce que tu pourras ajouter le paramètre d'heure de début du jeu (celui qui s'affiche dans la page de login) ?
+-----------------------------------
+FAIT 
+playMode=continuous :
+game_set over : tester si continu
+
+-----------------------------------
+FAIT 
+continu :
+nouveau game : remettre toutes les decisions a 0
+
+lancement par inteface admin :
+init_db() => suppression de tout ou partiel : users oui/non images oui/non
+Changer la valeur par defaut a (maxdecision-mindecision)/2 (actuellement registerChoice(thepart,curround,50,50,50,Decision.AUTO,Decision.AUTO,Decision.AUTO)
+
+-----------------------------------
+FAIT models.py table decisions ajout champ timestamp aaaa-mm-jj-hh-mn-sc string(19)
+FAIT Interface admin
+03/03-04/03
+inteface graphique, envoi des parametres
+-----------------------------------
+Version continue 
+28/02-02/03
+FAIT - simulation :
+FAIT - modif wsgi pour qu'il genere une image avec plusieurs participants
+FAIT : - simplifier pour l'instant en envoyant les champs cachés des deux autres images dans expconsensus (1 colonnes, 1 champ decicion0, 2 champs caches decision1 et decicion2) 
+FAIT :
+FAIT : arret du rafraichissement d'image si zoom
+-> rajout champ zoomrunning et positionnement de document.forms['decision'].elements["zoomrunning"].value='yes' sur mouseover, 'no' sur mouseout dans zoom.js				
+-> zoomeg.js : modif fonctions mouseover et raz
+-----------------------------------
+27/02/2014
+OK site test eg_test : port 8080 apache et 5000
+=>Modif apache.conf
+OK travail sur bd eg et eg_test
+=>config.txt
+27/02/2014  : mode continu
+OK wsgi
+OK param playMode (discret, continu), numbercolumn (1 ou 3)
+OK modif expconsensus.html
+-----------------------------------
+24/02/2014
+Voici "quelques" suggestions après une première visualisation : Globalement, c'est bien agréable de pouvoir zoomer sur l'image.
+- FAIT Le texte à gauche est un peu petit, ça serait pas mal d'augmenter la taille de la colonne.
+- FAIT Les points de la petite image sont encore trop petits.
+- FAIT Est-ce que pour les cacahuètes, on pourrait changer l'échelle de l'indicateur non zoomé  : de 50 en 50 ? (soit 1/10 de la valeur max dans les deux cas : cacahuètes et couleurs)
+- FAIT Est-ce que tu peux remplacer la font rouge par du blanc en gras ?
+- FAIT Est-ce que tu peux mettre en param de wsgy les temps (en secondes) de round sociaux et seuls ?
+- OK Au niveau des images, on va faire varier les tailles de cacahuètes à l'intérieur. Au niveau du mouvement, la premièr e image qu'avait envoyer Corentin était trop rapide, et donc énervante pour le joueur. Cependant, l'avantage du mouvement est d'éviter que les joueurs utilisent les rounds successifs pour compter de manière de plus en plus précise le nombre de cacahuètes. On va donc essayer  d'avoir un mouvement lent qui n'est pas énervant. Est-ce que mettre des gifs animés plutôt que png fonctionne ?
+- FAIT Une chose qui serait bien aussi c'est de mettre une zone de texte au moment du debrief pour que les personnes puissent donner du feedback (pour savoir si elles ont aimer le jeu, etc. et donc post ça dans un nouveau champ de la table user).
+- FAIT Au niveau du questionnaire du la personnalité, on aimerait ajouter à la fin :
+ 1) Are you a : man/woman/others
+ 2) Are you a native English speaker ? Yes/No
+ 3) What is the highest grade of school you have completed ? Elementary School, High school, College, Graduate
+- DEJA FAIT Au niveau du décompte des points, les seuils d'erreur devrait être mis en relatif à la valeur max.
+Pourquoi pour faire passer imageType dans instruct.html il faut rajouter imageType dans return render_template('/eg/instruct.html', hitId = hitId, assignmentId=assignmentId, workerId=workerId, sessionId=sessionId,imageType=imageType) 
+
+-----------------------------------
+FAIT
+expconsensus.html :  question en fonction de -t (--img_type) : How many peanuts in each image ? What is the colour percent ? à parametrer
+expconsensus.html : Indentation js
+ 
+Zoom pour expconsensus.html
+- ajout dossier /static/zoomeg avec style.css, cnx.js, zoom.js (site http://jpconnexion.free.fr/script2012/)
+- Modif. position de la copie de l'image reduite, taille du "zoomer" sur image reduite dans zoom.js
+- expconsensus.html : 
+  - ajout styles.css, cnx.js
+  - ajout ligne avec image a zoomer
+  - ajout lignes pour nouveau canvas + bouton zoom (systeme de visu actuel) 
+  - recupere les packages js en local
+- Ajout createRoundImages
+
+modif generateImages :
+si fracatal alors pas de modif
+sinon 
+imageElementsNumber=random.randint(0,500)
+
+img = Image(i,imageElementsNumber,'',0) nom=i, imageElementsNumber=enregistre dans la colonne percent pour l'instant, couleur='', complexity=0
+
+- wsgi :
+  - appel createRoundImages
+
+
+db: init_db
+- suppression de toutes les tables de db_mturk
+
+db create_engine echo=false
+
+parametrage de wsgi (python -h) et generateImages(imgType)
+ajout chemins des images : 
+/static/pic =img1.jpg,....img30.jpg, 
+/static/pic/tmp = rep des images temporaires (round images)
+
+wsgi :  
+- supprimer contenu de /static/pic/tmp a chaque lancement de prog
+
+A VERIFIER sur UBUNTU :
+- createRoundImages pour windows font = ImageFont.truetype("arial.ttf", 10)
+- espaces et tabulations !!
+- suppression de dossiers : flask, bin, doc, local, lib
+- changement picpath -> picPath
+- port 5000 et 3127
+- verifier que tmp existe, sinon le creer
